@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://m3pemmudapps"]
+
+[ext_resource type="PackedScene" uid="uid://8o5wxp881v3c" path="res://Escenas/parallax_background.tscn" id="1_ae3ik"]
+[ext_resource type="Texture2D" uid="uid://ixe45etqcyhc" path="res://Sprites/Letrero Niveles.png" id="2_newpn"]
+[ext_resource type="Texture2D" uid="uid://dmoce577xuko8" path="res://Sprites/img_btn_puzzle.png" id="3_qyvs3"]
+[ext_resource type="Texture2D" uid="uid://ceim0lpapn5u2" path="res://Sprites/img_btn_order.png" id="4_1r3lu"]
+[ext_resource type="Script" path="res://Scripts/btn_puzzle.gd" id="4_y61he"]
+[ext_resource type="Texture2D" uid="uid://bihhavi2w2spf" path="res://Sprites/img_btn_match.png" id="5_kb3ju"]
+[ext_resource type="Script" path="res://Scripts/btn_match.gd" id="6_otbon"]
+[ext_resource type="Script" path="res://Scripts/btn_order.gd" id="8_uw4ru"]
+
+[node name="Menu_Juegos" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_ae3ik")]
+
+[node name="LetreroNiveles" type="Sprite2D" parent="."]
+position = Vector2(655.666, 382.625)
+scale = Vector2(0.219223, 0.219223)
+texture = ExtResource("2_newpn")
+
+[node name="Hbox_botones_juegos" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 214.666
+offset_top = 305.625
+offset_right = 2578.67
+offset_bottom = 645.625
+scale = Vector2(0.25, 0.25)
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="btn_puzzle" type="TextureButton" parent="Hbox_botones_juegos"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.0
+texture_normal = ExtResource("3_qyvs3")
+texture_hover = ExtResource("3_qyvs3")
+script = ExtResource("4_y61he")
+
+[node name="btn_match" type="TextureButton" parent="Hbox_botones_juegos"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.0
+texture_normal = ExtResource("5_kb3ju")
+script = ExtResource("6_otbon")
+
+[node name="btn_order" type="TextureButton" parent="Hbox_botones_juegos"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.0
+texture_normal = ExtResource("4_1r3lu")
+script = ExtResource("8_uw4ru")
+
+[connection signal="pressed" from="Hbox_botones_juegos/btn_puzzle" to="Hbox_botones_juegos/btn_puzzle" method="_on_pressed"]
+[connection signal="pressed" from="Hbox_botones_juegos/btn_match" to="Hbox_botones_juegos/btn_match" method="_on_pressed"]
+[connection signal="pressed" from="Hbox_botones_juegos/btn_order" to="Hbox_botones_juegos/btn_order" method="_on_pressed"]
