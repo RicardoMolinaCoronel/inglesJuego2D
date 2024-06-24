@@ -1,13 +1,47 @@
-[gd_scene load_steps=9 format=3 uid="uid://cu1nuxh8st3ux"]
+[gd_scene load_steps=16 format=3 uid="uid://cu1nuxh8st3ux"]
 
 [ext_resource type="PackedScene" uid="uid://c183geb74nt45" path="res://Escenas/parallax_background.tscn" id="1_ae3ik"]
+[ext_resource type="Script" path="res://Scripts/menu_juegos.gd" id="1_m7nn0"]
 [ext_resource type="Texture2D" uid="uid://ixe45etqcyhc" path="res://Sprites/Letrero Niveles.png" id="2_newpn"]
 [ext_resource type="Texture2D" uid="uid://dmoce577xuko8" path="res://Sprites/img_btn_puzzle.png" id="3_qyvs3"]
 [ext_resource type="Texture2D" uid="uid://ceim0lpapn5u2" path="res://Sprites/img_btn_order.png" id="4_1r3lu"]
-[ext_resource type="Script" path="res://Scripts/btn_puzzle.gd" id="4_y61he"]
 [ext_resource type="Texture2D" uid="uid://bihhavi2w2spf" path="res://Sprites/img_btn_match.png" id="5_kb3ju"]
-[ext_resource type="Script" path="res://Scripts/btn_match.gd" id="6_otbon"]
-[ext_resource type="Script" path="res://Scripts/btn_order.gd" id="8_uw4ru"]
+[ext_resource type="StyleBox" uid="uid://brdljhusel8uq" path="res://styles/btn_go_back_normal.tres" id="7_gqlwy"]
+[ext_resource type="StyleBox" uid="uid://du12ncuctqjhb" path="res://styles/btn_go_back_hover.tres" id="8_mvqtb"]
+[ext_resource type="StyleBox" uid="uid://by2vml721igto" path="res://styles/btn_go_back_pressed.tres" id="9_rtgrj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umde6"]
+atlas = ExtResource("3_qyvs3")
+region = Rect2(6.03516, 6.14502, 1107.01, 1024.27)
+margin = Rect2(5, 5, 5, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqgy2"]
+atlas = ExtResource("3_qyvs3")
+region = Rect2(0.78894, -8.12056, 1112.72, 1027.12)
+margin = Rect2(-2, -2, -2, -2)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wo0t5"]
+atlas = ExtResource("5_kb3ju")
+region = Rect2(0, 0, 1112.36, 1055.65)
+margin = Rect2(5, 5, 5, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oevgw"]
+atlas = ExtResource("5_kb3ju")
+region = Rect2(6.035, 6.145, 1107.01, 1024.27)
+margin = Rect2(-2, -2, -2, -2)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6xp5"]
+atlas = ExtResource("4_1r3lu")
+region = Rect2(0, 0, 1199.24, 1061.65)
+margin = Rect2(5, 5, 5, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8je5o"]
+atlas = ExtResource("4_1r3lu")
+region = Rect2(0, 0, 1192.34, 1048.67)
+margin = Rect2(-2, -2, -2, -2)
+filter_clip = true
 
 [node name="Menu_Juegos" type="Control"]
 layout_mode = 3
@@ -16,6 +50,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_m7nn0")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("1_ae3ik")]
 
@@ -41,24 +76,41 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_stretch_ratio = 0.0
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("3_qyvs3")
-texture_hover = ExtResource("3_qyvs3")
-script = ExtResource("4_y61he")
+texture_pressed = SubResource("AtlasTexture_umde6")
+texture_hover = SubResource("AtlasTexture_hqgy2")
+stretch_mode = 0
 
 [node name="btn_match" type="TextureButton" parent="Hbox_botones_juegos"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_stretch_ratio = 0.0
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("5_kb3ju")
-script = ExtResource("6_otbon")
+texture_pressed = SubResource("AtlasTexture_wo0t5")
+texture_hover = SubResource("AtlasTexture_oevgw")
+stretch_mode = 0
 
 [node name="btn_order" type="TextureButton" parent="Hbox_botones_juegos"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_stretch_ratio = 0.0
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("4_1r3lu")
-script = ExtResource("8_uw4ru")
+texture_pressed = SubResource("AtlasTexture_b6xp5")
+texture_hover = SubResource("AtlasTexture_8je5o")
 
-[connection signal="pressed" from="Hbox_botones_juegos/btn_puzzle" to="Hbox_botones_juegos/btn_puzzle" method="_on_pressed"]
-[connection signal="pressed" from="Hbox_botones_juegos/btn_match" to="Hbox_botones_juegos/btn_match" method="_on_pressed"]
-[connection signal="pressed" from="Hbox_botones_juegos/btn_order" to="Hbox_botones_juegos/btn_order" method="_on_pressed"]
+[node name="btn_go_back" type="Button" parent="."]
+offset_left = 18.0
+offset_top = 21.0
+offset_right = 72.0
+offset_bottom = 77.0
+theme_override_styles/normal = ExtResource("7_gqlwy")
+theme_override_styles/hover = ExtResource("8_mvqtb")
+theme_override_styles/pressed = ExtResource("9_rtgrj")
+
+[connection signal="pressed" from="Hbox_botones_juegos/btn_puzzle" to="." method="_on_btn_puzzle_pressed"]
+[connection signal="pressed" from="Hbox_botones_juegos/btn_match" to="." method="_on_btn_match_pressed"]
+[connection signal="pressed" from="Hbox_botones_juegos/btn_order" to="." method="_on_btn_order_pressed"]
+[connection signal="pressed" from="btn_go_back" to="." method="_on_btn_go_back_pressed"]

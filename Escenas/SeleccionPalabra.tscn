@@ -1,14 +1,18 @@
-[gd_scene load_steps=15 format=3 uid="uid://cjvvwysvskvjm"]
+[gd_scene load_steps=19 format=3 uid="uid://cjvvwysvskvjm"]
 
+[ext_resource type="Script" path="res://Scripts/SeleccionPalabra.gd" id="1_myd3f"]
 [ext_resource type="Texture2D" uid="uid://bjc011wiwmvcv" path="res://Sprites/Background_game.jpg" id="1_od1f1"]
 [ext_resource type="Texture2D" uid="uid://lprcmn3axhu2" path="res://Sprites/istockphoto-1133408808-612x612-removebg-preview 1.png" id="2_ywlt7"]
 [ext_resource type="Texture2D" uid="uid://c862v6ar4xge" path="res://Sprites/fondo-de-papel-del-vintage-aislado-128788522-transformed__1_-removebg-preview 1.png" id="3_24ns3"]
 [ext_resource type="Texture2D" uid="uid://biihx571xca82" path="res://Sprites/flechas__1_-removebg-preview 1.png" id="4_yxe20"]
 [ext_resource type="Texture2D" uid="uid://bddosvbos1aqv" path="res://Sprites/Rectangle 16.png" id="5_1yedy"]
 [ext_resource type="Texture2D" uid="uid://cpgtso7quhpj8" path="res://Sprites/pngtree-padlocks-or-lock-open-and-closed-icons-isolated-transparant-png-image_5213443.png" id="6_vwxae"]
-[ext_resource type="Script" path="res://Escenas/AnimationPlayer.gd" id="7_p8e1s"]
-[ext_resource type="Script" path="res://Escenas/Button4.gd" id="8_c8e4v"]
-[ext_resource type="Script" path="res://Escenas/AnimationPlayer1.gd" id="9_m4jys"]
+[ext_resource type="Script" path="res://Scripts/AnimationPlayer.gd" id="7_p8e1s"]
+[ext_resource type="Script" path="res://Scripts/Button4.gd" id="8_c8e4v"]
+[ext_resource type="Script" path="res://Scripts/AnimationPlayer1.gd" id="9_m4jys"]
+[ext_resource type="StyleBox" uid="uid://brdljhusel8uq" path="res://styles/btn_go_back_normal.tres" id="10_xq183"]
+[ext_resource type="StyleBox" uid="uid://du12ncuctqjhb" path="res://styles/btn_go_back_hover.tres" id="11_0kpbi"]
+[ext_resource type="StyleBox" uid="uid://by2vml721igto" path="res://styles/btn_go_back_pressed.tres" id="12_c8g5b"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rm4gd"]
 font_size = 172
@@ -115,6 +119,7 @@ outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_myd3f")
 metadata/_edit_vertical_guides_ = [605.0, 1061.0]
 metadata/_edit_horizontal_guides_ = [-100.0, 115.0, 663.0]
 
@@ -252,5 +257,15 @@ NIVEL"
 label_settings = SubResource("LabelSettings_hiw6i")
 horizontal_alignment = 1
 
+[node name="btn_go_back" type="Button" parent="."]
+offset_left = 18.0
+offset_top = 21.0
+offset_right = 72.0
+offset_bottom = 77.0
+theme_override_styles/normal = ExtResource("10_xq183")
+theme_override_styles/hover = ExtResource("11_0kpbi")
+theme_override_styles/pressed = ExtResource("12_c8g5b")
+
 [connection signal="pressed" from="Button3" to="Button3/Sprite2D3/AnimationPlayer" method="_on_button_3_pressed"]
 [connection signal="pressed" from="Button4" to="Button4/Sprite2D/AnimationPlayer" method="_on_button_4_pressed"]
+[connection signal="pressed" from="btn_go_back" to="." method="_on_btn_go_back_pressed"]
