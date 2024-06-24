@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://8o5wxp881v3c"]
+[gd_scene load_steps=2 format=3 uid="uid://cyniocnvkynej"]
 
-[ext_resource type="Texture2D" uid="uid://bjc011wiwmvcv" path="res://Sprites/Background_game.jpg" id="1_mj55s"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_clhwo"]
+load_path = "res://.godot/imported/Background_game.jpg-66ab4aabd807d63117e85c32f620b2d2.ctex"
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 
@@ -9,4 +10,4 @@
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
 position = Vector2(639, 359)
 scale = Vector2(0.835204, 0.835204)
-texture = ExtResource("1_mj55s")
+texture = SubResource("CompressedTexture2D_clhwo")
