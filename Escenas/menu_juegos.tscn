@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://m3pemmudapps"]
+[gd_scene load_steps=9 format=3 uid="uid://cu1nuxh8st3ux"]
 
-[ext_resource type="PackedScene" uid="uid://8o5wxp881v3c" path="res://Escenas/parallax_background.tscn" id="1_ae3ik"]
+[ext_resource type="PackedScene" uid="uid://c183geb74nt45" path="res://Escenas/parallax_background.tscn" id="1_ae3ik"]
 [ext_resource type="Texture2D" uid="uid://ixe45etqcyhc" path="res://Sprites/Letrero Niveles.png" id="2_newpn"]
 [ext_resource type="Texture2D" uid="uid://dmoce577xuko8" path="res://Sprites/img_btn_puzzle.png" id="3_qyvs3"]
 [ext_resource type="Texture2D" uid="uid://ceim0lpapn5u2" path="res://Sprites/img_btn_order.png" id="4_1r3lu"]
