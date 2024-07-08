@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwpl3b47m1h8q"]
+[gd_scene load_steps=7 format=3 uid="uid://bwpl3b47m1h8q"]
 
 [ext_resource type="Script" path="res://Scripts/menu_principal.gd" id="1_jn68a"]
 [ext_resource type="PackedScene" uid="uid://ck0pryww1ryji" path="res://Escenas/parallax_backgroundMenu.tscn" id="1_u1tl3"]
 [ext_resource type="Texture2D" uid="uid://dqh7nybwcskbo" path="res://Piezas/LogoJuegoMenu.png" id="2_kygwl"]
 [ext_resource type="Theme" uid="uid://b4ittljlw20g0" path="res://Piezas/DefaultButton.tres" id="3_ybpp6"]
+[ext_resource type="PackedScene" uid="uid://xwnqhcqrd6mc" path="res://Escenas/Global/btn_sounds.tscn" id="5_nrqk6"]
+[ext_resource type="PackedScene" uid="uid://cflyp1c6juytb" path="res://Escenas/Global/background_music.tscn" id="6_vn87a"]
 
 [node name="MenuPrincipal" type="Control"]
 layout_mode = 3
@@ -50,6 +52,15 @@ theme_override_colors/font_hover_color = Color(0.493545, 0.493546, 0.493546, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 text = "Salir"
+
+[node name="btn_sound" parent="." instance=ExtResource("5_nrqk6")]
+layout_mode = 1
+offset_left = 1156.0
+offset_top = 599.0
+offset_right = 1156.64
+offset_bottom = 599.32
+
+[node name="backgroundMusic" parent="." instance=ExtResource("6_vn87a")]
 
 [connection signal="pressed" from="VBoxMenu/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxMenu/Button2" to="." method="_on_button_2_pressed"]
