@@ -12,16 +12,20 @@ func _process(delta):
 
 
 func _on_btn_puzzle_pressed():
+	ButtonClick.button_click()
 	get_tree().change_scene_to_file("res://Escenas/DificultadOracion.tscn")
 
 
 func _on_btn_match_pressed():
+	ButtonClick.button_click()
 	get_tree().change_scene_to_file("res://Escenas/DificultadUnir.tscn")
 
 
 func _on_btn_order_pressed():
+	ButtonClick.button_click()
 	get_tree().change_scene_to_file("res://Escenas/DificultadPalabra.tscn")
 
 
 func _on_btn_go_back_pressed():
+	ButtonClick.button_click()
 	get_tree().change_scene_to_file("res://Escenas/menu_principal.tscn")

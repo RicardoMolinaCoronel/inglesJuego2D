@@ -12,12 +12,15 @@ func _process(delta):
 
 
 func _on_btn_go_back_pressed():
+	ButtonClick.button_click()
 	get_tree().change_scene_to_file("res://Escenas/DificultadUnir.tscn")
 
 
 func _on_button_pressed():
+	ButtonClick.button_click()
 	get_tree().change_scene_to_file("res://Escenas/SeleccionUnir.tscn")
 
 
 func _on_button_level1_pressed():
+	ButtonClick.button_click()
 	get_tree().change_scene_to_file("res://Escenas/UnirFacil1.tscn")

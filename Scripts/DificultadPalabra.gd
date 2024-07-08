@@ -16,4 +16,5 @@ func _on_btn_go_back_pressed():
 
 
 func _on_button_pressed():
+	ButtonClick.button_click()
 	get_tree().change_scene_to_file("res://Escenas/SeleccionPalabra.tscn")
