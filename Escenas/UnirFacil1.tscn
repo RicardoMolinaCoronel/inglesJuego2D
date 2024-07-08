@@ -10,22 +10,27 @@
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_f0qee")
-metadata/_edit_vertical_guides_ = [605.0, 1061.0]
+metadata/_edit_vertical_guides_ = [636.0, 1061.0]
 metadata/_edit_horizontal_guides_ = [-100.0, 115.0, 663.0]
 
 [node name="Node2D2" type="Node2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D2"]
+[node name="Fondo" type="Sprite2D" parent="Node2D2"]
 position = Vector2(637, 374)
 scale = Vector2(0.89477, 0.836735)
 texture = ExtResource("2_w1m0v")
 
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+[node name="Canvas1" type="Sprite2D" parent="."]
 position = Vector2(640.375, 362.25)
-scale = Vector2(0.977273, 0.796317)
+scale = Vector2(0.862299, 0.705915)
 texture = ExtResource("3_f22v1")
+
+[node name="CanvasLateral" type="Sprite2D" parent="."]
+position = Vector2(1070, 346)
+scale = Vector2(0.324528, 1.363)
+texture = ExtResource("4_yubp0")
+
+[node name="Node2D" type="Node2D" parent="."]
 
 [node name="btn_go_back" type="Button" parent="."]
 offset_left = 18.0
@@ -35,10 +40,5 @@ offset_bottom = 77.0
 theme_override_styles/normal = ExtResource("13_acnev")
 theme_override_styles/hover = ExtResource("14_4ukdi")
 theme_override_styles/pressed = ExtResource("15_qvo6p")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1120, 346.5)
-scale = Vector2(0.374214, 1.53864)
-texture = ExtResource("4_yubp0")
 
 [connection signal="pressed" from="btn_go_back" to="." method="_on_btn_go_back_pressed"]

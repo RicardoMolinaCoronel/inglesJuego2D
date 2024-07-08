@@ -120,7 +120,7 @@ font_size = 50
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 script = ExtResource("1_ln2di")
 metadata/_edit_vertical_guides_ = [605.0, 1061.0]
 metadata/_edit_horizontal_guides_ = [-100.0, 115.0, 663.0]

@@ -120,7 +120,7 @@ font_size = 50
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 script = ExtResource("1_0w1p1")
 metadata/_edit_vertical_guides_ = [605.0, 1061.0]
 metadata/_edit_horizontal_guides_ = [-100.0, 115.0, 663.0]
@@ -278,6 +278,7 @@ offset_right = 1206.64
 offset_bottom = 654.32
 scale = Vector2(1.01368, 1)
 
+[connection signal="pressed" from="Button" to="." method="_on_button_level1_pressed"]
 [connection signal="pressed" from="Button3" to="Button3/Sprite2D3/AnimationPlayer" method="_on_button_3_pressed"]
 [connection signal="pressed" from="Button4" to="Button4/Sprite2D/AnimationPlayer" method="_on_button_4_pressed"]
 [connection signal="pressed" from="btn_go_back" to="." method="_on_btn_go_back_pressed"]
