@@ -276,6 +276,7 @@ offset_top = 654.0
 offset_right = 1206.64
 offset_bottom = 654.32
 
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button3" to="Button3/Sprite2D3/AnimationPlayer" method="_on_button_3_pressed"]
 [connection signal="pressed" from="Button4" to="Button4/Sprite2D/AnimationPlayer" method="_on_button_4_pressed"]
 [connection signal="pressed" from="btn_go_back" to="." method="_on_btn_go_back_pressed"]
