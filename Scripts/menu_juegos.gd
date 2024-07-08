@@ -12,15 +12,15 @@ func _process(delta):
 
 
 func _on_btn_puzzle_pressed():
-	get_tree().change_scene_to_file("res://Escenas/SeleccionOracion.tscn")
+	get_tree().change_scene_to_file("res://Escenas/DificultadOracion.tscn")
 
 
 func _on_btn_match_pressed():
-	get_tree().change_scene_to_file("res://Escenas/SeleccionUnir.tscn")
+	get_tree().change_scene_to_file("res://Escenas/DificultadUnir.tscn")
 
 
 func _on_btn_order_pressed():
-	get_tree().change_scene_to_file("res://Escenas/SeleccionPalabra.tscn")
+	get_tree().change_scene_to_file("res://Escenas/DificultadPalabra.tscn")
 
 
 func _on_btn_go_back_pressed():

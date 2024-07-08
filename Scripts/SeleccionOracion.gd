@@ -12,4 +12,8 @@ func _process(delta):
 
 
 func _on_btn_go_back_pressed():
-	get_tree().change_scene_to_file("res://Escenas/menu_juegos.tscn")
+	get_tree().change_scene_to_file("res://Escenas/DificultadOracion.tscn")
+
+
+func _on_button_pressed():
+	get_tree().change_scene_to_file("res://Escenas/SeleccionOracion.tscn")

@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://tm4eivwr2yxl"]
+
+[ext_resource type="Script" path="res://Scripts/DificultadUnir.gd" id="1_f0qee"]
+[ext_resource type="Texture2D" uid="uid://bjc011wiwmvcv" path="res://Sprites/Background_game.jpg" id="2_w1m0v"]
+[ext_resource type="Texture2D" uid="uid://bex6owfb743a3" path="res://Sprites/Group 36.png" id="3_f22v1"]
+[ext_resource type="Texture2D" uid="uid://c862v6ar4xge" path="res://Sprites/fondo-de-papel-del-vintage-aislado-128788522-transformed__1_-removebg-preview 1.png" id="4_yubp0"]
+[ext_resource type="StyleBox" uid="uid://brdljhusel8uq" path="res://styles/btn_go_back_normal.tres" id="13_acnev"]
+[ext_resource type="StyleBox" uid="uid://du12ncuctqjhb" path="res://styles/btn_go_back_hover.tres" id="14_4ukdi"]
+[ext_resource type="StyleBox" uid="uid://by2vml721igto" path="res://styles/btn_go_back_pressed.tres" id="15_qvo6p"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_f0qee")
+metadata/_edit_vertical_guides_ = [605.0, 1061.0]
+metadata/_edit_horizontal_guides_ = [-100.0, 115.0, 663.0]
+
+[node name="Node2D2" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D2"]
+position = Vector2(637, 374)
+scale = Vector2(0.89477, 0.836735)
+texture = ExtResource("2_w1m0v")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+position = Vector2(640.375, 362.25)
+scale = Vector2(0.977273, 0.796317)
+texture = ExtResource("3_f22v1")
+
+[node name="btn_go_back" type="Button" parent="."]
+offset_left = 18.0
+offset_top = 21.0
+offset_right = 72.0
+offset_bottom = 77.0
+theme_override_styles/normal = ExtResource("13_acnev")
+theme_override_styles/hover = ExtResource("14_4ukdi")
+theme_override_styles/pressed = ExtResource("15_qvo6p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1120, 346.5)
+scale = Vector2(0.374214, 1.53864)
+texture = ExtResource("4_yubp0")
+
+[connection signal="pressed" from="btn_go_back" to="." method="_on_btn_go_back_pressed"]
