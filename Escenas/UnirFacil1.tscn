@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://tm4eivwr2yxl"]
+[gd_scene load_steps=9 format=3 uid="uid://tm4eivwr2yxl"]
 
 [ext_resource type="Script" path="res://Scripts/DificultadUnir.gd" id="1_f0qee"]
 [ext_resource type="Texture2D" uid="uid://bjc011wiwmvcv" path="res://Sprites/Background_game.jpg" id="2_w1m0v"]
 [ext_resource type="Texture2D" uid="uid://bex6owfb743a3" path="res://Sprites/Group 36.png" id="3_f22v1"]
 [ext_resource type="Texture2D" uid="uid://c862v6ar4xge" path="res://Sprites/fondo-de-papel-del-vintage-aislado-128788522-transformed__1_-removebg-preview 1.png" id="4_yubp0"]
+[ext_resource type="PackedScene" uid="uid://bg0ut1gxhn4tg" path="res://Escenas/instrucciones_unir.tscn" id="8_4qx8g"]
 [ext_resource type="StyleBox" uid="uid://brdljhusel8uq" path="res://styles/btn_go_back_normal.tres" id="13_acnev"]
 [ext_resource type="StyleBox" uid="uid://du12ncuctqjhb" path="res://styles/btn_go_back_hover.tres" id="14_4ukdi"]
 [ext_resource type="StyleBox" uid="uid://by2vml721igto" path="res://styles/btn_go_back_pressed.tres" id="15_qvo6p"]
@@ -40,5 +41,7 @@ offset_bottom = 77.0
 theme_override_styles/normal = ExtResource("13_acnev")
 theme_override_styles/hover = ExtResource("14_4ukdi")
 theme_override_styles/pressed = ExtResource("15_qvo6p")
+
+[node name="InstruccionesUnir" parent="." instance=ExtResource("8_4qx8g")]
 
 [connection signal="pressed" from="btn_go_back" to="." method="_on_btn_go_back_pressed"]
