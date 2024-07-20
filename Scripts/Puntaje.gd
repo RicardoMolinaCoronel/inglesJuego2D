@@ -33,4 +33,5 @@ func victory():
 
 func _on_button_pressed():
 	ButtonClick.button_click()
+	$AudioStreamPlayer2D.play()
 	victory()
