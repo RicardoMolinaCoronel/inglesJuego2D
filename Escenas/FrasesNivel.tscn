@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgo7pv84wsky5"]
+[gd_scene load_steps=8 format=3 uid="uid://cgo7pv84wsky5"]
 
 [ext_resource type="Script" path="res://Scripts/FrasesNivel.gd" id="1_ukesw"]
 [ext_resource type="Texture2D" uid="uid://cv13x0ukqlkwe" path="res://Piezas/Background.png" id="2_x6564"]
 [ext_resource type="Texture2D" uid="uid://bex6owfb743a3" path="res://Sprites/Group 36.png" id="3_f5qrb"]
 [ext_resource type="Texture2D" uid="uid://deiv0ycb1tlkh" path="res://Sprites/MatchItLeftPanel.png" id="4_moxl0"]
 [ext_resource type="Texture2D" uid="uid://jqa4jsua5h38" path="res://Sprites/btn_categorias_volver.png" id="5_2av1w"]
+[ext_resource type="PackedScene" uid="uid://ymxmig0qijsl" path="res://Escenas/juego_finalizado_menu.tscn" id="6_jse36"]
+[ext_resource type="PackedScene" uid="uid://bqbkgfyky132d" path="res://Escenas/instrucciones_frases.tscn" id="7_gei6u"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -25,6 +27,7 @@ scale = Vector2(2.23557, 1.79296)
 texture = ExtResource("2_x6564")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 40.0
 offset_top = 14.0
 offset_right = 1262.0
@@ -49,5 +52,13 @@ offset_right = 1172.0
 offset_bottom = 649.0
 icon = ExtResource("5_2av1w")
 flat = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="JuegoFinalizadoMenu" parent="CanvasLayer" instance=ExtResource("6_jse36")]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="InstruccionesFrases" parent="CanvasLayer2" instance=ExtResource("7_gei6u")]
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
