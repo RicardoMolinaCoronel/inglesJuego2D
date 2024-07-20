@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbbrf6ujfdun5"]
+
+[ext_resource type="Script" path="res://PantallaVictoria.gd" id="1_rxw35"]
+[ext_resource type="Texture2D" uid="uid://eubcwhkxnake" path="res://Sprites/Level Complete puzzle 3.png" id="1_yge3l"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_rxw35")
+
+[node name="LevelCompletePuzzle3" type="Sprite2D" parent="."]
+position = Vector2(665, 358)
+texture = ExtResource("1_yge3l")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 428.0
+offset_top = 313.0
+offset_right = 535.0
+offset_bottom = 431.0
+
+[node name="Button2" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 610.0
+offset_top = 312.0
+offset_right = 717.0
+offset_bottom = 430.0
+
+[node name="Button3" type="Button" parent="."]
+modulate = Color(0.309804, 0.309804, 0.309804, 0)
+offset_left = 792.0
+offset_top = 311.0
+offset_right = 899.0
+offset_bottom = 429.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_levels_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_home_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_continue_pressed"]
