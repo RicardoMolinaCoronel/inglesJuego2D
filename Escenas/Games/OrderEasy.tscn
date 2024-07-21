@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0vkmiy6wlxfy"]
+
+[ext_resource type="Script" path="res://Scripts/Games/OrderEasy.gd" id="1_okcbb"]
+[ext_resource type="Texture2D" uid="uid://bjc011wiwmvcv" path="res://Sprites/Background_game.jpg" id="2_rafwp"]
+[ext_resource type="Texture2D" uid="uid://bex6owfb743a3" path="res://Sprites/Group 36.png" id="3_xi61p"]
+[ext_resource type="PackedScene" uid="uid://tbbkdsxy01pi" path="res://Escenas/Global/box_inside_game.tscn" id="4_ltwvj"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_okcbb")
+metadata/_edit_vertical_guides_ = [636.0, 1061.0]
+metadata/_edit_horizontal_guides_ = [-100.0, 115.0, 663.0]
+
+[node name="Fondo" type="Sprite2D" parent="."]
+position = Vector2(637, 374)
+scale = Vector2(0.89477, 0.836735)
+texture = ExtResource("2_rafwp")
+
+[node name="Canvas1" type="Sprite2D" parent="."]
+position = Vector2(638.5, 361.5)
+scale = Vector2(0.937357, 0.757812)
+texture = ExtResource("3_xi61p")
+
+[node name="Box_inside_game" parent="." instance=ExtResource("4_ltwvj")]
+position = Vector2(947, 44)

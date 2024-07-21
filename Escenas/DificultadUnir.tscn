@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://istrbs17a2qd"]
+[gd_scene load_steps=21 format=3 uid="uid://ddiwx55jpwun5"]
 
 [ext_resource type="Script" path="res://Scripts/DificultadUnir.gd" id="1_x1rm4"]
 [ext_resource type="Texture2D" uid="uid://bjc011wiwmvcv" path="res://Sprites/Background_game.jpg" id="2_yc6w7"]
@@ -15,6 +15,7 @@
 [ext_resource type="StyleBox" uid="uid://brdljhusel8uq" path="res://styles/btn_go_back_normal.tres" id="11_hfxhe"]
 [ext_resource type="StyleBox" uid="uid://du12ncuctqjhb" path="res://styles/btn_go_back_hover.tres" id="12_0i2ex"]
 [ext_resource type="StyleBox" uid="uid://by2vml721igto" path="res://styles/btn_go_back_pressed.tres" id="13_nttgm"]
+[ext_resource type="PackedScene" uid="uid://xwnqhcqrd6mc" path="res://Escenas/Global/btn_sounds.tscn" id="16_d40a1"]
 
 [sub_resource type="Animation" id="Animation_aggsv"]
 length = 0.001
@@ -232,6 +233,12 @@ offset_bottom = 77.0
 theme_override_styles/normal = ExtResource("11_hfxhe")
 theme_override_styles/hover = ExtResource("12_0i2ex")
 theme_override_styles/pressed = ExtResource("13_nttgm")
+
+[node name="btn_sound" parent="." instance=ExtResource("16_d40a1")]
+offset_left = 1171.0
+offset_top = 632.0
+offset_right = 1171.64
+offset_bottom = 632.32
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button3" to="Button3/Sprite2D3/AnimationPlayer" method="_on_button_3_pressed"]

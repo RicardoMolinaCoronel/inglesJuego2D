@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bwpl3b47m1h8q"]
+[gd_scene load_steps=6 format=3 uid="uid://bwpl3b47m1h8q"]
 
 [ext_resource type="Script" path="res://Scripts/menu_principal.gd" id="1_jn68a"]
 [ext_resource type="PackedScene" uid="uid://c6vh7gkg27w0a" path="res://Escenas/parallax_backgroundMenu.tscn" id="1_u1tl3"]
 [ext_resource type="Texture2D" uid="uid://dqh7nybwcskbo" path="res://Piezas/LogoJuegoMenu.png" id="2_kygwl"]
 [ext_resource type="Theme" uid="uid://b4ittljlw20g0" path="res://Piezas/DefaultButton.tres" id="3_ybpp6"]
 [ext_resource type="PackedScene" uid="uid://xwnqhcqrd6mc" path="res://Escenas/Global/btn_sounds.tscn" id="5_nrqk6"]
-[ext_resource type="PackedScene" uid="uid://cflyp1c6juytb" path="res://Escenas/Global/background_music.tscn" id="6_vn87a"]
 
 [node name="MenuPrincipal" type="Control"]
 layout_mode = 3
@@ -59,8 +58,6 @@ offset_left = 1156.0
 offset_top = 599.0
 offset_right = 1156.64
 offset_bottom = 599.32
-
-[node name="backgroundMusic" parent="." instance=ExtResource("6_vn87a")]
 
 [connection signal="pressed" from="VBoxMenu/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxMenu/Button2" to="." method="_on_button_2_pressed"]

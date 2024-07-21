@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://tm4eivwr2yxl"]
+[gd_scene load_steps=11 format=3 uid="uid://4axweujk3q73"]
 
 [ext_resource type="Script" path="res://Scripts/Puntaje.gd" id="1_da5bc"]
 [ext_resource type="Texture2D" uid="uid://bjc011wiwmvcv" path="res://Sprites/Background_game.jpg" id="2_ojmb7"]

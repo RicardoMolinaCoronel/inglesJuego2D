@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://b1rgjujq3qpep"]
+[gd_scene load_steps=11 format=3 uid="uid://b86ewj2wptytq"]
 
 [ext_resource type="Script" path="res://Scripts/instrucciones_palabra.gd" id="1_067yw"]
 [ext_resource type="Texture2D" uid="uid://5umrrpio378x" path="res://Sprites/palabra_instrucciones_cuadro.png" id="1_afyfp"]
-[ext_resource type="Theme" uid="uid://dq0g04voulfkh" path="res://styles/btn_instrucciones_continuar.tres" id="2_dlc4r"]
+[ext_resource type="Theme" uid="uid://ewcgptrx3h2q" path="res://styles/btn_instrucciones_continuar.tres" id="2_dlc4r"]
 [ext_resource type="Shader" path="res://styles/juego_finalizado_menu.gdshader" id="2_p8xwj"]
 [ext_resource type="VideoStream" path="res://styles/Lorem-ipsum-video-Dummy-video-for-your-website.ogv" id="3_2gxls"]
 

@@ -18,9 +18,4 @@ func _on_btn_go_back_pressed():
 
 func _on_button_pressed():
 	ButtonClick.button_click()
-	get_tree().change_scene_to_file("res://Escenas/SeleccionUnir.tscn")
-
-
-func _on_button_level1_pressed():
-	ButtonClick.button_click()
-	get_tree().change_scene_to_file("res://Escenas/UnirFacil1.tscn")
+	get_tree().change_scene_to_file("res://Escenas/Games/UnirFacil1.tscn")

@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://cffwkn8ue835u"]
+
+[ext_resource type="Script" path="res://Scripts/FrasesNivel.gd" id="1_ukesw"]
+[ext_resource type="Texture2D" uid="uid://cv13x0ukqlkwe" path="res://Piezas/Background.png" id="2_x6564"]
+[ext_resource type="Texture2D" uid="uid://bex6owfb743a3" path="res://Sprites/Group 36.png" id="3_f5qrb"]
+[ext_resource type="PackedScene" uid="uid://boe72vq15t1ax" path="res://Escenas/juego_finalizado_menu.tscn" id="6_jse36"]
+[ext_resource type="PackedScene" uid="uid://dyhyi34qkkc8g" path="res://Escenas/instrucciones_frases.tscn" id="7_gei6u"]
+[ext_resource type="PackedScene" uid="uid://tbbkdsxy01pi" path="res://Escenas/Global/box_inside_game.tscn" id="9_qibht"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ukesw")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(638.625, 356.375)
+scale = Vector2(2.23557, 1.79296)
+texture = ExtResource("2_x6564")
+
+[node name="Canvas1" type="Sprite2D" parent="."]
+position = Vector2(641, 361.5)
+scale = Vector2(0.933537, 0.757812)
+texture = ExtResource("3_f5qrb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="JuegoFinalizadoMenu" parent="CanvasLayer" instance=ExtResource("6_jse36")]
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="InstruccionesFrases" parent="CanvasLayer2" instance=ExtResource("7_gei6u")]
+mouse_filter = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Box_inside_game" parent="." instance=ExtResource("9_qibht")]

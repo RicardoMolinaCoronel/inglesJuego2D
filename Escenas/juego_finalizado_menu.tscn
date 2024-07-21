@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ymxmig0qijsl"]
+[gd_scene load_steps=12 format=3 uid="uid://boe72vq15t1ax"]
 
 [ext_resource type="Shader" path="res://styles/juego_finalizado_menu.gdshader" id="1_2dibt"]
 [ext_resource type="Texture2D" uid="uid://cgm5o64704hn7" path="res://Sprites/popup_finalizado.png" id="1_aypwb"]

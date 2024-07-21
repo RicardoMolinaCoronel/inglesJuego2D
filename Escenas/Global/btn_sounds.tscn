@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://xwnqhcqrd6mc"]
+[gd_scene load_steps=4 format=3 uid="uid://xwnqhcqrd6mc"]
 
-[ext_resource type="Texture2D" uid="uid://breo3a4ivhryr" path="res://Sprites/btn_music.png" id="1_j0g7p"]
 [ext_resource type="Script" path="res://Scripts/btn_sounds.gd" id="1_umtdx"]
-[ext_resource type="Texture2D" uid="uid://bfaqrf0b5gkqk" path="res://Sprites/bnt_mute.png" id="2_dkj4h"]
-[ext_resource type="AudioStream" uid="uid://bwfrh1agvlatv" path="res://Sonido/background_music.mp3" id="4_a68m5"]
+[ext_resource type="Texture2D" uid="uid://bdubdugpp08a7" path="res://Sprites/buttons/btn_music.png" id="2_5wlne"]
+[ext_resource type="Texture2D" uid="uid://bi8376ftfhdca" path="res://Sprites/buttons/bnt_mute.png" id="3_lvfpn"]
 
 [node name="btn_sound" type="Control"]
 layout_mode = 3
@@ -22,12 +21,7 @@ offset_bottom = 40.0
 scale = Vector2(0.2, 0.2)
 mouse_default_cursor_shape = 2
 toggle_mode = true
-texture_normal = ExtResource("1_j0g7p")
-texture_pressed = ExtResource("2_dkj4h")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_a68m5")
-volume_db = -36.541
-autoplay = true
+texture_normal = ExtResource("2_5wlne")
+texture_pressed = ExtResource("3_lvfpn")
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
