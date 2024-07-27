@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://875h5ifgqt53"]
 
-[ext_resource type="Texture2D" uid="uid://dgpkgnaqeivco" path="res://Sprites/global/Boton_retroceder.png" id="1_hqbho"]
+[ext_resource type="Texture2D" uid="uid://bc13t6d3p7tbq" path="res://Sprites/buttons/Boton_retroceder.png" id="2_6feds"]
 [ext_resource type="Script" path="res://Scripts/Global/btn_go_back.gd" id="2_xep2s"]
 
 [node name="btn_go_back" type="Control"]
@@ -20,6 +20,6 @@ offset_right = 354.0
 offset_bottom = 390.0
 scale = Vector2(0.22, 0.22)
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("1_hqbho")
+texture_normal = ExtResource("2_6feds")
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_update_scene"]

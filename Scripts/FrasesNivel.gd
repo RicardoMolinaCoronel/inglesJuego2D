@@ -10,7 +10,7 @@ signal set_timer()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	emit_signal("update_title", "Puzzle Game")
+	emit_signal("update_title", "Puzzle")
 	emit_signal("update_difficulty", "Easy")
 	emit_signal("update_level", "1")
 	emit_signal("set_visible_sentence", "El esta jugando futbol")

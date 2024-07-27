@@ -1,205 +1,150 @@
 [gd_scene load_steps=10 format=3 uid="uid://tbbkdsxy01pi"]
 
 [ext_resource type="Script" path="res://Scripts/box_inside_game.gd" id="1_ggi3j"]
-[ext_resource type="Texture2D" uid="uid://deiv0ycb1tlkh" path="res://Sprites/MatchItLeftPanel.png" id="1_l57do"]
 [ext_resource type="Theme" uid="uid://lcgg2qybthjn" path="res://styles/box_inside_game_text.tres" id="2_ik7mp"]
-[ext_resource type="Texture2D" uid="uid://c2jje7ie4hlio" path="res://Sprites/heart.png" id="3_p7bhr"]
-[ext_resource type="Texture2D" uid="uid://bb2cm6nehk6rw" path="res://Sprites/images_games/order/jaguar.png" id="5_ohdqt"]
-[ext_resource type="Texture2D" uid="uid://d3mrrt5umiggj" path="res://Sprites/buttons/btn_home.png" id="6_wx806"]
-[ext_resource type="Texture2D" uid="uid://gew38on18sm1" path="res://Sprites/buttons/btn_instruction.png" id="7_wv3qk"]
+[ext_resource type="Texture2D" uid="uid://cbsgw3yum2qos" path="res://Sprites/buttons/Boton_Salir.png" id="6_jumv7"]
+[ext_resource type="Texture2D" uid="uid://c1brivjy218qn" path="res://Sprites/buttons/Boton_Ayuda.png" id="7_ilqu5"]
+[ext_resource type="Texture2D" uid="uid://b0ngeledb26bf" path="res://Sprites/buttons/Boton_Opciones.png" id="8_ibp7w"]
 [ext_resource type="PackedScene" uid="uid://xwnqhcqrd6mc" path="res://Escenas/Global/btn_sounds.tscn" id="8_pfb31"]
-[ext_resource type="Texture2D" uid="uid://b5xs603nbf6s4" path="res://Sprites/buttons/btn_help.png" id="8_yrcu8"]
+[ext_resource type="Texture2D" uid="uid://bqk1d4psul3o6" path="res://Sprites/global/Fondo_mesa_juego.png" id="10_b6g8m"]
+[ext_resource type="Texture2D" uid="uid://dmiccrmd0y8jt" path="res://Sprites/global/Tabla.png" id="11_2rioo"]
+[ext_resource type="Texture2D" uid="uid://ddyoiesqe5ai1" path="res://Sprites/global/Imagen_juego_vacio.png" id="12_5yipq"]
 
 [node name="Box_inside_game" type="Node2D"]
 position = Vector2(944, 48)
 script = ExtResource("1_ggi3j")
 
-[node name="TextureRect2" type="TextureRect" parent="."]
-offset_right = 286.0
-offset_bottom = 605.0
-texture = ExtResource("1_l57do")
-expand_mode = 1
+[node name="Fondo_mesa_juego" type="Sprite2D" parent="."]
+position = Vector2(-290, 407)
+scale = Vector2(0.214403, 0.21336)
+texture = ExtResource("10_b6g8m")
 
-[node name="Title" type="Label" parent="TextureRect2"]
-clip_contents = true
-layout_mode = 2
-offset_left = 12.0
-offset_top = 9.0
-offset_right = 275.0
-offset_bottom = 75.0
-size_flags_horizontal = 4
-size_flags_stretch_ratio = 0.0
-theme = ExtResource("2_ik7mp")
-text = "Order it Game"
-horizontal_alignment = 1
-text_direction = 1
+[node name="Cronometro" type="Sprite2D" parent="."]
+position = Vector2(-300.935, 97.45)
+scale = Vector2(0.223445, 0.256048)
+texture = ExtResource("11_2rioo")
 
-[node name="Life" type="Label" parent="TextureRect2"]
-layout_mode = 2
-offset_left = 8.0
-offset_top = 66.0
-offset_right = 271.0
-offset_bottom = 108.0
-theme = ExtResource("2_ik7mp")
-theme_override_constants/outline_size = 7
-theme_override_font_sizes/font_size = 41
-text = "Life"
-horizontal_alignment = 2
-text_direction = 1
-
-[node name="HBoxHearts" type="HBoxContainer" parent="TextureRect2"]
-layout_direction = 3
-layout_mode = 1
+[node name="Temporizador" type="Label" parent="."]
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 4.0
-offset_top = 96.0
-offset_right = 4.0
-offset_bottom = 96.0
-grow_horizontal = 2
-pivot_offset = Vector2(96.5, -18)
-size_flags_stretch_ratio = 0.0
-
-[node name="heart1" type="Sprite2D" parent="TextureRect2/HBoxHearts"]
-position = Vector2(42.15, 28.8)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("3_p7bhr")
-
-[node name="heart2" type="Sprite2D" parent="TextureRect2/HBoxHearts"]
-position = Vector2(96.4999, 28.4)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("3_p7bhr")
-
-[node name="heart3" type="Sprite2D" parent="TextureRect2/HBoxHearts"]
-position = Vector2(152, 28)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("3_p7bhr")
-
-[node name="heart4" type="Sprite2D" parent="TextureRect2/HBoxHearts"]
-position = Vector2(206, 28)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("3_p7bhr")
-
-[node name="heart5" type="Sprite2D" parent="TextureRect2/HBoxHearts"]
-position = Vector2(257, 28)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("3_p7bhr")
-
-[node name="Temporizador" type="Label" parent="TextureRect2"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 2.0
-offset_top = 88.0
-offset_right = -2.0
-offset_bottom = 169.0
+offset_left = -448.0
+offset_top = 64.0
+offset_right = -152.0
+offset_bottom = 144.0
 grow_horizontal = 2
 theme = ExtResource("2_ik7mp")
-theme_override_colors/font_color = Color(0.92549, 0.741176, 0, 1)
-theme_override_colors/font_outline_color = Color(0.0313726, 0, 0, 1)
-theme_override_constants/outline_size = 8
-theme_override_font_sizes/font_size = 80
+theme_override_font_sizes/font_size = 59
 text = "120"
 horizontal_alignment = 1
 vertical_alignment = 1
 text_direction = 1
 
-[node name="Timer" type="Timer" parent="TextureRect2/Temporizador"]
+[node name="Timer" type="Timer" parent="Temporizador"]
 autostart = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect2"]
-layout_mode = 2
-offset_left = 12.0
-offset_top = 154.0
-offset_right = 275.0
-offset_bottom = 196.0
-size_flags_horizontal = 4
-alignment = 1
+[node name="table_title" type="Sprite2D" parent="."]
+position = Vector2(-721.935, 77.45)
+scale = Vector2(0.13, 0.19)
+texture = ExtResource("11_2rioo")
 
-[node name="Difficulty" type="Label" parent="TextureRect2/HBoxContainer"]
+[node name="Title" type="Label" parent="."]
 clip_contents = true
-layout_mode = 2
+offset_left = -808.0
+offset_top = 50.0
+offset_right = -632.0
+offset_bottom = 112.0
+size_flags_horizontal = 4
 size_flags_stretch_ratio = 0.0
 theme = ExtResource("2_ik7mp")
-theme_override_constants/outline_size = 7
-theme_override_font_sizes/font_size = 41
-text = "Difficulty:"
-horizontal_alignment = 3
-vertical_alignment = 3
+text = "Order it"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
 text_direction = 1
 
-[node name="Difficulty_value" type="Label" parent="TextureRect2/HBoxContainer"]
+[node name="table_difficulty" type="Sprite2D" parent="."]
+position = Vector2(-721.935, 155.45)
+scale = Vector2(0.13, 0.19)
+texture = ExtResource("11_2rioo")
+
+[node name="Difficulty_value" type="Label" parent="."]
 clip_contents = true
-layout_mode = 2
+offset_left = -808.0
+offset_top = 128.0
+offset_right = -632.0
+offset_bottom = 192.0
 size_flags_stretch_ratio = 0.0
 theme = ExtResource("2_ik7mp")
-theme_override_constants/outline_size = 7
-theme_override_font_sizes/font_size = 41
 text = "Easy"
-horizontal_alignment = 3
-vertical_alignment = 3
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
 text_direction = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="TextureRect2"]
-layout_mode = 2
-offset_left = 12.0
-offset_top = 188.0
-offset_right = 275.0
-offset_bottom = 230.0
+[node name="table_level" type="Sprite2D" parent="."]
+position = Vector2(-721.935, 233.45)
+scale = Vector2(0.13, 0.19)
+texture = ExtResource("11_2rioo")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+offset_left = -808.0
+offset_top = 206.0
+offset_right = -632.0
+offset_bottom = 272.0
 size_flags_horizontal = 4
 alignment = 1
 
-[node name="Level" type="Label" parent="TextureRect2/HBoxContainer2"]
+[node name="Level" type="Label" parent="HBoxContainer2"]
 clip_contents = true
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
 theme = ExtResource("2_ik7mp")
-theme_override_constants/outline_size = 7
-theme_override_font_sizes/font_size = 41
 text = "Level:"
-horizontal_alignment = 3
-vertical_alignment = 3
+vertical_alignment = 1
+uppercase = true
 text_direction = 1
 
-[node name="Level_value" type="Label" parent="TextureRect2/HBoxContainer2"]
+[node name="Level_value" type="Label" parent="HBoxContainer2"]
 clip_contents = true
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
 theme = ExtResource("2_ik7mp")
-theme_override_constants/outline_size = 7
-theme_override_font_sizes/font_size = 41
 text = "1"
-horizontal_alignment = 3
-vertical_alignment = 3
+vertical_alignment = 1
 text_direction = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="TextureRect2"]
-position = Vector2(148, 356)
-scale = Vector2(0.814202, 0.814202)
+[node name="image" type="Sprite2D" parent="."]
+position = Vector2(-299.935, 295.45)
+scale = Vector2(0.22485, 0.22485)
+texture = ExtResource("12_5yipq")
 
-[node name="TextureRect" type="TextureRect" parent="TextureRect2/Sprite2D"]
-offset_left = -153.524
-offset_top = -136.33
-offset_right = 145.476
-offset_bottom = 120.67
-texture = ExtResource("5_ohdqt")
+[node name="word" type="Sprite2D" parent="."]
+position = Vector2(-296.935, 496.45)
+scale = Vector2(0.223, 0.256)
+texture = ExtResource("11_2rioo")
 
-[node name="Sentence" type="Label" parent="TextureRect2"]
+[node name="Sentense" type="Sprite2D" parent="."]
+position = Vector2(-304, 496.45)
+scale = Vector2(0.502498, 0.256)
+texture = ExtResource("11_2rioo")
+
+[node name="phrase_text" type="Label" parent="."]
 clip_contents = true
-layout_mode = 0
-offset_left = 22.0
-offset_top = 471.0
-offset_right = 264.0
-offset_bottom = 518.0
+offset_left = -640.0
+offset_top = 464.0
+offset_right = 32.0
+offset_bottom = 528.0
 size_flags_stretch_ratio = 0.0
 theme = ExtResource("2_ik7mp")
 theme_override_constants/outline_size = 5
 theme_override_constants/line_spacing = -7
 theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 3
 text_direction = 1
 
-[node name="btns_inside_box_game" type="Control" parent="TextureRect2"]
+[node name="btns_inside_box_game" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 20.0
@@ -207,42 +152,43 @@ offset_top = 539.0
 offset_right = 268.0
 offset_bottom = 579.0
 
-[node name="btn_home" type="TextureButton" parent="TextureRect2/btns_inside_box_game"]
+[node name="btn_home" type="TextureButton" parent="btns_inside_box_game"]
 layout_mode = 0
-offset_top = -8.0
-offset_right = 183.0
-offset_bottom = 178.0
-scale = Vector2(0.264, 0.264)
+offset_left = 188.0
+offset_top = -507.0
+offset_right = 484.0
+offset_bottom = -236.0
+scale = Vector2(0.22, 0.22)
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("6_wx806")
+texture_normal = ExtResource("6_jumv7")
 
-[node name="btn_instructions" type="TextureButton" parent="TextureRect2/btns_inside_box_game"]
+[node name="btn_instructions" type="TextureButton" parent="btns_inside_box_game"]
 layout_mode = 0
-offset_left = 67.0
-offset_top = -7.0
-offset_right = 244.0
-offset_bottom = 179.0
-scale = Vector2(0.264, 0.264)
+offset_left = 188.0
+offset_top = -347.0
+offset_right = 484.0
+offset_bottom = -76.0
+scale = Vector2(0.22, 0.22)
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("7_wv3qk")
+texture_normal = ExtResource("7_ilqu5")
 
-[node name="btn_help" type="TextureButton" parent="TextureRect2/btns_inside_box_game"]
+[node name="btn_help" type="TextureButton" parent="btns_inside_box_game"]
 layout_mode = 0
-offset_left = 134.0
-offset_top = -8.0
-offset_right = 317.0
-offset_bottom = 181.0
-scale = Vector2(0.264, 0.264)
+offset_left = 188.0
+offset_top = -267.0
+offset_right = 484.0
+offset_bottom = 4.0
+scale = Vector2(0.22, 0.22)
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("8_yrcu8")
+texture_normal = ExtResource("8_ibp7w")
 
-[node name="btn_sound" parent="TextureRect2/btns_inside_box_game" instance=ExtResource("8_pfb31")]
+[node name="btn_sound" parent="btns_inside_box_game" instance=ExtResource("8_pfb31")]
 layout_mode = 1
-offset_left = 200.0
-offset_top = -8.0
-offset_right = 236.824
-offset_bottom = 37.24
+offset_left = 188.0
+offset_top = -427.0
+offset_right = 242.824
+offset_bottom = -373.76
 mouse_default_cursor_shape = 2
 
-[connection signal="timeout" from="TextureRect2/Temporizador/Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="TextureRect2/btns_inside_box_game/btn_home" to="." method="_on_btn_home_pressed"]
+[connection signal="timeout" from="Temporizador/Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="btns_inside_box_game/btn_home" to="." method="_on_btn_home_pressed"]
