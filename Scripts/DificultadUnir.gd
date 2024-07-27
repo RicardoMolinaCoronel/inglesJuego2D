@@ -1,6 +1,7 @@
 extends Node2D
 
 #Signals
+signal update_scene(path)
 signal update_title(new_title)
 signal update_difficulty(new_difficulty)
 signal update_level(new_level)
@@ -8,6 +9,7 @@ signal set_not_visible_image()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	emit_signal("update_scene", "menu_juegos")
 	emit_signal("update_title", "Match it Game")
 	emit_signal("update_difficulty", "Easy")
 	emit_signal("update_level", "1")

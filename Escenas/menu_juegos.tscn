@@ -1,48 +1,17 @@
-[gd_scene load_steps=17 format=3 uid="uid://cu1nuxh8st3ux"]
+[gd_scene load_steps=13 format=3 uid="uid://cu1nuxh8st3ux"]
 
-[ext_resource type="PackedScene" uid="uid://c183geb74nt45" path="res://Escenas/parallax_background.tscn" id="1_ae3ik"]
+[ext_resource type="PackedScene" uid="uid://c183geb74nt45" path="res://Escenas/Global/parallax_background.tscn" id="1_ae3ik"]
 [ext_resource type="Script" path="res://Scripts/menu_juegos.gd" id="1_m7nn0"]
-[ext_resource type="Texture2D" uid="uid://ixe45etqcyhc" path="res://Sprites/Letrero Niveles.png" id="2_newpn"]
-[ext_resource type="Texture2D" uid="uid://dmoce577xuko8" path="res://Sprites/img_btn_puzzle.png" id="3_qyvs3"]
-[ext_resource type="Texture2D" uid="uid://ceim0lpapn5u2" path="res://Sprites/img_btn_order.png" id="4_1r3lu"]
-[ext_resource type="Texture2D" uid="uid://bihhavi2w2spf" path="res://Sprites/img_btn_match.png" id="5_kb3ju"]
-[ext_resource type="StyleBox" uid="uid://brdljhusel8uq" path="res://styles/btn_go_back_normal.tres" id="7_gqlwy"]
-[ext_resource type="StyleBox" uid="uid://du12ncuctqjhb" path="res://styles/btn_go_back_hover.tres" id="8_mvqtb"]
-[ext_resource type="StyleBox" uid="uid://by2vml721igto" path="res://styles/btn_go_back_pressed.tres" id="9_rtgrj"]
+[ext_resource type="Texture2D" uid="uid://dtfvr6dmjys6b" path="res://Sprites/mini_games/Tablero_minigame.png" id="3_prnin"]
+[ext_resource type="Texture2D" uid="uid://b6i60n65brh3n" path="res://Sprites/mini_games/Letrero_minigame.png" id="4_41r5y"]
+[ext_resource type="Texture2D" uid="uid://cufijlsaxqdx8" path="res://Sprites/mini_games/Dibujo puzzles.png" id="5_1oynu"]
+[ext_resource type="Texture2D" uid="uid://cxrqvvuddwr7o" path="res://Sprites/mini_games/Boton Puzzles.png" id="6_5mxid"]
+[ext_resource type="Texture2D" uid="uid://cguy374ehh0lq" path="res://Sprites/mini_games/Dibujo match it.png" id="7_ai6fw"]
+[ext_resource type="Texture2D" uid="uid://bwkababwghvx" path="res://Sprites/mini_games/Boton Match it.png" id="8_40w6x"]
+[ext_resource type="Texture2D" uid="uid://cdlq28w1l3pmc" path="res://Sprites/mini_games/Dibujo Order it.png" id="9_yvfam"]
+[ext_resource type="Texture2D" uid="uid://dytluhvtfl6pu" path="res://Sprites/mini_games/Boton Order it.png" id="10_yd6ht"]
 [ext_resource type="PackedScene" uid="uid://xwnqhcqrd6mc" path="res://Escenas/Global/btn_sounds.tscn" id="11_13b7x"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_umde6"]
-atlas = ExtResource("3_qyvs3")
-region = Rect2(6.03516, 6.14502, 1107.01, 1024.27)
-margin = Rect2(5, 5, 5, 5)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hqgy2"]
-atlas = ExtResource("3_qyvs3")
-region = Rect2(0.78894, -8.12056, 1112.72, 1027.12)
-margin = Rect2(-2, -2, -2, -2)
-filter_clip = true
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wo0t5"]
-atlas = ExtResource("5_kb3ju")
-region = Rect2(0, 0, 1112.36, 1055.65)
-margin = Rect2(5, 5, 5, 5)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oevgw"]
-atlas = ExtResource("5_kb3ju")
-region = Rect2(6.035, 6.145, 1107.01, 1024.27)
-margin = Rect2(-2, -2, -2, -2)
-filter_clip = true
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b6xp5"]
-atlas = ExtResource("4_1r3lu")
-region = Rect2(0, 0, 1199.24, 1061.65)
-margin = Rect2(5, 5, 5, 5)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8je5o"]
-atlas = ExtResource("4_1r3lu")
-region = Rect2(0, 0, 1192.34, 1048.67)
-margin = Rect2(-2, -2, -2, -2)
-filter_clip = true
+[ext_resource type="PackedScene" uid="uid://875h5ifgqt53" path="res://Escenas/Global/btn_go_back.tscn" id="11_qllet"]
 
 [node name="Menu_Juegos" type="Control"]
 layout_mode = 3
@@ -55,22 +24,24 @@ script = ExtResource("1_m7nn0")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("1_ae3ik")]
 
-[node name="LetreroNiveles" type="Sprite2D" parent="."]
-position = Vector2(655.666, 382.625)
+[node name="Tablero" type="Sprite2D" parent="."]
+position = Vector2(646, 493)
 scale = Vector2(0.219223, 0.219223)
-texture = ExtResource("2_newpn")
+texture = ExtResource("3_prnin")
+
+[node name="Letrero" type="Sprite2D" parent="."]
+position = Vector2(632, 192)
+scale = Vector2(0.219223, 0.219223)
+texture = ExtResource("4_41r5y")
 
 [node name="Hbox_botones_juegos" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 214.666
-offset_top = 305.625
-offset_right = 2578.67
-offset_bottom = 645.625
-scale = Vector2(0.25, 0.25)
-theme_override_constants/separation = 100
+layout_mode = 0
+offset_left = 216.0
+offset_top = 320.0
+offset_right = 4069.0
+offset_bottom = 1971.0
+scale = Vector2(0.22, 0.22)
+theme_override_constants/separation = 215
 alignment = 1
 
 [node name="btn_puzzle" type="TextureButton" parent="Hbox_botones_juegos"]
@@ -78,48 +49,45 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_stretch_ratio = 0.0
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("3_qyvs3")
-texture_pressed = SubResource("AtlasTexture_umde6")
-texture_hover = SubResource("AtlasTexture_hqgy2")
+texture_normal = ExtResource("5_1oynu")
 stretch_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Hbox_botones_juegos/btn_puzzle"]
+position = Vector2(572, 1334)
+texture = ExtResource("6_5mxid")
 
 [node name="btn_match" type="TextureButton" parent="Hbox_botones_juegos"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_stretch_ratio = 0.0
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("5_kb3ju")
-texture_pressed = SubResource("AtlasTexture_wo0t5")
-texture_hover = SubResource("AtlasTexture_oevgw")
+texture_normal = ExtResource("7_ai6fw")
 stretch_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Hbox_botones_juegos/btn_match"]
+position = Vector2(568.435, 1339.13)
+texture = ExtResource("8_40w6x")
 
 [node name="btn_order" type="TextureButton" parent="Hbox_botones_juegos"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_stretch_ratio = 0.0
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("4_1r3lu")
-texture_pressed = SubResource("AtlasTexture_b6xp5")
-texture_hover = SubResource("AtlasTexture_8je5o")
+texture_normal = ExtResource("9_yvfam")
 
-[node name="btn_go_back" type="Button" parent="."]
-layout_mode = 0
-offset_left = 18.0
-offset_top = 21.0
-offset_right = 72.0
-offset_bottom = 77.0
-theme_override_styles/normal = ExtResource("7_gqlwy")
-theme_override_styles/hover = ExtResource("8_mvqtb")
-theme_override_styles/pressed = ExtResource("9_rtgrj")
+[node name="Sprite2D" type="Sprite2D" parent="Hbox_botones_juegos/btn_order"]
+position = Vector2(592.652, 1339.13)
+texture = ExtResource("10_yd6ht")
 
 [node name="btn_sound" parent="." instance=ExtResource("11_13b7x")]
 layout_mode = 1
-offset_left = 1171.0
-offset_top = 632.0
-offset_right = 1171.64
-offset_bottom = 632.32
+offset_left = 1193.0
+offset_top = 821.0
+offset_right = 1193.64
+offset_bottom = 821.32
+
+[node name="btn_go_back" parent="." instance=ExtResource("11_qllet")]
 
 [connection signal="pressed" from="Hbox_botones_juegos/btn_puzzle" to="." method="_on_btn_puzzle_pressed"]
 [connection signal="pressed" from="Hbox_botones_juegos/btn_match" to="." method="_on_btn_match_pressed"]
 [connection signal="pressed" from="Hbox_botones_juegos/btn_order" to="." method="_on_btn_order_pressed"]
-[connection signal="pressed" from="btn_go_back" to="." method="_on_btn_go_back_pressed"]
