@@ -22,3 +22,5 @@ texture = ExtResource("3_xi61p")
 
 [node name="Box_inside_game" parent="." instance=ExtResource("4_ltwvj")]
 position = Vector2(947, 44)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]

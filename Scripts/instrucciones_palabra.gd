@@ -5,6 +5,7 @@ extends Control
 func resume():
 	get_tree().paused = false 
 	$AnimationPlayer.play_backwards("blur")
+	self.queue_free()
 func pause():
 	get_tree().paused = true
 	$AnimationPlayer.play("blur")
