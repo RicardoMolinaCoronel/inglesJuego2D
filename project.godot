@@ -28,6 +28,7 @@ BackgroundMusic="*res://Escenas/Global/background_music.tscn"
 
 window/size/viewport_width=1275
 window/size/viewport_height=906
+window/stretch/mode="viewport"
 
 [input]
 

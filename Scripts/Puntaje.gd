@@ -1,11 +1,7 @@
 extends Node2D
-var pantallaVictoria = preload("res://Escenas/PantallaVictoria.tscn")
-var instance
 var score = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	instance = pantallaVictoria.instantiate()
-	
 	updateScore()
 	pass
 
@@ -20,18 +16,11 @@ func wait(seconds: float) -> void:
 
 
 func _process(delta):
-	$Label.text = str(score)
+	$Puntaje.text = str(score)
 	
 
-func victory():
-	instance.position = Vector2(1000,0)
-	add_child(instance)
-	while(instance.position.x > 0):
-		await get_tree().create_timer(0.000000001).timeout
-		instance.position.x-=50
-	
 
 func _on_button_pressed():
 	ButtonClick.button_click()
-	$AudioStreamPlayer2D.play()
-	victory()
+	get_tree().change_scene_to_file("res://Escenas/menu_juegos.tscn")
+

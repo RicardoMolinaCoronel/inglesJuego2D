@@ -1,42 +1,48 @@
-[gd_scene load_steps=4 format=3 uid="uid://7461s6b7i4a2"]
+[gd_scene load_steps=7 format=3 uid="uid://7461s6b7i4a2"]
 
-[ext_resource type="Script" path="res://PantallaVictoria.gd" id="1_rxw35"]
-[ext_resource type="Texture2D" uid="uid://eubcwhkxnake" path="res://Sprites/Level Complete puzzle 3.png" id="1_yge3l"]
-[ext_resource type="Texture2D" uid="uid://jqa4jsua5h38" path="res://Sprites/btn_categorias_volver.png" id="3_m0ku1"]
+[ext_resource type="Script" path="res://Scripts/PantallaVictoria.gd" id="1_kc0jg"]
+[ext_resource type="Texture2D" uid="uid://ccts7ok7r1xkk" path="res://Sprites/Tablero congratulation.png" id="2_2tqnl"]
+[ext_resource type="Texture2D" uid="uid://btk1xkyf2fyr8" path="res://Sprites/buttons/Boton_Next.png" id="3_gqmdn"]
+[ext_resource type="Texture2D" uid="uid://iio813jyiney" path="res://Sprites/Copa de felicitaciones.png" id="4_l8abr"]
+[ext_resource type="FontFile" uid="uid://bl1il7t5684pv" path="res://Fonts/Minecraft.ttf" id="5_my1ry"]
 
-[node name="Node2D" type="Node2D"]
-script = ExtResource("1_rxw35")
+[sub_resource type="LabelSettings" id="LabelSettings_2wn5k"]
+font = ExtResource("5_my1ry")
+font_size = 42
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="PantallaVictoria" type="Node2D"]
+script = ExtResource("1_kc0jg")
+metadata/_edit_horizontal_guides_ = [452.0]
 
 [node name="LevelCompletePuzzle3" type="Sprite2D" parent="."]
-position = Vector2(665, 358)
-texture = ExtResource("1_yge3l")
-
-[node name="Button" type="Button" parent="."]
-modulate = Color(1, 1, 1, 0)
-offset_left = 428.0
-offset_top = 313.0
-offset_right = 535.0
-offset_bottom = 431.0
-
-[node name="Button2" type="Button" parent="."]
-modulate = Color(1, 1, 1, 0)
-offset_left = 610.0
-offset_top = 312.0
-offset_right = 717.0
-offset_bottom = 430.0
+position = Vector2(640.206, 464.125)
+scale = Vector2(0.326901, 0.326901)
+texture = ExtResource("2_2tqnl")
 
 [node name="Button3" type="Button" parent="."]
-modulate = Color(0.309804, 0.309804, 0.309804, 0)
-offset_left = 792.0
-offset_top = 311.0
-offset_right = 899.0
-offset_bottom = 429.0
+offset_left = 580.206
+offset_top = 509.125
+offset_right = 909.206
+offset_bottom = 666.125
+icon = ExtResource("3_gqmdn")
+flat = true
+expand_icon = true
 
-[node name="BtnCategoriasVolver" type="Sprite2D" parent="."]
-position = Vector2(483, 373)
-scale = Vector2(0.918033, 0.873016)
-texture = ExtResource("3_m0ku1")
+[node name="Trofeo" type="Sprite2D" parent="."]
+position = Vector2(358.206, 443.125)
+scale = Vector2(0.340688, 0.340688)
+texture = ExtResource("4_l8abr")
 
-[connection signal="pressed" from="Button" to="." method="_on_button_levels_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_button_home_pressed"]
+[node name="Label" type="Label" parent="."]
+offset_left = 524.206
+offset_top = 362.125
+offset_right = 1065.21
+offset_bottom = 549.125
+text = "CONGRATULATIONS!
+YOU HAVE SUCCESFULLY
+COMPLETED THE GAME"
+label_settings = SubResource("LabelSettings_2wn5k")
+
 [connection signal="pressed" from="Button3" to="." method="_on_button_continue_pressed"]
