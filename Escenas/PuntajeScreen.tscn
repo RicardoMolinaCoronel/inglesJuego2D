@@ -80,6 +80,7 @@ offset_left = 513.0
 offset_top = 648.0
 offset_right = 767.0
 offset_bottom = 752.0
+mouse_default_cursor_shape = 2
 icon = ExtResource("5_mfcgm")
 flat = true
 expand_icon = true

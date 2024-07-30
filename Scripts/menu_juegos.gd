@@ -14,14 +14,14 @@ func _process(delta):
 
 func _on_btn_puzzle_pressed():
 	ButtonClick.button_click()
-	get_tree().change_scene_to_file("res://Escenas/DificultadOracion.tscn")
+	get_tree().change_scene_to_file("res://Escenas/DificultadOracion1.tscn")
 
 
 func _on_btn_match_pressed():
 	ButtonClick.button_click()
-	get_tree().change_scene_to_file("res://Escenas/DificultadUnir.tscn")
+	get_tree().change_scene_to_file("res://Escenas/DificultadUnir1.tscn")
 
 
 func _on_btn_order_pressed():
 	ButtonClick.button_click()
-	get_tree().change_scene_to_file("res://Escenas/DificultadPalabra.tscn")
+	get_tree().change_scene_to_file("res://Escenas/DificultadPalabra1.tscn")

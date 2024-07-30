@@ -28,3 +28,12 @@ func _on_btn_go_back_pressed():
 func _on_button_pressed():
 	ButtonClick.button_click()
 	get_tree().change_scene_to_file("res://Escenas/SeleccionUnir.tscn")
+
+
+func _on_texture_button_mouse_entered():
+	pass # Replace with function body.
+
+
+func _on_texture_button_pressed():
+	ButtonClick.button_click()
+	get_tree().change_scene_to_file("res://Escenas/SeleccionUnir.tscn")

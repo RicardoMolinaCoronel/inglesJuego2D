@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c84ia55lv0wfk"]
+[gd_scene load_steps=5 format=3 uid="uid://c84ia55lv0wfk"]
 
 [ext_resource type="Script" path="res://Scripts/DificultadUnir.gd" id="1_f0qee"]
 [ext_resource type="PackedScene" uid="uid://c183geb74nt45" path="res://Escenas/Global/parallax_background.tscn" id="2_nv8xs"]
+[ext_resource type="PackedScene" uid="uid://c42jf3hft6jo1" path="res://Escenas/instrucciones_unir.tscn" id="4_5rrej"]
 [ext_resource type="PackedScene" uid="uid://tbbkdsxy01pi" path="res://Escenas/Global/box_inside_game.tscn" id="7_oaiue"]
 
 [node name="Node2D" type="Node2D"]
@@ -13,3 +14,7 @@ metadata/_edit_horizontal_guides_ = [-100.0, 115.0, 663.0]
 
 [node name="Box_inside_game" parent="." instance=ExtResource("7_oaiue")]
 position = Vector2(936, 48)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InstruccionesUnir" parent="CanvasLayer" instance=ExtResource("4_5rrej")]

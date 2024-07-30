@@ -1,13 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://tbbkdsxy01pi"]
+[gd_scene load_steps=13 format=3 uid="uid://tbbkdsxy01pi"]
 
 [ext_resource type="Script" path="res://Scripts/box_inside_game.gd" id="1_ggi3j"]
 [ext_resource type="Theme" uid="uid://lcgg2qybthjn" path="res://styles/box_inside_game_text.tres" id="2_ik7mp"]
 [ext_resource type="Texture2D" uid="uid://cbsgw3yum2qos" path="res://Sprites/buttons/Boton_Salir.png" id="6_jumv7"]
+[ext_resource type="Texture2D" uid="uid://b4fkf3jss7us" path="res://Sprites/buttons/btn_salir_hover.png" id="7_3cmuo"]
 [ext_resource type="Texture2D" uid="uid://c1brivjy218qn" path="res://Sprites/buttons/Boton_Ayuda.png" id="7_ilqu5"]
 [ext_resource type="Texture2D" uid="uid://b0ngeledb26bf" path="res://Sprites/buttons/Boton_Opciones.png" id="8_ibp7w"]
 [ext_resource type="PackedScene" uid="uid://xwnqhcqrd6mc" path="res://Escenas/Global/btn_sounds.tscn" id="8_pfb31"]
+[ext_resource type="Texture2D" uid="uid://ddjtd8r6fmliv" path="res://Sprites/buttons/Boton_pregunta_hover.png" id="9_8lxe5"]
 [ext_resource type="Texture2D" uid="uid://bqk1d4psul3o6" path="res://Sprites/global/Fondo_mesa_juego.png" id="10_b6g8m"]
 [ext_resource type="Texture2D" uid="uid://dmiccrmd0y8jt" path="res://Sprites/global/Tabla.png" id="11_2rioo"]
+[ext_resource type="Texture2D" uid="uid://bnak4eajterau" path="res://Sprites/buttons/Boton_Opcioens_hover.png" id="11_8o3ok"]
 [ext_resource type="Texture2D" uid="uid://ddyoiesqe5ai1" path="res://Sprites/global/Imagen_juego_vacio.png" id="12_5yipq"]
 
 [node name="Box_inside_game" type="Node2D"]
@@ -161,6 +164,7 @@ offset_bottom = -236.0
 scale = Vector2(0.22, 0.22)
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("6_jumv7")
+texture_hover = ExtResource("7_3cmuo")
 
 [node name="btn_instructions" type="TextureButton" parent="btns_inside_box_game"]
 layout_mode = 0
@@ -171,6 +175,7 @@ offset_bottom = -76.0
 scale = Vector2(0.22, 0.22)
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("7_ilqu5")
+texture_hover = ExtResource("9_8lxe5")
 
 [node name="btn_help" type="TextureButton" parent="btns_inside_box_game"]
 layout_mode = 0
@@ -181,6 +186,7 @@ offset_bottom = 4.0
 scale = Vector2(0.22, 0.22)
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("8_ibp7w")
+texture_hover = ExtResource("11_8o3ok")
 
 [node name="btn_sound" parent="btns_inside_box_game" instance=ExtResource("8_pfb31")]
 layout_mode = 1

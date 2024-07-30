@@ -4,7 +4,7 @@ signal update_scene(path)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	emit_signal("update_scene", "DificultadUnir")
+	emit_signal("update_scene", "DificultadUnir1")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -14,7 +14,7 @@ func _process(delta):
 
 func _on_btn_go_back_pressed():
 	ButtonClick.button_click()
-	get_tree().change_scene_to_file("res://Escenas/DificultadUnir.tscn")
+	get_tree().change_scene_to_file("res://Escenas/DificultadUnir1.tscn")
 
 
 func _on_button_pressed():

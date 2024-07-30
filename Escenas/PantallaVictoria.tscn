@@ -26,6 +26,7 @@ offset_left = 580.206
 offset_top = 509.125
 offset_right = 909.206
 offset_bottom = 666.125
+mouse_default_cursor_shape = 2
 icon = ExtResource("3_gqmdn")
 flat = true
 expand_icon = true

@@ -11,10 +11,6 @@ shader = ExtResource("2_kxace")
 shader_parameter/lod = 0.0
 
 [sub_resource type="FontFile" id="FontFile_jjief"]
-fallbacks = Array[Font]([])
-antialiasing = 1
-font_stretch = 100
-msdf_size = 48
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
