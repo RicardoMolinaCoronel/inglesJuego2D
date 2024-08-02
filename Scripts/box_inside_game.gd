@@ -27,8 +27,8 @@ func _ready():
 	get_parent().connect("update_level", Callable(self, "_on_update_level"))
 	get_parent().connect("set_timer", Callable(self, "_on_set_timer"))
 	#get_parent().connect("uptate_imagen_game", Callable(self, "_on_uptate_imagen_game"))
-	get_parent().connect("set_not_visible_image", Callable(self, "_on_set_not_visible_image"))
-	get_parent().connect("set_visible_sentence", Callable(self, "_on_set_visible_sentence"))
+#	get_parent().connect("set_not_visible_image", Callable(self, "_on_set_not_visible_image"))
+#	get_parent().connect("set_visible_sentence", Callable(self, "_on_set_visible_sentence"))
 	get_parent().connect("set_visible_word", Callable(self, "_on_set_visible_word"))
 
 func _on_update_title(new_title):

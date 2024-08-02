@@ -17,12 +17,12 @@ func _ready():
 	emit_signal("update_difficulty", "Easy")
 	emit_signal("update_level", "1")
 	emit_signal("set_visible_word", "Ave")
-	emit_signal("uptate_imagen_game", "order/well")
+	emit_signal("uptate_imagen_game", "Ave")
 	instance = pantallaVictoria.instantiate()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 func victory():

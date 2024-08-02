@@ -1,16 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0vkmiy6wlxfy"]
+[gd_scene load_steps=11 format=3 uid="uid://d0vkmiy6wlxfy"]
 
 [ext_resource type="Script" path="res://Scripts/Games/OrderEasy.gd" id="1_okcbb"]
+[ext_resource type="PackedScene" uid="uid://ci1b1c7km51ni" path="res://Piezas/Letterbox.tscn" id="2_atc5h"]
 [ext_resource type="Texture2D" uid="uid://dfqhr1lcxhukc" path="res://Sprites/global/Background_game.png" id="2_jjcnm"]
 [ext_resource type="PackedScene" uid="uid://tbbkdsxy01pi" path="res://Escenas/Global/box_inside_game.tscn" id="4_ltwvj"]
 [ext_resource type="Texture2D" uid="uid://btk1xkyf2fyr8" path="res://Sprites/buttons/Boton_Next.png" id="4_pctx7"]
 [ext_resource type="AudioStream" uid="uid://dcc8bp4mt3gek" path="res://Sonido/kids-saying-yay-sound-effect_3.mp3" id="5_ifu6j"]
 [ext_resource type="PackedScene" uid="uid://b86ewj2wptytq" path="res://Escenas/instrucciones_palabra.tscn" id="6_h772d"]
+[ext_resource type="Texture2D" uid="uid://b6y57hjy58jvc" path="res://Sprites/images_games/order/Fondo de letra.png" id="7_pa61y"]
+[ext_resource type="PackedScene" uid="uid://dj6ij2dh6vwpr" path="res://Piezas/Letter.tscn" id="8_xubk8"]
+[ext_resource type="Texture2D" uid="uid://8r4ho23wivj1" path="res://Sprites/images_games/order/Ave.png" id="10_rgtqf"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_okcbb")
-metadata/_edit_vertical_guides_ = [1061.0]
 metadata/_edit_horizontal_guides_ = [-100.0]
+metadata/_edit_vertical_guides_ = [300.0]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="InstruccionesPalabra" parent="CanvasLayer2" instance=ExtResource("6_h772d")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(636.987, 454.85)
@@ -23,10 +31,10 @@ position = Vector2(947, 44)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Button" type="Button" parent="."]
-offset_left = 977.0
-offset_top = 718.0
-offset_right = 1222.0
-offset_bottom = 867.0
+offset_left = 1101.0
+offset_top = 361.0
+offset_right = 1247.0
+offset_bottom = 450.0
 mouse_default_cursor_shape = 2
 icon = ExtResource("4_pctx7")
 flat = true
@@ -35,8 +43,71 @@ expand_icon = true
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_ifu6j")
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+[node name="Desordenada" type="Node2D" parent="."]
 
-[node name="InstruccionesPalabra" parent="CanvasLayer2" instance=ExtResource("6_h772d")]
+[node name="Sprite2D" type="Sprite2D" parent="Desordenada"]
+position = Vector2(350, 650)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_pa61y")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Desordenada"]
+position = Vector2(550, 650)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_pa61y")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Desordenada"]
+position = Vector2(750, 650)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_pa61y")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Desordenada"]
+position = Vector2(950, 650)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_pa61y")
+
+[node name="Ordenada" type="Node2D" parent="."]
+
+[node name="Letterbox5" parent="Ordenada" instance=ExtResource("2_atc5h")]
+position = Vector2(350, 785)
+scale = Vector2(0.25, 0.25)
+
+[node name="Letterbox6" parent="Ordenada" instance=ExtResource("2_atc5h")]
+position = Vector2(550, 785)
+scale = Vector2(0.25, 0.25)
+
+[node name="Letterbox7" parent="Ordenada" instance=ExtResource("2_atc5h")]
+position = Vector2(750, 785)
+scale = Vector2(0.25, 0.25)
+
+[node name="Letterbox8" parent="Ordenada" instance=ExtResource("2_atc5h")]
+position = Vector2(950, 785)
+scale = Vector2(0.25, 0.25)
+
+[node name="Letras" type="Node2D" parent="."]
+
+[node name="Letter" parent="Letras" instance=ExtResource("8_xubk8")]
+position = Vector2(350, 650)
+scale = Vector2(0.27, 0.27)
+letter = "I"
+
+[node name="Letter2" parent="Letras" instance=ExtResource("8_xubk8")]
+position = Vector2(550, 650)
+scale = Vector2(0.27, 0.27)
+letter = "B"
+
+[node name="Letter4" parent="Letras" instance=ExtResource("8_xubk8")]
+position = Vector2(950, 650)
+scale = Vector2(0.27, 0.27)
+letter = "R"
+
+[node name="Letter3" parent="Letras" instance=ExtResource("8_xubk8")]
+position = Vector2(750, 650)
+scale = Vector2(0.27, 0.27)
+letter = "D"
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(647.239, 339.125)
+scale = Vector2(0.2238, 0.2238)
+texture = ExtResource("10_rgtqf")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
