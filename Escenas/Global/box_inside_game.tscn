@@ -117,16 +117,19 @@ vertical_alignment = 1
 text_direction = 1
 
 [node name="image" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-299.935, 295.45)
 scale = Vector2(0.22485, 0.22485)
 texture = ExtResource("12_5yipq")
 
 [node name="word" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-296.935, 496.45)
 scale = Vector2(0.223, 0.256)
 texture = ExtResource("11_2rioo")
 
 [node name="Sentense" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-304, 496.45)
 scale = Vector2(0.502498, 0.256)
 texture = ExtResource("11_2rioo")
