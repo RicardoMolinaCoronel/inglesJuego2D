@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scripts/FrasesNivel.gd" id="1_ukesw"]
 [ext_resource type="PackedScene" uid="uid://c6vh7gkg27w0a" path="res://Escenas/parallax_backgroundMenu.tscn" id="2_h8lco"]
+[ext_resource type="PackedScene" uid="uid://dr445orecfavc" path="res://Escenas/Global/box_inside_game_f.tscn" id="4_a4a0i"]
 [ext_resource type="PackedScene" uid="uid://dyhyi34qkkc8g" path="res://Escenas/instrucciones_frases.tscn" id="7_gei6u"]
-[ext_resource type="PackedScene" uid="uid://tbbkdsxy01pi" path="res://Escenas/Global/box_inside_game.tscn" id="9_qibht"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -22,4 +22,34 @@ script = ExtResource("1_ukesw")
 mouse_filter = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Box_inside_game" parent="." instance=ExtResource("9_qibht")]
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(40, 100)
+layout_mode = 2
+offset_left = 11.0
+offset_top = 566.0
+offset_right = 66.0
+offset_bottom = 677.0
+expand_mode = 1
+
+[node name="Panel" type="Panel" parent="TextureRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Box_inside_game" parent="." instance=ExtResource("4_a4a0i")]
+
+[node name="DisordenateHBoxContainer" type="HBoxContainer" parent="Box_inside_game"]
+offset_left = -883.0
+offset_top = 520.0
+offset_right = 293.0
+offset_bottom = 631.0
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="OrdenateHBoxContainer" type="HBoxContainer" parent="Box_inside_game"]
+offset_left = -879.0
+offset_top = 662.0
+offset_right = 298.0
+offset_bottom = 779.0
+theme_override_constants/separation = 50
+alignment = 1
