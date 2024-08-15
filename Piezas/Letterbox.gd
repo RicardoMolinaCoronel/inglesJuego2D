@@ -2,6 +2,7 @@ extends Node2D
 
 var occupied = false
 var current_node = "none"
+@export var letter = "A"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -17,6 +18,7 @@ func _on_area_2d_area_shape_entered(_area_rid, area, _area_shape_index, _local_s
 		occupied = true
 		current_node = area
 		area.get_parent().snap_to = position
+		area.get_parent().target_letter = letter
 	pass # Replace with function body.
 
 
