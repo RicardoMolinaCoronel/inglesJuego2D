@@ -14,6 +14,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ukesw")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.122, 0.8, 0.459, 0)
+
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_h8lco")]
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
@@ -51,5 +61,5 @@ offset_left = -879.0
 offset_top = 662.0
 offset_right = 298.0
 offset_bottom = 779.0
-theme_override_constants/separation = 50
+theme_override_constants/separation = 25
 alignment = 1

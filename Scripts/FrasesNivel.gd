@@ -4,6 +4,8 @@ extends Control
 const STYLE_WORDS = "res://styles/FrasesNivelStyleButton.tres"
 const SCRIPTS_PATH = "res://Escenas/Games/FrasesNivelComponents"
 const url_fondo = "res://Sprites/global/Tabla.png"
+var pantallaVictoria = preload("res://Escenas/PantallaVictoria.tscn")
+var instance
 #Signals
 signal update_title(new_title)
 signal update_difficulty(new_difficulty)
@@ -14,28 +16,76 @@ signal set_timer()
 
 @onready var d_hbox = $Box_inside_game/DisordenateHBoxContainer
 @onready var o_hbox = $Box_inside_game/OrdenateHBoxContainer
-
+var counter_boxes_correct: int = 0
+var total_boxes_correct: int = 10
 var start_texture_rect: TextureRect = null
-var cadenas = ["He is", "playing", "football"]
-var cadenasOrdenadas = ["He is", "playing", "football"]
+var palabraEsp = ["El esta jugando futbol", "Ella esta bebiendo cafe dulce"]
+var cadenas = [["He is", "playing", "football"], ["She", "is", "drinking", "sweet", "coffee"]]
+var cadenasOrdenadas = [["He is", "playing", "football"], ["She", "is", "drinking", "sweet", "coffee"]]
 # Called when the node enters the scene tree for the first time.
+
+func correct_color_rect():
+	var color_rect = ColorRect.new()
+	color_rect.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT, Control.PRESET_MODE_KEEP_SIZE)
+	color_rect.color = Color(0.5,0.5,0.5,0.0)
+	add_child(color_rect)
+	
+func incorrect_color_rect():
+	var color_rect = ColorRect.new()
+	color_rect.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT, Control.PRESET_MODE_KEEP_SIZE)
+	color_rect.color = Color(1.0,0.5,0.5,0.0)
+	var rectScript = load(SCRIPTS_PATH+"/botonTextura.gd")
+	rectScript.set_script(rectScript)
+	add_child(color_rect)
+
+func victory():
+	instance.position = Vector2(1000,0)
+	add_child(instance)
+	while(instance.position.x > 0):
+		await get_tree().create_timer(0.000000001).timeout
+		instance.position.x-=50
+
 func _ready():
+	counter_boxes_correct = 0
+	var random_index = randi() % cadenas.size()
+	total_boxes_correct = cadenas[random_index].size()
+	instance = pantallaVictoria.instantiate()
 	emit_signal("update_title", "Puzzle")
 	emit_signal("update_difficulty", "Easy")
 	emit_signal("update_level", "1")
-	emit_signal("set_visible_sentence", "El esta jugando futbol")
+	emit_signal("set_visible_sentence", palabraEsp[random_index])
 	emit_signal("uptate_imagen_game", "puzzle/futbol")
 	emit_signal("set_timer")
-	cargar_etiquetas_con_fondo(cadenas)
+	# Seleccionar un índice aleatorio
 
+	cargar_etiquetas_con_fondo(cadenas, random_index)
+	#button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	#var anim_player = AnimationPlayer.new()
+	#anim_player.set_root("../Box_inside_game/DisordenateHBoxContainer/ButtonP")
+	#anim_player.name = "AnimationPlayer"
+	#var animation = Animation.new()
+	#var texture_track_index = animation.add_track(Animation.TYPE_VALUE)
+	#animation.track_set_interpolation_type(texture_track_index, Animation.INTERPOLATION_LINEAR)
+	#animation.track_set_path(texture_track_index, ":theme_override_styles/normal:modulate_color")  
+	#animation.track_insert_key(texture_track_index, 0.0, Color(1.0,1.0,1.0,1.0))  # Color inicial
+	#animation.track_insert_key(texture_track_index, 1.0, Color(0.5,0.5,0.5,1.0))
+	#var anim_library = AnimationLibrary.new()
+	#anim_library.add_animation("Change", animation)
+	#anim_player.add_animation_library("ChangeColor", anim_library)
+	#button.add_child(anim_player)
+	#var buttonScript = load(SCRIPTS_PATH+"/botonOrdenate.gd")
+	#button.set_script(buttonScript)
+	#ap.play("ChangeColor/Change")# Color final, en el segundo 1
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if(counter_boxes_correct == total_boxes_correct):
+		victory()
+		
 
-func cargar_etiquetas_con_fondo(cadenas: Array):
-	cadenas.shuffle()
+func cargar_etiquetas_con_fondo(cadenas: Array, index: int):
+	cadenas[index].shuffle()
 	var x=0
-	for cadena in cadenas:
+	for cadena in cadenas[index]:
 		#var containerCadena = TextureRect.new()
 		#containerCadena.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		#containerCadena.custom_minimum_size = Vector2(225,100)
@@ -45,7 +95,7 @@ func cargar_etiquetas_con_fondo(cadenas: Array):
 		#containerCadena.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 		#containerCadena.size_flags_horizontal = Control.SIZE_SHRINK_CENTER 
 		#containerCadena.clip_contents = false
-		var posicionCadena = cadenasOrdenadas.find(cadena)
+		var posicionCadena = cadenasOrdenadas[index].find(cadena)
 		
 		var button = Button.new()
 		button.text = cadena	
@@ -56,6 +106,7 @@ func cargar_etiquetas_con_fondo(cadenas: Array):
 		button.name = "t_"+str(posicionCadena)
 		var buttonScript = load(SCRIPTS_PATH+"/botonTextura.gd")
 		button.set_script(buttonScript)
+		
 	# Ajustar las propiedades de anchor para centrar el botón
 		#button.set_anchors_and_offsets_preset(Control.PRESET_CENTER, Control.PRESET_MODE_KEEP_SIZE)
 		d_hbox.add_child(button)
