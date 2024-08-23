@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi8376ftfhdca"
-path="res://.godot/imported/bnt_mute.png-a820e70ecaab73e0b8164f14f3c8f855.ctex"
+uid="uid://b4dcgfxuhgvxa"
+path="res://.godot/imported/Correct.png-f085c70c2774d04555e3ad6d86a8d5f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/buttons/bnt_mute.png"
-dest_files=["res://.godot/imported/bnt_mute.png-a820e70ecaab73e0b8164f14f3c8f855.ctex"]
+source_file="res://Sprites/images_games/match/Correct.png"
+dest_files=["res://.godot/imported/Correct.png-f085c70c2774d04555e3ad6d86a8d5f7.ctex"]
 
 [params]
 

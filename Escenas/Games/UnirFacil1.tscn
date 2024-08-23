@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c84ia55lv0wfk"]
+[gd_scene load_steps=7 format=3 uid="uid://c84ia55lv0wfk"]
 
 [ext_resource type="Script" path="res://Scripts/Games/Unir.gd" id="1_ufw03"]
 [ext_resource type="PackedScene" uid="uid://c183geb74nt45" path="res://Escenas/Global/parallax_background.tscn" id="2_nv8xs"]
 [ext_resource type="PackedScene" uid="uid://c42jf3hft6jo1" path="res://Escenas/instrucciones_unir.tscn" id="4_5rrej"]
+[ext_resource type="PackedScene" uid="uid://soivbvg68l7y" path="res://Piezas/box_imagen_match.tscn" id="5_pu0rm"]
+[ext_resource type="PackedScene" uid="uid://f8ju1ll5w53y" path="res://Piezas/box_texto_match.tscn" id="6_a68mb"]
 [ext_resource type="PackedScene" uid="uid://tbbkdsxy01pi" path="res://Escenas/Global/box_inside_game.tscn" id="7_oaiue"]
 
 [node name="Node2D" type="Node2D"]
@@ -20,17 +22,22 @@ position = Vector2(936, 48)
 [node name="InstruccionesUnir" parent="CanvasLayer" instance=ExtResource("4_5rrej")]
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxImages" type="VBoxContainer" parent="."]
-offset_left = 381.0
-offset_top = 236.0
-offset_right = 525.0
-offset_bottom = 812.0
+[node name="Box_imagen_match" parent="." instance=ExtResource("5_pu0rm")]
+position = Vector2(474, 319)
 
-[node name="VBoxWords" type="VBoxContainer" parent="."]
-offset_left = 832.0
-offset_top = 258.0
-offset_right = 1064.0
-offset_bottom = 787.0
-theme_override_constants/separation = 81
+[node name="Box_imagen_match2" parent="." instance=ExtResource("5_pu0rm")]
+position = Vector2(474, 463)
 
-[node name="line_container" type="Node2D" parent="."]
+[node name="Box_imagen_match3" parent="." instance=ExtResource("5_pu0rm")]
+position = Vector2(474, 606)
+
+[node name="Box_texto_match" parent="." instance=ExtResource("6_a68mb")]
+target = "squirrel"
+
+[node name="Box_texto_match2" parent="." instance=ExtResource("6_a68mb")]
+position = Vector2(0, 143)
+target = "woodpecker"
+
+[node name="Box_texto_match3" parent="." instance=ExtResource("6_a68mb")]
+position = Vector2(0, 284)
+target = "iguana"
