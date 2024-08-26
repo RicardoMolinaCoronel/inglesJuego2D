@@ -5,16 +5,11 @@ extends Node2D
 var blocked = false
 @onready var label = $Button/Label
 @onready var animation = $Animation
+var matched: bool = false
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	fondo_clic.visible = false
 	label.text = target.capitalize()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-
 
 func _on_button_pressed():
 	if blocked:
@@ -27,3 +22,9 @@ func animation_match():
 
 func animation_no_match():
 	animation.play("no_match")
+
+func mark_to_match():
+	matched = true
+
+func is_matched() -> bool:
+	return matched
