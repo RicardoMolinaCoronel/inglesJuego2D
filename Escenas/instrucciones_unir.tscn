@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/instrucciones_palabra.gd" id="1_5j4xw"]
 [ext_resource type="Shader" path="res://styles/juego_finalizado_menu.gdshader" id="2_m1g2y"]
 [ext_resource type="Texture2D" uid="uid://cio5bi6scfmqp" path="res://Sprites/unir_instrucciones_cuadro.png" id="3_khs63"]
-[ext_resource type="Theme" uid="uid://ewcgptrx3h2q" path="res://styles/btn_instrucciones_continuar.tres" id="4_vl7fc"]
+[ext_resource type="Theme" uid="uid://6v3wmvwfohbw" path="res://styles/instrucciones_continuar.tres" id="4_vl7fc"]
 [ext_resource type="VideoStream" path="res://styles/Lorem-ipsum-video-Dummy-video-for-your-website.ogv" id="5_p8klx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y25dw"]
