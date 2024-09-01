@@ -1,6 +1,6 @@
 extends Control
 
-const PATH_MUTE_IMAGE = "res://Sprites/buttons/bnt_mute.png"
+const PATH_MUTE_IMAGE = "res://Sprites/buttons/Boton_Silencio.png"
 const PATH_MUSIC_IMAGE = "res://Sprites/buttons/Boton_Musica.png"
 
 var music_bus = AudioServer.get_bus_index("Master")
