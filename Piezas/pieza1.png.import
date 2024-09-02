@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://352tm36sp14q"
-path="res://.godot/imported/apple.png-12ff7e69149c4d896bf113ec4d23c71c.ctex"
+uid="uid://bgffgqowcqe3v"
+path="res://.godot/imported/pieza1.png-417e27f2c208efc90c358eb8e6963ce4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/images_games/puzzle/apple.png"
-dest_files=["res://.godot/imported/apple.png-12ff7e69149c4d896bf113ec4d23c71c.ctex"]
+source_file="res://Piezas/pieza1.png"
+dest_files=["res://.godot/imported/pieza1.png-417e27f2c208efc90c358eb8e6963ce4.ctex"]
 
 [params]
 
