@@ -1,15 +1,24 @@
 extends Node2D
 var score = 0
+var bonus = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	updateScore()
+	score = Score.PlayerScore
 	pass
 
 func updateScore():
+	if Score.fastBonus:
+		bonus+=80
+	if Score.perfectBonus:
+		bonus+= 100
 	await get_tree().create_timer(1).timeout
-	while(score<1000):
+	var tempScore = score
+	while(score<(tempScore+Score.newScore+bonus)):
 		await get_tree().create_timer(0.001).timeout
 		score+=10
+	Score.OrderItScore += score
+	Score.PlayerScore+=score
 
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
