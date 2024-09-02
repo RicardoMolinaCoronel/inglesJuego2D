@@ -29,3 +29,7 @@ func _on_area_2d_area_exited(area):
 		occupied = false
 	pass # Replace with function body.
 
+func _reiniciar_variables():
+	occupied = false
+	current_node = null
+

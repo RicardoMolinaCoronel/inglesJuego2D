@@ -50,7 +50,6 @@ func _on_button_button_up():
 	pass
 
 func _on_update_phrase():
-	print("ENTRE")
 	originalpos = global_position
 	$"InteractivoLetra(vacio)/Label".text = letter
 
@@ -61,4 +60,12 @@ func _animacion_finalizado():
 	$AnimationPlayer.play("Final")
 	await $AnimationPlayer.animation_finished
 
+func _animacion_retorno():
+	$AnimationPlayer.play("Retorno")
+
+func _reiniciar_variables():
+	originalpos = Vector2(10,10)
+	snap_to = Vector2(0,0)
+	correct = false
+	
 

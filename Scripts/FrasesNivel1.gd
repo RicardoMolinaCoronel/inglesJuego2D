@@ -14,23 +14,26 @@ var instance
 var palabra ="bird"
 var instantiated = false
 var gano = false
-var palabrasEsp = ["El esta jugando futbol", "Le gusta jugar futbol"]
-var cadenas = [["He is", "playing", "football"], ["He likes", "to play", "football"]]
-var cadenasOrdenadas = [["He is", "playing", "football"], ["He likes", "to play", "football"]]
-var indiceCadena = 0
+var ganoRonda = false
+var palabrasEsp = ["El esta jugando futbol", "A el le gusta jugar futbol", "El juega fútbol todos los días" , "El patea muy fuerte"]
+var cadenas = [["He is", "playing", "football"], ["He likes", "to play", "football"], ["He plays", "football", "everyday"], ["He hits", "the ball", "very hard"]]
+var cadenasOrdenadas = [["He is", "playing", "football"], ["He likes", "to play", "football"], ["He plays", "football", "everyday"], ["He hits", "the ball", "very hard"]]
+var indiceCadena = -1
+var estadoInicialPiezas = []
+var rondas = 4
+var numeroRondas = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var random_index = randi() % cadenas.size()
-	indiceCadena = random_index
+	instance = pantallaVictoria.instantiate()
+	instantiated = true
 	emit_signal("set_timer")
 	emit_signal("update_title", "Puzzle")
 	emit_signal("update_difficulty", "Easy")
-	emit_signal("update_level", "1")
 	emit_signal("uptate_imagen_game", "puzzle/futbol1")
-	emit_signal("set_visible_sentence", palabrasEsp[random_index])
-	update_boxes(random_index)
-	instance = pantallaVictoria.instantiate()
-	instantiated = true
+	for i in range(3):
+		var pieza = $Cadenas.get_node("Pieza"+str(i))
+		estadoInicialPiezas.append({"position": pieza.position})
+	_empezar_ronda()
 	
 
 
@@ -38,10 +41,45 @@ func _ready():
 func _process(_delta):
 	if(instantiated):
 		if ($Cadenas/Pieza0.correct and $Cadenas/Pieza1.correct and
-		  $Cadenas/Pieza2.correct and !gano):
+		  $Cadenas/Pieza2.correct and numeroRondas == rondas and !gano):
 			gano = true
 			victory()
+		elif ($Cadenas/Pieza0.correct and $Cadenas/Pieza1.correct and
+		  $Cadenas/Pieza2.correct and numeroRondas < rondas and !ganoRonda and !gano):
+			ganoRonda = true
+			numeroRondas+=1
+			if(numeroRondas < rondas):		
+				rondaWin()
+			
 	pass
+
+func _empezar_ronda():		
+	indiceCadena += 1	
+	emit_signal("set_visible_sentence", palabrasEsp[indiceCadena])
+	emit_signal("update_level", str(indiceCadena+1)+"/4")
+	update_boxes(indiceCadena)
+	ganoRonda=false
+	
+
+func _reiniciar_componentes():
+	var x=0
+	for dicc in estadoInicialPiezas:
+		var pieza = $Cadenas.get_node("Pieza"+str(x))
+		var piezaBox = $Ordenada.get_node("piezaBox"+str(x))
+		pieza.position = dicc["position"]
+		pieza._reiniciar_variables()
+		piezaBox._reiniciar_variables()
+		x+=1
+	_animacion_retorno()
+	_empezar_ronda()
+
+func _animacion_retorno():
+	for i in range(3):
+		var pieza = $Cadenas.get_node("Pieza"+str(i))
+		pieza._animacion_retorno()
+	
+	
+
 
 func _dar_pista():
 	var numeros = [0, 1, 2] 
@@ -107,6 +145,17 @@ func victory():
 	while(instance.position.x > 0):
 		await get_tree().create_timer(0.000000001).timeout
 		instance.position.x-=50
+
+func rondaWin():
+	$AnimationPlayer.play("Gana")
+	var pieza0 = get_node("Cadenas/Pieza0")
+	var pieza1 = get_node("Cadenas/Pieza1")
+	var pieza2 = get_node("Cadenas/Pieza2")
+	await pieza0._animacion_finalizado()
+	await pieza1._animacion_finalizado()
+	await pieza2._animacion_finalizado()
+	await $AnimationPlayer.animation_finished
+	_reiniciar_componentes()
 	
 
 func _on_btn_go_back_pressed():
