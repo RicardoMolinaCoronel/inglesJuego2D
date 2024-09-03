@@ -40,6 +40,9 @@ func _on_button_button_up():
 			await $AnimationPlayer.animation_finished
 			correct = true
 		else:
+			var principal = get_parent().get_parent()
+			if(principal.precisionActual > principal.precisionMinima):
+				principal.precisionActual -= 10			
 			$AnimationPlayer.play("Incorrecto")
 			await $AnimationPlayer.animation_finished
 			position = originalpos

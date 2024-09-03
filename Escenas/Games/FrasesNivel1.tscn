@@ -132,21 +132,21 @@ texture = ExtResource("6_00qcf")
 [node name="Ordenada" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Ordenada"]
-position = Vector2(626, 760)
-scale = Vector2(0.227204, 0.227204)
+position = Vector2(654.34, 760)
+scale = Vector2(0.239555, 0.227204)
 texture = ExtResource("8_oxb7f")
 
 [node name="piezaBox1" parent="Ordenada" instance=ExtResource("8_wcpfu")]
-position = Vector2(626.42, 761)
+position = Vector2(666.42, 761)
 scale = Vector2(0.2, 0.2)
 letter = "She"
 
 [node name="piezaBox2" parent="Ordenada" instance=ExtResource("9_er4o8")]
-position = Vector2(864.62, 761)
+position = Vector2(904.62, 761)
 scale = Vector2(0.2, 0.2)
 
 [node name="piezaBox0" parent="Ordenada" instance=ExtResource("10_jefew")]
-position = Vector2(388, 761)
+position = Vector2(428, 761)
 scale = Vector2(0.2, 0.2)
 letter = "She"
 

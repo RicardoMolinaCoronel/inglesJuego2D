@@ -10,22 +10,37 @@ signal uptate_imagen_game(new_image)
 signal set_visible_sentence(new_sentence)
 signal update_phrase()
 var pantallaVictoria = preload("res://Escenas/PantallaVictoria.tscn")
+var pantallaAcaboTiempo = preload("res://Escenas/NivelFinalizado.tscn")
+var difuminado = preload("res://Piezas/ColorRectDifuminado.tscn")
 var instance
-var palabra ="bird"
+#var palabra ="bird"
 var instantiated = false
+var instanceAcaboTiempo
+var instantiatedAcaboTiempo = false
+var instanceDifuminado
+var instantiatedDifuminado = false
 var gano = false
 var ganoRonda = false
-var palabrasEsp = ["El esta jugando futbol", "A el le gusta jugar futbol", "El juega fútbol todos los días" , "El patea muy fuerte"]
+var palabrasEsp = ["El está jugando futbol", "A el le gusta jugar futbol", "El juega fútbol todos los días" , "El patea muy fuerte"]
 var cadenas = [["He is", "playing", "football"], ["He likes", "to play", "football"], ["He plays", "football", "everyday"], ["He hits", "the ball", "very hard"]]
 var cadenasOrdenadas = [["He is", "playing", "football"], ["He likes", "to play", "football"], ["He plays", "football", "everyday"], ["He hits", "the ball", "very hard"]]
 var indiceCadena = -1
 var estadoInicialPiezas = []
 var rondas = 4
 var numeroRondas = 0
+var precisionMinima = 20
+var precisionActual = 100
+var velocidad = 20
+var valorNivel = 100
+var tiempoCronometro = 120
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	instance = pantallaVictoria.instantiate()
 	instantiated = true
+	instanceAcaboTiempo = pantallaAcaboTiempo.instantiate()
+	instantiatedAcaboTiempo = true
+	instanceDifuminado = difuminado.instantiate()
+	instantiatedDifuminado = true
 	emit_signal("set_timer")
 	emit_signal("update_title", "Puzzle")
 	emit_signal("update_difficulty", "Easy")
@@ -33,6 +48,7 @@ func _ready():
 	for i in range(3):
 		var pieza = $Cadenas.get_node("Pieza"+str(i))
 		estadoInicialPiezas.append({"position": pieza.position})
+	tiempoCronometro = $Box_inside_game.time_seconds
 	_empezar_ronda()
 	
 
@@ -79,8 +95,6 @@ func _animacion_retorno():
 		pieza._animacion_retorno()
 	
 	
-
-
 func _dar_pista():
 	var numeros = [0, 1, 2] 
 	while numeros.size() > 0:
@@ -129,9 +143,22 @@ func cargar_nueva_textura(sprite, index):
 		nueva_textura = load("res://Sprites/mini_games/pieza2.png")
 	sprite.texture = nueva_textura
 		
+func _actualizar_velocidad():
+	var tiempoFinal = $Box_inside_game.time_seconds
+	if (tiempoFinal >  tiempoCronometro/1.5):
+		velocidad+=80
+	elif (tiempoFinal >  tiempoCronometro/2):
+		velocidad+=60
+	elif (tiempoFinal >  tiempoCronometro/4):
+		velocidad+=40
+	else:
+		velocidad+=0
 	
 func victory():
 	instance.position = Vector2(1000,0)
+	$Box_inside_game.timer.stop()
+	_actualizar_velocidad()
+	print(velocidad+precisionActual+valorNivel)
 	$AnimationPlayer.play("Gana")
 	var pieza0 = get_node("Cadenas/Pieza0")
 	var pieza1 = get_node("Cadenas/Pieza1")
@@ -145,6 +172,21 @@ func victory():
 	while(instance.position.x > 0):
 		await get_tree().create_timer(0.000000001).timeout
 		instance.position.x-=50
+
+func lose():
+	$Box_inside_game.timer.stop()
+	get_tree().paused = true
+	instanceAcaboTiempo.nombreEscenaDificultad = "DificultadOracion1.tscn"
+	instanceAcaboTiempo.position = Vector2(1000,0)
+	var canvas_layer = CanvasLayer.new()
+	canvas_layer.add_child(instanceDifuminado)
+	var canvas_layer1 = CanvasLayer.new()
+	canvas_layer1.add_child(instanceAcaboTiempo)
+	add_child(canvas_layer)
+	add_child(canvas_layer1)
+	while(instanceAcaboTiempo.position.x > 0):
+		await get_tree().create_timer(0.000000001).timeout
+		instanceAcaboTiempo.position.x-=50
 
 func rondaWin():
 	$AnimationPlayer.play("Gana")
