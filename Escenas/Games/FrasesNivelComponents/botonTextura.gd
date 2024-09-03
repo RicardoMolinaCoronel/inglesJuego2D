@@ -6,7 +6,7 @@ func _get_drag_data(at_position):
 	button.text = text
 	var estilo = preload(STYLE_WORDS)
 	var tema = set_style(estilo)
-	button.theme = tema		
+	button.theme = tema
 	button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	var preview = Control.new()
 	preview.add_child(button)

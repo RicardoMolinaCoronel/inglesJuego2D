@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi8376ftfhdca"
-path="res://.godot/imported/bnt_mute.png-a820e70ecaab73e0b8164f14f3c8f855.ctex"
+uid="uid://c3uifa2tgytbe"
+path="res://.godot/imported/tableroPuzzle.png-ae434081cb83f391f05f7a5a4bc239b0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/buttons/bnt_mute.png"
-dest_files=["res://.godot/imported/bnt_mute.png-a820e70ecaab73e0b8164f14f3c8f855.ctex"]
+source_file="res://Sprites/mini_games/tableroPuzzle.png"
+dest_files=["res://.godot/imported/tableroPuzzle.png-ae434081cb83f391f05f7a5a4bc239b0.ctex"]
 
 [params]
 

@@ -7,7 +7,7 @@ var time_seconds = 120
 
 @onready var title = $Title
 @onready var difficulty_value = $Difficulty_value
-@onready var level_value = $HBoxContainer2/Level_value
+@onready var level_value = $Level_value
 @onready var image = $image
 #@onready var sentence = $TextureRect2/Sentence
 @onready var sentense = $Sentense
@@ -75,6 +75,11 @@ func _on_btn_home_pressed():
 	ButtonClick.button_click()
 	get_tree().change_scene_to_file("res://Escenas/menu_juegos.tscn")
 	
-
+func _on_btn_instructions_pressed():
+	var padre = get_parent()
+	if padre and padre.has_method("_dar_pista"):
+		# Llamar a la función del nodo padre
+		padre._dar_pista()
+	else:
+		print("No se encontró la función en el nodo padre.")
 	
-

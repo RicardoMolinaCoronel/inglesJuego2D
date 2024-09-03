@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0qgj1a2j312l"
-path="res://.godot/imported/futbol.png-0dc97fb9f5aead5334336392e4d8b985.ctex"
+uid="uid://cfhe2tmg4745g"
+path="res://.godot/imported/TableroInfo.png-f711588be55fdd64433bc96d788617da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/images_games/puzzle/futbol.png"
-dest_files=["res://.godot/imported/futbol.png-0dc97fb9f5aead5334336392e4d8b985.ctex"]
+source_file="res://Sprites/mini_games/TableroInfo.png"
+dest_files=["res://.godot/imported/TableroInfo.png-f711588be55fdd64433bc96d788617da.ctex"]
 
 [params]
 

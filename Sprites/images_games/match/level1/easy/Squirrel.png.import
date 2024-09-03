@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdubdugpp08a7"
-path="res://.godot/imported/btn_music.png-253b1e9907b5563dabc3045c8b6f006d.ctex"
+uid="uid://b7bkg65hwaucn"
+path="res://.godot/imported/Squirrel.png-c2d9af4e3ac7282e3eddf92c5cb7cb78.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/buttons/btn_music.png"
-dest_files=["res://.godot/imported/btn_music.png-253b1e9907b5563dabc3045c8b6f006d.ctex"]
+source_file="res://Sprites/images_games/match/level1/easy/Squirrel.png"
+dest_files=["res://.godot/imported/Squirrel.png-c2d9af4e3ac7282e3eddf92c5cb7cb78.ctex"]
 
 [params]
 

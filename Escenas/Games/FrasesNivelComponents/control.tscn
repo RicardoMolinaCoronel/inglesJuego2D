@@ -32,6 +32,7 @@ offset_right = 8.0
 offset_bottom = 8.0
 
 [node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 17.0
 offset_top = 115.0
 offset_right = 437.0
