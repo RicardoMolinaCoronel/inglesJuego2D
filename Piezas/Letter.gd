@@ -9,9 +9,7 @@ var correct = false
 func _ready():
 	originalpos = global_position
 	$"InteractivoLetra(vacio)/Label".text = letter
-	
-	pass # Replace with function body.
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -24,12 +22,10 @@ func _process(_delta):
 func _get_drag_data(_at_position):
 	print("arrastando")
 
-
 func _on_button_button_down():
 	dragging = true
 	self.move_to_front()
 	pass 
-
 
 func _on_button_button_up():
 	dragging = false
@@ -43,6 +39,7 @@ func _on_button_button_up():
 			await $AnimationPlayer.animation_finished
 			position = originalpos
 			correct = false
+			Score.perfectBonus= false
 	else:
 		position = originalpos
 	

@@ -9,10 +9,15 @@ signal uptate_imagen_game(new_image)
 signal set_visible_word(new_word)
 var pantallaVictoria = preload("res://Escenas/PantallaVictoria.tscn")
 var instance
-var palabra ="bird"
+@export var palabra ="bird"
+@export var palabraES = "Ave"
 var instantiated = false
 var gano = false
-# Called when the node enters the scene tree for the first time.
+var Letters = palabra.split()
+
+
+
+
 func _ready():
 	emit_signal("set_timer")
 	emit_signal("update_title", "Order it")
@@ -23,7 +28,6 @@ func _ready():
 	instance = pantallaVictoria.instantiate()
 	instantiated = true
 	
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -36,6 +40,8 @@ func _process(_delta):
 
 
 func victory():
+	Score.newScore=1000
+	Score.LatestGame = Score.Games.OrderIt
 	instance.position = Vector2(1000,0)
 	$AudioStreamPlayer2D.play()
 	$AnimationPlayer.play("Gana")

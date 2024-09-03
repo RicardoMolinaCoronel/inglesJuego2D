@@ -312,3 +312,7 @@ letter = "D"
 libraries = {
 "": SubResource("AnimationLibrary_batyl")
 }
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 1269.0
+offset_bottom = 94.0
