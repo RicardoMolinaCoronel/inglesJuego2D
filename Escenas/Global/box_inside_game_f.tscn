@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dr445orecfavc"]
+[gd_scene load_steps=17 format=3 uid="uid://dr445orecfavc"]
 
 [ext_resource type="Script" path="res://Scripts/box_inside_game_f.gd" id="1_n32vc"]
 [ext_resource type="Texture2D" uid="uid://bqk1d4psul3o6" path="res://Sprites/global/Fondo_mesa_juego.png" id="2_gmnlc"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cbsgw3yum2qos" path="res://Sprites/buttons/Boton_Salir.png" id="6_eh2ex"]
 [ext_resource type="Texture2D" uid="uid://b4fkf3jss7us" path="res://Sprites/buttons/btn_salir_hover.png" id="7_auq3i"]
 [ext_resource type="Texture2D" uid="uid://c1brivjy218qn" path="res://Sprites/buttons/Boton_Ayuda.png" id="8_b0hq3"]
+[ext_resource type="FontFile" uid="uid://by6docfjh045t" path="res://Fonts/Retropix-Regular.ttf" id="9_5gw4h"]
 [ext_resource type="Texture2D" uid="uid://ddjtd8r6fmliv" path="res://Sprites/buttons/Boton_pregunta_hover.png" id="9_me665"]
 [ext_resource type="Texture2D" uid="uid://b0ngeledb26bf" path="res://Sprites/buttons/Boton_Opciones.png" id="10_bygvl"]
 [ext_resource type="Texture2D" uid="uid://bnak4eajterau" path="res://Sprites/buttons/Boton_Opcioens_hover.png" id="11_gsky3"]
@@ -136,9 +137,8 @@ offset_top = 432.0
 offset_right = 54.9998
 offset_bottom = 496.0
 size_flags_stretch_ratio = 0.0
-theme = ExtResource("4_gr8xd")
-theme_override_constants/outline_size = 5
-theme_override_constants/line_spacing = -7
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_5gw4h")
 theme_override_font_sizes/font_size = 25
 horizontal_alignment = 1
 vertical_alignment = 1

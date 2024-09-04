@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://Piezas/piezaPuzzle.gd" id="1_y2obs"]
 [ext_resource type="Texture2D" uid="uid://be1024ohrfg16" path="res://Sprites/mini_games/pieza2.png" id="2_h6p50"]
-[ext_resource type="FontFile" uid="uid://bl1il7t5684pv" path="res://Fonts/Minecraft.ttf" id="3_wedeo"]
+[ext_resource type="FontFile" uid="uid://by6docfjh045t" path="res://Fonts/Retropix-Regular.ttf" id="3_wuleg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1rv6w"]
-font = ExtResource("3_wedeo")
-font_size = 150
+font = ExtResource("3_wuleg")
+font_size = 155
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wn6io"]

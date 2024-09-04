@@ -5,6 +5,16 @@ var current_node = "none"
 @export var letter = "A"
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var poligono = $Pista2
+	var puntos = poligono.polygon
+	var line = $Pista2/Line2D
+	line.points = puntos
+	line.closed = true
+	#line.draw_dashed_line(puntos[0], puntos[puntos.size()-1], Color(1.0,1.0,1.0,1.0), 5.0, 2.0, true )
+	#line.draw_dashed_line()
+	
+	
+	
 	pass # Replace with function body.
 
 

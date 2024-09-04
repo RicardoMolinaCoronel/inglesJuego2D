@@ -5,9 +5,9 @@ extends Node2D
 var velocidad = 0
 var precision = 0
 var niveles = 0
-var maximoVelocidad = 1000
-var maximoPrecision = 1000
-var maximoNiveles = 1000
+var maximoVelocidad = 100
+var maximoPrecision = 100
+var maximoNiveles = 100
 var maximoScaleX = 0.256
 enum ventana {PUZZLE = 0, MATCH = 1, ORDER = 2}
 var ventanaActual = ventana.PUZZLE
@@ -26,10 +26,31 @@ func _process(delta):
 	pass
 	
 func _leer_archivo():
-	velocidad = randi() % 1001
-	precision = randi() % 1001
-	niveles = randi() % 1001
-	
+	match ventanaActual:
+		0:
+			_cargar_puntajes("user://puntajesPuzzle.dat")
+		1:
+			_cargar_puntajes("user://puntajesOrder.dat")
+		2:
+			_cargar_puntajes("user://puntajesMatch.dat")	
+	#velocidad = randi() % 1001
+	#precision = randi() % 1001
+	#niveles = randi() % 1001
+
+func _cargar_puntajes(path):
+	if FileAccess.file_exists(path):  # Verifica si el archivo existe  
+		var file = FileAccess.open(path, FileAccess.READ)# Abre el archivo en modo lectura
+		var puntajes = file.get_var()  # Lee el diccionario de puntajes almacenado
+		file.close()  # Cierra el archivo después de leer
+		print("Puntajes cargados: ", puntajes)
+		velocidad = int(puntajes["easy"]["velocidad"]) + int(puntajes["medium"]["velocidad"]) + int(puntajes["hard"]["velocidad"])
+		precision = int(puntajes["easy"]["precision"]) + int(puntajes["medium"]["precision"]) + int(puntajes["hard"]["precision"])
+		niveles =  int(puntajes["easy"]["niveles"]) + int(puntajes["medium"]["niveles"]) + int(puntajes["hard"]["niveles"])
+	else:
+		velocidad = 0
+		precision = 0
+		niveles = 0
+
 func _actualizar_valores():
 	var posVelInicio = barraVelocidad.position.x - (barraVelocidad.scale.x * barraVelocidad.texture.get_size().x * 0.5)
 	barraVelocidad.scale.x = (float(velocidad)/float(maximoVelocidad)) * float(maximoScaleX)

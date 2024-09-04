@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://c5uu1sg454gi8"]
 
 [ext_resource type="Script" path="res://Scripts/FrasesNivel1.gd" id="1_okuio"]
-[ext_resource type="PackedScene" uid="uid://b86ewj2wptytq" path="res://Escenas/instrucciones_palabra.tscn" id="2_tv30q"]
+[ext_resource type="PackedScene" uid="uid://dyhyi34qkkc8g" path="res://Escenas/instrucciones_frases.tscn" id="2_kvqyg"]
 [ext_resource type="Texture2D" uid="uid://dfqhr1lcxhukc" path="res://Sprites/global/Background_game.png" id="3_7mnxy"]
 [ext_resource type="PackedScene" uid="uid://dr445orecfavc" path="res://Escenas/Global/box_inside_game_f.tscn" id="3_ayreh"]
 [ext_resource type="AudioStream" uid="uid://dcc8bp4mt3gek" path="res://Sonido/kids-saying-yay-sound-effect_3.mp3" id="5_kb656"]
@@ -108,7 +108,7 @@ metadata/_edit_vertical_guides_ = [300.0]
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
-[node name="InstruccionesPalabra" parent="CanvasLayer2" instance=ExtResource("2_tv30q")]
+[node name="InstruccionesFrases" parent="CanvasLayer2" instance=ExtResource("2_kvqyg")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(636.987, 454.85)
