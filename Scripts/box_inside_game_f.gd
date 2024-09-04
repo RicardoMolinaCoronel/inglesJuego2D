@@ -77,6 +77,7 @@ func _on_btn_home_pressed():
 	get_tree().change_scene_to_file("res://Escenas/menu_juegos.tscn")
 	
 func _on_btn_instructions_pressed():
+	ButtonClick.button_click()
 	var padre = get_parent()
 	if padre and padre.has_method("_dar_pista"):
 		# Llamar a la función del nodo padre
@@ -84,3 +85,8 @@ func _on_btn_instructions_pressed():
 	else:
 		print("No se encontró la función en el nodo padre.")
 	
+
+
+func _on_btn_help_pressed():
+	ButtonClick.button_click()
+	get_tree().change_scene_to_file("res://Escenas/DificultadOracion1.tscn")
