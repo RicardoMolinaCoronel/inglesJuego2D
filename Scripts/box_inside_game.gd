@@ -68,7 +68,7 @@ func _on_timer_timeout():
 	if time_seconds > 0:
 		time_seconds -= 1
 	else:
-		get_tree().change_scene_to_file("res://Escenas/menu_juegos.tscn")
+		get_parent().lose()
 	temporizador.text = str(time_seconds)
 
 func _on_btn_home_pressed():
@@ -82,3 +82,9 @@ func _on_btn_instructions_pressed():
 		padre._dar_pista()
 	else:
 		print("No se encontró la función en el nodo padre.")
+		
+
+
+
+func _on_btn_help_pressed():
+	get_parent().go_selection()

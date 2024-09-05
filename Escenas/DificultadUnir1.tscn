@@ -1,5 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://ss04y7ph35hj"]
 
+[ext_resource type="Script" path="res://Scripts/DificultadUnir1.tres.gd" id="1_27khe"]
 [ext_resource type="PackedScene" uid="uid://xwnqhcqrd6mc" path="res://Escenas/Global/btn_sounds.tscn" id="2_ciqgj"]
 [ext_resource type="PackedScene" uid="uid://875h5ifgqt53" path="res://Escenas/Global/btn_go_back.tscn" id="3_01rqh"]
 [ext_resource type="Texture2D" uid="uid://b63gw1pfqwq50" path="res://Sprites/buttons/Boton_easy.png" id="4_fsai1"]
@@ -10,48 +11,6 @@
 [ext_resource type="Script" path="res://Scripts/AnimationPlayer1.gd" id="9_7tsse"]
 [ext_resource type="Script" path="res://Scripts/AnimationPlayer.gd" id="10_u2ch7"]
 [ext_resource type="PackedScene" uid="uid://eru4eluqm35p" path="res://Escenas/Global/parallax_background_difficult.tscn" id="11_jngem"]
-
-[sub_resource type="GDScript" id="GDScript_xgyhc"]
-script/source = "extends Node2D
-
-#Signals
-signal update_scene(path)
-signal update_title(new_title)
-signal set_timer()
-signal update_difficulty(new_difficulty)
-signal update_level(new_level)
-signal set_not_visible_image()
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	emit_signal(\"set_timer\")
-	emit_signal(\"update_scene\", \"menu_juegos\")
-	emit_signal(\"update_title\", \"Match it\")
-	emit_signal(\"update_difficulty\", \"Easy\")
-	emit_signal(\"update_level\", \"1\")
-	emit_signal(\"set_not_visible_image\")
-	
-
-
-
-func _on_btn_go_back_pressed():
-	ButtonClick.button_click()
-	get_tree().change_scene_to_file(\"res://Escenas/menu_juegos.tscn\")
-
-
-func _on_button_pressed():
-	ButtonClick.button_click()
-	get_tree().change_scene_to_file(\"res://Escenas/SeleccionUnir.tscn\")
-
-
-func _on_texture_button_mouse_entered():
-	pass # Replace with function body.
-
-
-func _on_texture_button_pressed():
-	ButtonClick.button_click()
-	get_tree().change_scene_to_file(\"res://Escenas/SeleccionUnir.tscn\")
-"
 
 [sub_resource type="Animation" id="Animation_aggsv"]
 length = 0.001
@@ -150,7 +109,7 @@ _data = {
 }
 
 [node name="Node2D" type="Node2D"]
-script = SubResource("GDScript_xgyhc")
+script = ExtResource("1_27khe")
 metadata/_edit_vertical_guides_ = [605.0, 1061.0]
 metadata/_edit_horizontal_guides_ = [-100.0, 115.0, 663.0]
 

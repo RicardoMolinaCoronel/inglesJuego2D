@@ -42,6 +42,12 @@ var instantiated: bool = false
 var gano: bool = false
 var pantallaVictoria = preload("res://Escenas/PantallaVictoria.tscn")
 var instance
+var pantallaAcaboTiempo = preload("res://Escenas/NivelFinalizado.tscn")
+var difuminado = preload("res://Piezas/ColorRectDifuminado.tscn")
+var instanceAcaboTiempo
+var instantiatedAcaboTiempo = false
+var instanceDifuminado
+var instantiatedDifuminado = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -53,6 +59,10 @@ func _ready():
 	emit_signal("set_not_visible_image")
 	instance = pantallaVictoria.instantiate()
 	instantiated = true
+	instanceAcaboTiempo = pantallaAcaboTiempo.instantiate()
+	instantiatedAcaboTiempo = true
+	instanceDifuminado = difuminado.instantiate()
+	instantiatedDifuminado = true
 	iniciar_juego()
 
 func _process(_delta):
@@ -177,3 +187,20 @@ func animation_win():
 	$AnimationPlayer.play("Win")
 	await $AnimationPlayer.animation_finished
 	
+func lose():
+	$Box_inside_game.timer.stop()
+	get_tree().paused = true
+	instanceAcaboTiempo.nombreEscenaDificultad = "UnirFacil1.tscn"
+	instanceAcaboTiempo.position = Vector2(1000,0)
+	var canvas_layer = CanvasLayer.new()
+	canvas_layer.add_child(instanceDifuminado)
+	var canvas_layer1 = CanvasLayer.new()
+	canvas_layer1.add_child(instanceAcaboTiempo)
+	add_child(canvas_layer)
+	add_child(canvas_layer1)
+	while(instanceAcaboTiempo.position.x > 0):
+		await get_tree().create_timer(0.000000001).timeout
+		instanceAcaboTiempo.position.x-=50
+		
+func go_selection():
+	get_tree().change_scene_to_file("res://Escenas/menu_juegos.tscn")
