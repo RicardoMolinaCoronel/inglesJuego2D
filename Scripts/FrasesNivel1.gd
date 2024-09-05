@@ -186,12 +186,13 @@ func _actualizar_puntajes(path):
 			content["easy"]["precision"] = precisionActual
 		if int(nivelesPasado) < valorNivel:
 			content["easy"]["niveles"] = valorNivel
-			
-		if file.remove(path) == OK:
-			print("Archivo existente borrado.")
-			_guardar_puntajes(content)
-		else:
-			print("Error al intentar borrar el archivo.")
+		if int(velocidadPasada) < velocidad || int(precisionPasada) < precisionActual || int(nivelesPasado) < valorNivel:
+			if DirAccess.remove_absolute(path) == OK:
+	 
+				print("Archivo existente borrado.")
+				_guardar_puntajes(content, path)
+			else:
+				print("Error al intentar borrar el archivo.")
 		
 		
 	else:
@@ -210,13 +211,13 @@ func _actualizar_puntajes(path):
 				"niveles":0	
 			}
 		}
-		_guardar_puntajes(content)		
+		_guardar_puntajes(content, path)		
 		
 			 
 	
 
-func _guardar_puntajes(content):
-	var file = FileAccess.open("user://puntajesPuzzle.dat",FileAccess.WRITE)
+func _guardar_puntajes(content, path):
+	var file = FileAccess.open(path ,FileAccess.WRITE)
 	file.store_var(content)
 	file = null
 
@@ -224,11 +225,12 @@ func victory():
 	var totalActual = velocidad+precisionActual+valorNivel
 
 	Score.newScore = totalActual
+	Score.LatestGame = Score.Games.Puzzle
 	instance.position = Vector2(1000,0)
 	$Box_inside_game.timer.stop()
 	_actualizar_velocidad()
 	print("Velocidad: "+str(velocidad)+", "+"Precision: "+str(precisionActual)+", "+"Niveles: "+str(valorNivel)+", Total: "+str(totalActual))
-	_actualizar_puntajes("user://puntajesMatch.dat")
+	_actualizar_puntajes("user://puntajesPuzzle.dat")
 	$AnimationPlayer.play("Gana")
 	var pieza0 = get_node("Cadenas/Pieza0")
 	var pieza1 = get_node("Cadenas/Pieza1")
