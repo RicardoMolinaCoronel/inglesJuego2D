@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Games/Unir.gd" id="1_ufw03"]
 [ext_resource type="PackedScene" uid="uid://c183geb74nt45" path="res://Escenas/Global/parallax_background.tscn" id="2_nv8xs"]
-[ext_resource type="PackedScene" uid="uid://c42jf3hft6jo1" path="res://Escenas/instrucciones_unir.tscn" id="4_5rrej"]
+[ext_resource type="PackedScene" uid="uid://cgkovomtm6rsg" path="res://Escenas/instrucciones_unir.tscn" id="4_5rrej"]
 [ext_resource type="PackedScene" uid="uid://soivbvg68l7y" path="res://Piezas/box_imagen_match.tscn" id="5_pu0rm"]
 [ext_resource type="PackedScene" uid="uid://f8ju1ll5w53y" path="res://Piezas/box_texto_match.tscn" id="6_a68mb"]
 [ext_resource type="PackedScene" uid="uid://tbbkdsxy01pi" path="res://Escenas/Global/box_inside_game.tscn" id="7_oaiue"]
@@ -214,7 +214,6 @@ offset_left = 20.0
 offset_top = -17.0
 offset_right = 20.0
 offset_bottom = -17.0
-metadata/_edit_use_anchors_ = true
 
 [node name="Box_imagen_match" parent="." instance=ExtResource("5_pu0rm")]
 position = Vector2(451, 319)
@@ -227,15 +226,12 @@ position = Vector2(451, 682)
 
 [node name="Box_texto_match" parent="." instance=ExtResource("6_a68mb")]
 position = Vector2(49, 0)
-target = "squirrel"
 
 [node name="Box_texto_match2" parent="." instance=ExtResource("6_a68mb")]
 position = Vector2(49, 180)
-target = "woodpecker"
 
 [node name="Box_texto_match3" parent="." instance=ExtResource("6_a68mb")]
 position = Vector2(49, 360)
-target = "iguana"
 
 [node name="Correct" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)

@@ -15,6 +15,7 @@ func _ready():
 func put_image(url_path, entry_value):
 	imagen.texture = load(url_path)
 	value = entry_value
+	
 
 
 func _on_button_pressed():
@@ -29,4 +30,9 @@ func animation_match():
 func animation_no_match():
 	animation_image.play("No_match")
 	
-
+func animation_pista():
+	animation_image.play("Pista")
+	
+func animation_reset():
+	blocked = false
+	animation_image.play("RESET")

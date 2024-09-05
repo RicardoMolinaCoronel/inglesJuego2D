@@ -1,10 +1,25 @@
-[gd_scene load_steps=10 format=3 uid="uid://f8ju1ll5w53y"]
+[gd_scene load_steps=11 format=3 uid="uid://f8ju1ll5w53y"]
 
 [ext_resource type="Script" path="res://Piezas/box_texto_match.gd" id="1_lfryq"]
 [ext_resource type="Texture2D" uid="uid://dmiccrmd0y8jt" path="res://Sprites/global/Tabla.png" id="1_nfdb7"]
 [ext_resource type="Theme" uid="uid://dbj5vbxx0tl3i" path="res://styles/style_buttons_match.tres" id="2_jcky5"]
 [ext_resource type="Texture2D" uid="uid://dtuf41hstb0wb" path="res://Sprites/images_games/match/backgroung_middle_clic.png" id="2_o6jti"]
 [ext_resource type="FontFile" uid="uid://bl1il7t5684pv" path="res://Fonts/Minecraft.ttf" id="5_6j3fx"]
+
+[sub_resource type="Animation" id="Animation_60cxl"]
+resource_name = "Pista"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.784314, 0.513726, 0.894118, 1), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_t5gja"]
 resource_name = "RESET"
@@ -32,6 +47,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_olkvq"]
@@ -188,6 +215,7 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0vcc6"]
 _data = {
+"Pista": SubResource("Animation_60cxl"),
 "RESET": SubResource("Animation_t5gja"),
 "match": SubResource("Animation_olkvq"),
 "no_match": SubResource("Animation_dcv8p")

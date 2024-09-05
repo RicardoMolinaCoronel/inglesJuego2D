@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cd30qhy4vwpem"
-path="res://.godot/imported/bird.png-addcd77fde1fd56f663c02130b319ec0.ctex"
+uid="uid://dn20a2m2b7ow3"
+path="res://.godot/imported/Cricket.png-f614ac497faccea3fbf3b7cc5e8fd640.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/images_games/match/level1/easy/bird.png"
-dest_files=["res://.godot/imported/bird.png-addcd77fde1fd56f663c02130b319ec0.ctex"]
+source_file="res://Sprites/images_games/match/easy/Cricket.png"
+dest_files=["res://.godot/imported/Cricket.png-f614ac497faccea3fbf3b7cc5e8fd640.ctex"]
 
 [params]
 

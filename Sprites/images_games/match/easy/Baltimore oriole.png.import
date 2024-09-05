@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7bkg65hwaucn"
-path="res://.godot/imported/Squirrel.png-c2d9af4e3ac7282e3eddf92c5cb7cb78.ctex"
+uid="uid://cp4ldfskmup6m"
+path="res://.godot/imported/Baltimore oriole.png-a4373c1d678990b8ffca2dd607fc5e9c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/images_games/match/level1/easy/Squirrel.png"
-dest_files=["res://.godot/imported/Squirrel.png-c2d9af4e3ac7282e3eddf92c5cb7cb78.ctex"]
+source_file="res://Sprites/images_games/match/easy/Baltimore oriole.png"
+dest_files=["res://.godot/imported/Baltimore oriole.png-a4373c1d678990b8ffca2dd607fc5e9c.ctex"]
 
 [params]
 

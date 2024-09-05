@@ -80,7 +80,6 @@ func _on_btn_instructions_pressed():
 	ButtonClick.button_click()
 	var padre = get_parent()
 	if padre and padre.has_method("_dar_pista"):
-		# Llamar a la función del nodo padre
 		padre._dar_pista()
 	else:
 		print("No se encontró la función en el nodo padre.")

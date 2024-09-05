@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0ppllynhwexs"
-path="res://.godot/imported/Woodpecker.png-8f74808882b23576e95104e6e5773ed4.ctex"
+uid="uid://cmyyb5mr6o64y"
+path="res://.godot/imported/Ant-eater.png-c6a53b4d32709831f9fe1e7104382de9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/images_games/match/level1/easy/Woodpecker.png"
-dest_files=["res://.godot/imported/Woodpecker.png-8f74808882b23576e95104e6e5773ed4.ctex"]
+source_file="res://Sprites/images_games/match/easy/Ant-eater.png"
+dest_files=["res://.godot/imported/Ant-eater.png-c6a53b4d32709831f9fe1e7104382de9.ctex"]
 
 [params]
 

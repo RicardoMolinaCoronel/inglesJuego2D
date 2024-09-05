@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkpjerry8o3rw"
-path="res://.godot/imported/lake.png-ec334e2485a5b02a8fc8c882e9cddd5c.ctex"
+uid="uid://6184tveiy1pq"
+path="res://.godot/imported/Sloth.png-285bf5354f0af42b697e15ee14adf1d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/images_games/match/level1/easy/lake.png"
-dest_files=["res://.godot/imported/lake.png-ec334e2485a5b02a8fc8c882e9cddd5c.ctex"]
+source_file="res://Sprites/images_games/match/easy/Sloth.png"
+dest_files=["res://.godot/imported/Sloth.png-285bf5354f0af42b697e15ee14adf1d3.ctex"]
 
 [params]
 
