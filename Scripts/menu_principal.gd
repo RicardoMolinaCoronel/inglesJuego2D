@@ -2,7 +2,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#var path = "user://puntajesPuzzle.dat"
+	var path = "user://puntajesPuzzle.dat"
 	#if FileAccess.file_exists(path):
 		#if DirAccess.remove_absolute(path) == OK:
 			#print("Archivo existente borrado.")
