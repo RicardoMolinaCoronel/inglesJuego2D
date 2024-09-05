@@ -22,21 +22,21 @@ position = Vector2(944, 48)
 script = ExtResource("1_n32vc")
 
 [node name="Fondo_mesa_juego" type="Sprite2D" parent="."]
-position = Vector2(-290, 407)
+position = Vector2(-306, 407)
 scale = Vector2(0.214403, 0.21336)
 texture = ExtResource("2_gmnlc")
 
 [node name="Cronometro" type="Sprite2D" parent="."]
-position = Vector2(-284.935, 97.45)
+position = Vector2(-300.935, 97.45)
 scale = Vector2(0.223445, 0.256048)
 texture = ExtResource("3_2r5pb")
 
 [node name="Temporizador" type="Label" parent="."]
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = -432.0
+offset_left = -448.0
 offset_top = 64.0
-offset_right = -136.0
+offset_right = -152.0
 offset_bottom = 144.0
 grow_horizontal = 2
 theme = ExtResource("4_gr8xd")
@@ -50,15 +50,15 @@ text_direction = 1
 autostart = true
 
 [node name="TableInfo" type="Sprite2D" parent="."]
-position = Vector2(-720.5, 161.358)
+position = Vector2(-736.5, 161.358)
 scale = Vector2(0.357785, 0.357785)
 texture = ExtResource("5_7tma6")
 
 [node name="Title" type="Label" parent="."]
 clip_contents = true
-offset_left = -808.0
+offset_left = -824.0
 offset_top = 42.0
-offset_right = -632.0
+offset_right = -648.0
 offset_bottom = 104.0
 size_flags_horizontal = 4
 size_flags_stretch_ratio = 0.0
@@ -71,9 +71,9 @@ text_direction = 1
 
 [node name="Difficulty_value" type="Label" parent="."]
 clip_contents = true
-offset_left = -808.0
+offset_left = -824.0
 offset_top = 136.0
-offset_right = -632.0
+offset_right = -648.0
 offset_bottom = 200.0
 size_flags_stretch_ratio = 0.0
 theme = ExtResource("4_gr8xd")
@@ -85,9 +85,9 @@ text_direction = 1
 
 [node name="Level" type="Label" parent="."]
 clip_contents = true
-offset_left = -810.0
+offset_left = -826.0
 offset_top = 241.0
-offset_right = -710.0
+offset_right = -726.0
 offset_bottom = 269.0
 size_flags_stretch_ratio = 0.0
 theme = ExtResource("4_gr8xd")
@@ -98,9 +98,9 @@ text_direction = 1
 
 [node name="Level_value" type="Label" parent="."]
 clip_contents = true
-offset_left = -706.0
+offset_left = -722.0
 offset_top = 241.0
-offset_right = -626.0
+offset_right = -642.0
 offset_bottom = 269.0
 size_flags_stretch_ratio = 0.0
 theme = ExtResource("4_gr8xd")
@@ -110,12 +110,12 @@ vertical_alignment = 1
 text_direction = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-290.091, 282.5)
+position = Vector2(-306.091, 282.5)
 scale = Vector2(0.204, 0.204)
 texture = ExtResource("5_0wqdt")
 
 [node name="image" type="Sprite2D" parent="."]
-position = Vector2(-289, 279)
+position = Vector2(-305, 279)
 scale = Vector2(0.170212, 0.170212)
 texture = ExtResource("5_0wqdt")
 
@@ -126,15 +126,15 @@ scale = Vector2(0.223, 0.256)
 texture = ExtResource("3_gjulp")
 
 [node name="Sentense" type="Sprite2D" parent="."]
-position = Vector2(-279, 464.68)
+position = Vector2(-295, 464.68)
 scale = Vector2(0.22522, 0.256)
 texture = ExtResource("6_ack2r")
 
 [node name="phrase_text" type="Label" parent="."]
 clip_contents = true
-offset_left = -617.0
+offset_left = -633.0
 offset_top = 432.0
-offset_right = 54.9998
+offset_right = 38.9998
 offset_bottom = 496.0
 size_flags_stretch_ratio = 0.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -150,9 +150,9 @@ text_direction = 1
 [node name="btns_inside_box_game" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 20.0
+offset_left = 4.0
 offset_top = 539.0
-offset_right = 268.0
+offset_right = 252.0
 offset_bottom = 579.0
 
 [node name="btn_home" type="TextureButton" parent="btns_inside_box_game"]

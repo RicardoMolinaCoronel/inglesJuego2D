@@ -21,9 +21,9 @@ var instanceDifuminado
 var instantiatedDifuminado = false
 var gano = false
 var ganoRonda = false
-var palabrasEsp = ["El está jugando futbol", "A el le gusta jugar futbol", "El juega fútbol todos los días" , "El patea muy fuerte"]
-var cadenas = [["He is", "playing", "football"], ["He likes", "to play", "football"], ["He plays", "football", "everyday"], ["He hits", "the ball", "very hard"]]
-var cadenasOrdenadas = [["He is", "playing", "football"], ["He likes", "to play", "football"], ["He plays", "football", "everyday"], ["He hits", "the ball", "very hard"]]
+var palabrasEsp = ["El juega fútbol muy bien", "A el le gusta jugar futbol", "El juega fútbol todos los días" , "El patea muy fuerte"]
+var cadenas = [["He plays", "football", "very well"], ["He likes", "to play", "football"], ["He plays", "football", "everyday"], ["He hits", "the ball", "very hard"]]
+var cadenasOrdenadas = [["He plays", "football", "very well"], ["He likes", "to play", "football"], ["He plays", "football", "everyday"], ["He hits", "the ball", "very hard"]]
 var indiceCadena = -1
 var estadoInicialPiezas = []
 var rondas = 4
@@ -186,12 +186,13 @@ func _actualizar_puntajes(path):
 			content["easy"]["precision"] = precisionActual
 		if int(nivelesPasado) < valorNivel:
 			content["easy"]["niveles"] = valorNivel
-			
-		if file.remove(path) == OK:
-			print("Archivo existente borrado.")
-			_guardar_puntajes(content)
-		else:
-			print("Error al intentar borrar el archivo.")
+		if int(velocidadPasada) < velocidad || int(precisionPasada) < precisionActual || int(nivelesPasado) < valorNivel:
+			if DirAccess.remove_absolute(path) == OK:
+	 
+				print("Archivo existente borrado.")
+				_guardar_puntajes(content, path)
+			else:
+				print("Error al intentar borrar el archivo.")
 		
 		
 	else:
@@ -210,25 +211,26 @@ func _actualizar_puntajes(path):
 				"niveles":0	
 			}
 		}
-		_guardar_puntajes(content)		
+		_guardar_puntajes(content, path)		
 		
 			 
 	
 
-func _guardar_puntajes(content):
-	var file = FileAccess.open("user://puntajesPuzzle.dat",FileAccess.WRITE)
+func _guardar_puntajes(content, path):
+	var file = FileAccess.open(path ,FileAccess.WRITE)
 	file.store_var(content)
 	file = null
 
 func victory():
-	var totalActual = velocidad+precisionActual+valorNivel
-
-	Score.newScore = totalActual
 	instance.position = Vector2(1000,0)
 	$Box_inside_game.timer.stop()
 	_actualizar_velocidad()
+	_actualizar_puntajes("user://puntajesPuzzle.dat")
+	var totalActual = velocidad+precisionActual+valorNivel
 	print("Velocidad: "+str(velocidad)+", "+"Precision: "+str(precisionActual)+", "+"Niveles: "+str(valorNivel)+", Total: "+str(totalActual))
-	_actualizar_puntajes("user://puntajesMatch.dat")
+	Score.newScore = totalActual
+	Score.LatestGame = Score.Games.Puzzle
+	Score.perfectBonus = false
 	$AnimationPlayer.play("Gana")
 	var pieza0 = get_node("Cadenas/Pieza0")
 	var pieza1 = get_node("Cadenas/Pieza1")
