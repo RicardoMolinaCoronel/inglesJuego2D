@@ -1,38 +1,22 @@
-[gd_scene load_steps=12 format=3 uid="uid://dyhyi34qkkc8g"]
+[gd_scene load_steps=11 format=3 uid="uid://dyhyi34qkkc8g"]
 
 [ext_resource type="Script" path="res://Scripts/instrucciones_palabra.gd" id="1_y2ban"]
-[ext_resource type="Shader" path="res://styles/juego_finalizado_menu.gdshader" id="2_kxace"]
+[ext_resource type="PackedScene" uid="uid://dglbcxrsa3qv3" path="res://Piezas/ColorRectDifuminado.tscn" id="2_g45qk"]
 [ext_resource type="Texture2D" uid="uid://yloqygiy6yno" path="res://Sprites/tableroInstruccionesPuzzle.png" id="3_2tgfi"]
 [ext_resource type="FontFile" uid="uid://by6docfjh045t" path="res://Fonts/Retropix-Regular.ttf" id="4_nfqst"]
 [ext_resource type="Theme" uid="uid://de2l622hp6f3y" path="res://styles/btn_instruccionesSiguiente.tres" id="5_n4u3m"]
 [ext_resource type="VideoStream" path="res://Videos/videoInstruccionesFrases.ogv" id="6_tbhvq"]
 [ext_resource type="AudioStream" uid="uid://dsff4jokaafnm" path="res://Sonido/cancion1.mp3" id="7_r0jlj"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_y25dw"]
-shader = ExtResource("2_kxace")
-shader_parameter/lod = 0.0
-
 [sub_resource type="Animation" id="Animation_cpjhj"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/path = NodePath("TextureRect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TextureRect:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -45,22 +29,10 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/path = NodePath("TextureRect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.574]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TextureRect:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -83,14 +55,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_y2ban")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_y25dw")
+[node name="ColorRect2" parent="." instance=ExtResource("2_g45qk")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0)

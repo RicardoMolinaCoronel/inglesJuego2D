@@ -44,7 +44,20 @@ func _on_update_level(new_level):
 func _on_uptate_imagen_game(new_image):
 	print(new_image)
 	var url_image = PATH_IMAGE_GAME + new_image + EXTENTION_IMAGE_GAME
-	image.texture = load(url_image)
+	var max_size = Vector2(225, 225)
+	var new_texture = load(url_image)
+	image.texture = new_texture
+	 # Obtener el tamaño de la textura (la imagen original)
+	var texture_size = image.texture.get_size()
+	
+	# Calcular la escala para que la imagen quepa en el espacio disponible
+	var scale_x = max_size.x / texture_size.x
+	var scale_y = max_size.y / texture_size.y
+	
+	# Escoge la menor de las dos escalas para mantener la proporción
+	var final_scale = min(scale_x, scale_y)
+	image.scale = Vector2(final_scale, final_scale)
+
 
 func _on_set_not_visible_image():
 	image.visible = false

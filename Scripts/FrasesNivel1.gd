@@ -21,12 +21,16 @@ var instanceDifuminado
 var instantiatedDifuminado = false
 var gano = false
 var ganoRonda = false
-var palabrasEsp = ["El juega fútbol muy bien", "A el le gusta jugar futbol", "El juega fútbol todos los días" , "El patea muy fuerte"]
-var cadenas = [["He plays", "football", "very well"], ["He likes", "to play", "football"], ["He plays", "football", "everyday"], ["He hits", "the ball", "very hard"]]
-var cadenasOrdenadas = [["He plays", "football", "very well"], ["He likes", "to play", "football"], ["He plays", "football", "everyday"], ["He hits", "the ball", "very hard"]]
-var indiceCadena = -1
+var palabrasEsp = BancoFrases.palabrasEsp
+var cadenas = BancoFrases.cadenas
+var cadenasOrdenadas = BancoFrases.cadenasOrdenadas
+var images = BancoFrases.images
+var indicesImages = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+var indiceNivel = -1
+var indiceImagen = 0
+var indiceCadena = 0
 var estadoInicialPiezas = []
-var rondas = 4
+var rondas = 5
 var numeroRondas = 0
 var precisionMinima = 20
 var precisionActual = 100
@@ -44,7 +48,6 @@ func _ready():
 	emit_signal("set_timer")
 	emit_signal("update_title", "Puzzle")
 	emit_signal("update_difficulty", "Easy")
-	emit_signal("uptate_imagen_game", "puzzle/futbol1")
 	for i in range(3):
 		var pieza = $Cadenas.get_node("Pieza"+str(i))
 		estadoInicialPiezas.append({"position": pieza.position})
@@ -70,9 +73,16 @@ func _process(_delta):
 	pass
 
 func _empezar_ronda():		
-	indiceCadena += 1	
-	emit_signal("set_visible_sentence", palabrasEsp[indiceCadena])
-	emit_signal("update_level", str(indiceCadena+1)+"/4")
+	indiceNivel += 1
+	var indiceAl = randi_range(0, indicesImages.size()-1)
+	indiceImagen = indicesImages[indiceAl]
+	indicesImages.remove_at(indiceAl)
+	print(str(indiceImagen))
+	indiceCadena = randi_range(0, cadenas[indiceImagen].size()-1)
+	print(str(indiceCadena))
+	emit_signal("set_visible_sentence", palabrasEsp[indiceImagen][indiceCadena])
+	emit_signal("update_level", str(indiceNivel+1)+"/"+str(rondas))
+	emit_signal("uptate_imagen_game", "puzzle/"+images[indiceImagen])
 	update_boxes(indiceCadena)
 	ganoRonda=false
 	
@@ -115,17 +125,17 @@ func _dar_pista():
 	
 
 func update_boxes(index: int):
-	cadenas[index].shuffle()
+	cadenas[indiceImagen][index].shuffle()
 	var x=0	
-	for cadena in cadenas[index]:
+	for cadena in cadenas[indiceImagen][index]:
 		var nombrePieza = "Pieza"+str(x)
 		var nombrePiezaBox = "piezaBox"+str(x)
 		var pieza_objetivo = get_node("Cadenas/"+nombrePieza)
 		pieza_objetivo.letter = cadena
 		var pieza_box_objetivo = get_node("Ordenada/"+nombrePiezaBox)
-		pieza_box_objetivo.letter = cadenasOrdenadas[index][x]
+		pieza_box_objetivo.letter = cadenasOrdenadas[indiceImagen][index][x]
 		x+=1
-		var posicion = cadenasOrdenadas[index].find(cadena)
+		var posicion = cadenasOrdenadas[indiceImagen][index].find(cadena)
 		var sprite_pz_objetivo = get_node("Cadenas/"+nombrePieza+"/InteractivoLetra(vacio)")
 		cargar_nueva_textura(sprite_pz_objetivo, posicion)
 		

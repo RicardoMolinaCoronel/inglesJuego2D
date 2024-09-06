@@ -24,6 +24,7 @@ buses/default_bus_layout=""
 ButtonClick="*res://Escenas/Global/buttonClick.tscn"
 BackgroundMusic="*res://Escenas/Global/background_music.tscn"
 Score="*res://Scripts/Global/Score.gd"
+BancoFrases="*res://Scripts/Global/BancoFrases.gd"
 
 [display]
 

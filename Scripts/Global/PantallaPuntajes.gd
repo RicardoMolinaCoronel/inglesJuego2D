@@ -5,9 +5,9 @@ extends Node2D
 var velocidad = 0
 var precision = 0
 var niveles = 0
-var maximoVelocidad = 100
-var maximoPrecision = 100
-var maximoNiveles = 100
+var maximoVelocidad = 300
+var maximoPrecision = 300
+var maximoNiveles = 300
 var maximoScaleX = 0.256
 enum ventana {PUZZLE = 0, MATCH = 1, ORDER = 2}
 var ventanaActual = ventana.PUZZLE
@@ -28,10 +28,13 @@ func _process(delta):
 func _leer_archivo():
 	match ventanaActual:
 		0:
+			$Label4.text= "Puzzle's Total"
 			_cargar_puntajes("user://puntajesPuzzle.dat")
 		1:
+			$Label4.text= "Match It's Total"
 			_cargar_puntajes("user://puntajesOrder.dat")
 		2:
+			$Label4.text= "Order It's Total"
 			_cargar_puntajes("user://puntajesMatch.dat")	
 	#velocidad = randi() % 1001
 	#precision = randi() % 1001
@@ -67,10 +70,15 @@ func _actualizar_valores():
 	var posNDespues = posNInicio + (barraNiveles.scale.x * barraNiveles.texture.get_size().x * 0.5)
 	barraNiveles.position.x = posNDespues
 	
-	$VelocidadPuntaje.text = str(velocidad)
-	$PrecisionPuntaje.text = str(precision)
-	$NivelesPuntaje.text = str(niveles)
-	$PuntajeTotal.text = str(velocidad+precision+niveles)
+	
+	var velocidadP = (float(velocidad)/float(maximoVelocidad))*100
+	var precisionP =  (float(precision)/float(maximoPrecision))*100
+	var nivelesP =   (float(niveles)/float(maximoNiveles))*100
+	print(str(velocidadP))
+	$VelocidadPuntaje.text = str(int(velocidadP))+"%"
+	$PrecisionPuntaje.text = str(int(precisionP))+"%"
+	$NivelesPuntaje.text = str(int(nivelesP))+"%"
+	$PuntajeTotal.text = str(int((velocidadP+precisionP+nivelesP)/3))+"%"
 	match ventanaActual:
 		ventana.PUZZLE:
 			$MinijuegoNombre.text = "Puzzle"
