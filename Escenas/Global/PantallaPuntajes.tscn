@@ -74,8 +74,8 @@ scale = Vector2(0.565657, 0.169662)
 texture = ExtResource("5_o5mnc")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(192, 177)
-scale = Vector2(0.233533, 0.233533)
+position = Vector2(213.792, 152.235)
+scale = Vector2(0.298779, 0.298779)
 texture = ExtResource("7_77o4p")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
@@ -193,24 +193,24 @@ vertical_alignment = 1
 
 [node name="MinijuegoNombre" type="Label" parent="."]
 offset_left = 118.0
-offset_top = 129.0
-offset_right = 268.0
-offset_bottom = 173.0
+offset_top = 89.0
+offset_right = 307.0
+offset_bottom = 142.0
 theme = ExtResource("3_313r5")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 30
 text = "Puzzle"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label14" type="Label" parent="."]
 offset_left = 115.0
-offset_top = 190.0
-offset_right = 265.0
-offset_bottom = 234.0
+offset_top = 166.0
+offset_right = 305.0
+offset_bottom = 219.0
 theme = ExtResource("3_313r5")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 30
 text = "Scores"
 horizontal_alignment = 1
 vertical_alignment = 1

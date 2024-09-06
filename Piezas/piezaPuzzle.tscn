@@ -12,7 +12,7 @@ outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wn6io"]
-size = Vector2(458, 316)
+size = Vector2(388, 260)
 
 [sub_resource type="Animation" id="Animation_d5m34"]
 resource_name = "Correcto"
@@ -194,8 +194,7 @@ scale = Vector2(1.5, 1.5)
 position = Vector2(-1, -10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
-position = Vector2(-1, -1)
+position = Vector2(21, 1)
 shape = SubResource("RectangleShape2D_wn6io")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

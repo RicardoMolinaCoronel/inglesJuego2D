@@ -33,7 +33,7 @@ func _on_button_button_down():
 
 func _on_button_button_up():
 	dragging = false
-	if position.distance_to(snap_to)<45:
+	if position.distance_to(snap_to)<70:
 		position = snap_to
 		if letter == target_letter:
 			$AnimationPlayer.play("Correcto")
