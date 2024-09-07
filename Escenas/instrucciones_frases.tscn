@@ -102,9 +102,9 @@ fit_content = true
 
 [node name="Button" type="Button" parent="TextureRect"]
 layout_mode = 0
-offset_left = 384.0
+offset_left = 352.0
 offset_top = 642.0
-offset_right = 641.0
+offset_right = 609.0
 offset_bottom = 722.0
 mouse_default_cursor_shape = 2
 theme = ExtResource("5_n4u3m")
