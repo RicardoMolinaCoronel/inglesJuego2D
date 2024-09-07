@@ -123,10 +123,10 @@ offset_bottom = 52.32
 mouse_default_cursor_shape = 2
 
 [node name="TextureButton" type="TextureButton" parent="."]
-offset_left = 547.0
-offset_top = 460.0
-offset_right = 737.0
-offset_bottom = 504.0
+offset_left = 539.0
+offset_top = 468.0
+offset_right = 732.0
+offset_bottom = 519.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("4_4wf2h")
 texture_hover = ExtResource("5_xa846")
@@ -134,27 +134,27 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="TextureButton2" type="TextureButton" parent="."]
-offset_left = 544.0
-offset_top = 530.0
-offset_right = 737.0
-offset_bottom = 581.0
+offset_left = 536.0
+offset_top = 538.0
+offset_right = 729.0
+offset_bottom = 589.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("6_vm467")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="TextureButton3" type="TextureButton" parent="."]
-offset_left = 545.0
-offset_top = 603.0
-offset_right = 739.0
-offset_bottom = 656.0
+offset_left = 537.0
+offset_top = 611.0
+offset_right = 730.0
+offset_bottom = 662.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("7_nsijd")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(636, 548)
+position = Vector2(628, 556)
 scale = Vector2(0.244, 0.244)
 texture = ExtResource("8_be7nf")
 hframes = 2
@@ -166,7 +166,7 @@ libraries = {
 script = ExtResource("9_mok4k")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(636, 627)
+position = Vector2(628, 635)
 scale = Vector2(0.244444, 0.244444)
 texture = ExtResource("8_be7nf")
 hframes = 2

@@ -30,7 +30,7 @@ var indiceNivel = -1
 var indiceImagen = 0
 var indiceCadena = 0
 var estadoInicialPiezas = []
-var rondas = 5
+var rondas = 4
 var numeroRondas = 0
 var precisionMinima = 20
 var precisionActual = 100
@@ -110,12 +110,14 @@ func _dar_pista():
 	while numeros.size() > 0:
 		# Selecciona un índice aleatorio dentro del rango de la lista
 		var indice_aleatorio = randi() % numeros.size()     
+		print(indice_aleatorio)
 		# Obtiene el número en el índice aleatorio
-		var numero_seleccionado = numeros[indice_aleatorio]        
+		var numero_seleccionado = numeros[indice_aleatorio] 
+		print(numero_seleccionado)       
 		var pieza = "Pieza"+str(numero_seleccionado)
 		var nodePieza = $Cadenas.get_node(pieza)
 		if(!nodePieza.correct):
-			var posicionCadena = cadenasOrdenadas[indiceCadena].find(nodePieza.letter)
+			var posicionCadena = cadenasOrdenadas[indiceImagen][indiceCadena].find(nodePieza.letter)
 			var piezaBox = "piezaBox"+str(posicionCadena)
 			var nodePiezaBox = $Ordenada.get_node(piezaBox)
 			nodePieza._animacion_pista()
@@ -250,7 +252,12 @@ func victory():
 	await pieza2._animacion_finalizado()
 	await $AnimationPlayer.animation_finished
 	$AudioStreamPlayer2D.play()
-	add_child(instance)
+	var canvas_layer = CanvasLayer.new()
+	canvas_layer.add_child(instanceDifuminado)
+	var canvas_layer1 = CanvasLayer.new()
+	canvas_layer1.add_child(instance)
+	add_child(canvas_layer)
+	add_child(canvas_layer1)
 	while(instance.position.x > 0):
 		await get_tree().create_timer(0.000000001).timeout
 		instance.position.x-=50
