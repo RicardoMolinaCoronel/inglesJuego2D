@@ -236,12 +236,14 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 [node name="Tabla" type="Sprite2D" parent="Button"]
 position = Vector2(149, 33)
 scale = Vector2(0.21565, 0.224193)
+skew = -0.0628319
 texture = ExtResource("1_nfdb7")
 
 [node name="Fondo_clic" type="Sprite2D" parent="Button"]
 visible = false
 position = Vector2(148, 32.5)
 scale = Vector2(0.227236, 0.243363)
+skew = -0.0645772
 texture = ExtResource("2_o6jti")
 
 [node name="Label" type="Label" parent="Button"]

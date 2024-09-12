@@ -16,6 +16,12 @@ var rondas = 4
 var numeroRondas = 1
 var ganoRonda = false
 
+var precisionMinima = 20
+var precisionActual = 100
+var velocidad = 20
+var valorNivel = 100
+var tiempoCronometro = 120
+
 var selected_image: Node2D = null
 var image1 = "res://Sprites/images_games/match/easy/Iguana.png"
 var image2 = "res://Sprites/images_games/match/easy/Squirrel.png"
@@ -63,6 +69,7 @@ func _ready():
 	instantiatedAcaboTiempo = true
 	instanceDifuminado = difuminado.instantiate()
 	instantiatedDifuminado = true
+	tiempoCronometro = $Box_inside_game.time_seconds
 	iniciar_juego()
 
 func _process(_delta):
@@ -176,6 +183,14 @@ func _dar_pista():
 func victory():
 	$AudioStreamPlayer2D.play()
 	instance.position = Vector2(1000,0)
+	$Box_inside_game.timer.stop()
+	_actualizar_velocidad()
+	_actualizar_puntajes("user://puntajesMatch.dat")
+	var totalActual = velocidad+precisionActual+valorNivel
+	print("Velocidad: "+str(velocidad)+", "+"Precision: "+str(precisionActual)+", "+"Niveles: "+str(valorNivel)+", Total: "+str(totalActual))
+	Score.newScore = totalActual
+	Score.LatestGame = Score.Games.Puzzle
+	Score.perfectBonus = false
 	animation_win()
 	await $AnimationPlayer.animation_finished
 	add_child(instance)
@@ -201,6 +216,81 @@ func lose():
 	while(instanceAcaboTiempo.position.x > 0):
 		await get_tree().create_timer(0.000000001).timeout
 		instanceAcaboTiempo.position.x-=50
+
+func _actualizar_velocidad():
+	var tiempoFinal = $Box_inside_game.time_seconds
+	if (tiempoFinal >  tiempoCronometro/1.8):
+		velocidad+=80
+	elif (tiempoFinal >  tiempoCronometro/2):
+		velocidad+=60
+	elif (tiempoFinal >  tiempoCronometro/4):
+		velocidad+=40
+	else:
+		velocidad+=0
+	var content = {"niveles": valorNivel, "velocidad": velocidad}
+
+func _actualizar_puntajes(path):
+	var content
+	if FileAccess.file_exists(path):  # Verifica si el archivo existe  
+		var file = FileAccess.open(path, FileAccess.READ)# Abre el archivo en modo lectura
+		var puntajes = file.get_var()  # Lee el diccionario de puntajes almacenado
+		file.close()  # Cierra el archivo después de leer
+		print("Puntajes cargados: ", puntajes)
+		var velocidadPasada = puntajes["easy"]["velocidad"]
+		var precisionPasada = puntajes["easy"]["precision"]
+		var nivelesPasado = puntajes["easy"]["niveles"]
+		content = {
+			"easy": {
+				"velocidad":velocidadPasada,
+				"precision":precisionPasada,
+				"niveles":nivelesPasado	
+			},"medium": {
+				"velocidad":0,
+				"precision":0,
+				"niveles":0
+			},"hard": {
+				"velocidad":0,
+				"precision":0,
+				"niveles":0	
+			}
+		}
+		if int(velocidadPasada) < velocidad:
+			content["easy"]["velocidad"] = velocidad
+		if int(precisionPasada) < precisionActual:
+			content["easy"]["precision"] = precisionActual
+		if int(nivelesPasado) < valorNivel:
+			content["easy"]["niveles"] = valorNivel
+		if int(velocidadPasada) < velocidad || int(precisionPasada) < precisionActual || int(nivelesPasado) < valorNivel:
+			if DirAccess.remove_absolute(path) == OK:
+	 
+				print("Archivo existente borrado.")
+				_guardar_puntajes(content, path)
+			else:
+				print("Error al intentar borrar el archivo.")
 		
+		
+	else:
+		content = {
+			"easy": {
+				"velocidad":velocidad,
+				"precision":precisionActual,
+				"niveles":valorNivel	
+			},"medium": {
+				"velocidad":0,
+				"precision":0,
+				"niveles":0
+			},"hard": {
+				"velocidad":0,
+				"precision":0,
+				"niveles":0	
+			}
+		}
+		_guardar_puntajes(content, path)
+
+func _guardar_puntajes(content, path):
+	var file = FileAccess.open(path ,FileAccess.WRITE)
+	file.store_var(content)
+	file = null
+
 func go_selection():
 	get_tree().change_scene_to_file("res://Escenas/menu_juegos.tscn")
