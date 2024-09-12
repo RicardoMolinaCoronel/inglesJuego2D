@@ -15,7 +15,7 @@ var instanceAcaboTiempo
 var instantiatedAcaboTiempo = false
 var instanceDifuminado
 var instantiatedDifuminado = false
-var palabras = {"Ave": "BIRD", "Pelota": "BALL", "Gavilán": "HAWK", "Pozo": "WELL"}
+var palabras = {"Ave": "BIRD", "Pelota": "BALL", "Gavilán": "HAWK", "Cantar": "SING"}
 @export var palabra ="BIRD"
 @export var palabraES = "Ave"
 var instantiated = false
@@ -26,6 +26,7 @@ var rondaActual = 1
 var tiempoCronometro = 120
 var velocidad = 20
 var perfect = 100
+var palabraAnterior
 
 func _ready():
 	Score.perfectBonus=100
@@ -70,6 +71,10 @@ func setLetters():
 		tempLetters.shuffle()
 		if (tempLetters[0]!=letters[0]):
 			break
+	if(palabraAnterior != null):
+		$Imagenes.get_node(palabraAnterior).visible = false
+	$Imagenes.get_node(palabraES).visible=true
+	
 	$Letras/Letter.setLetter(tempLetters[0])
 	$Letras/Letter2.setLetter(tempLetters[1])
 	$Letras/Letter3.setLetter(tempLetters[2])
@@ -124,6 +129,7 @@ func _dar_pista():
 					return
 					
 func nuevaRonda():
+	palabraAnterior=palabraES
 	rondaActual+=1
 	emit_signal("update_level", str(rondaActual)+"/4")
 	palabras.erase(palabraES)
@@ -140,7 +146,6 @@ func nuevaRonda():
 	$Letras/Letter3.resetPos()
 	$Letras/Letter4.resetPos()
 	setLetters()
-	$Sprite2D2.texture
 
 func actualizar_velocidad():
 	var tiempoFinal = $Box_inside_game.time_seconds

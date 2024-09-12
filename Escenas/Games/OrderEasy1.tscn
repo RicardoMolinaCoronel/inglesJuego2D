@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ceb5bp0c88f5p"]
+[gd_scene load_steps=17 format=3 uid="uid://ceb5bp0c88f5p"]
 
 [ext_resource type="Script" path="res://Scripts/Games/OrderEasy.gd" id="1_7688g"]
 [ext_resource type="PackedScene" uid="uid://b86ewj2wptytq" path="res://Escenas/instrucciones_palabra.tscn" id="2_glekj"]
@@ -9,7 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://8r4ho23wivj1" path="res://Sprites/images_games/order/Ave.png" id="6_kfe06"]
 [ext_resource type="Texture2D" uid="uid://b6y57hjy58jvc" path="res://Sprites/images_games/order/Fondo de letra.png" id="7_7asfs"]
 [ext_resource type="PackedScene" uid="uid://ci1b1c7km51ni" path="res://Piezas/Letterbox.tscn" id="8_p0hl2"]
+[ext_resource type="Texture2D" uid="uid://cjttlkm233dmy" path="res://Sprites/images_games/puzzle/cantan.png" id="8_svp3l"]
+[ext_resource type="Texture2D" uid="uid://bguh1fkcnrphy" path="res://Sprites/images_games/puzzle/futbol1.png" id="9_jkmci"]
 [ext_resource type="PackedScene" uid="uid://dj6ij2dh6vwpr" path="res://Piezas/Letter.tscn" id="9_vr83x"]
+[ext_resource type="Texture2D" uid="uid://fm5joy81l1fl" path="res://Sprites/images_games/match/easy/Gray-backed Hawk.png" id="10_54bjq"]
 
 [sub_resource type="Animation" id="Animation_4b8yg"]
 resource_name = "Gana"
@@ -215,7 +218,7 @@ _data = {
 "RESET": SubResource("Animation_kijen")
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 script = ExtResource("1_7688g")
 metadata/_edit_horizontal_guides_ = [-100.0]
 metadata/_edit_vertical_guides_ = [300.0, 637.0]
@@ -242,11 +245,32 @@ position = Vector2(648.072, 337.75)
 scale = Vector2(0.2236, 0.2236)
 texture = ExtResource("6_3xxap")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="Imagenes" type="Node2D" parent="."]
+
+[node name="Ave" type="Sprite2D" parent="Imagenes"]
+visible = false
 modulate = Color(0.901961, 1, 1, 1)
 position = Vector2(647.239, 339.125)
 scale = Vector2(0.2238, 0.2238)
 texture = ExtResource("6_kfe06")
+
+[node name="Cantar" type="Sprite2D" parent="Imagenes"]
+visible = false
+position = Vector2(647, 341)
+scale = Vector2(0.0486826, 0.0486826)
+texture = ExtResource("8_svp3l")
+
+[node name="Pelota" type="Sprite2D" parent="Imagenes"]
+visible = false
+position = Vector2(651, 340)
+scale = Vector2(0.229978, 0.22271)
+texture = ExtResource("9_jkmci")
+
+[node name="Gavilán" type="Sprite2D" parent="Imagenes"]
+visible = false
+position = Vector2(638, 342)
+scale = Vector2(0.148148, 0.148148)
+texture = ExtResource("10_54bjq")
 
 [node name="Desordenada" type="Node2D" parent="."]
 
