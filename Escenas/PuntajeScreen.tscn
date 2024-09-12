@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://4axweujk3q73"]
+[gd_scene load_steps=12 format=3 uid="uid://4axweujk3q73"]
 
 [ext_resource type="Script" path="res://Scripts/Puntaje.gd" id="1_da5bc"]
 [ext_resource type="Texture2D" uid="uid://dfqhr1lcxhukc" path="res://Sprites/global/Background_game.png" id="2_2sjkm"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://btk1xkyf2fyr8" path="res://Sprites/buttons/Boton_Next.png" id="5_mfcgm"]
 [ext_resource type="FontFile" uid="uid://bl1il7t5684pv" path="res://Fonts/Minecraft.ttf" id="6_63w4k"]
 [ext_resource type="Texture2D" uid="uid://dysynh8dy4kgi" path="res://Sprites/global/texto felicitaciones.png" id="6_li3sf"]
+[ext_resource type="AudioStream" uid="uid://bfv3xkxn5hs8y" path="res://Sonido/subidaPuntaje.mp3" id="8_spwxl"]
 [ext_resource type="Texture2D" uid="uid://b6adqoc1dhqe5" path="res://Sprites/Hojas en letrero.png" id="9_v2qdo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_htnof"]
@@ -113,5 +114,8 @@ offset_right = 732.0
 offset_bottom = 428.0
 text = "Tu puntaje"
 label_settings = SubResource("LabelSettings_htnof")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_spwxl")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
