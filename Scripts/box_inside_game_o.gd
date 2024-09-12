@@ -3,7 +3,7 @@ extends Node2D
 const PATH_IMAGE_GAME = "res://Sprites/images_games/"
 const EXTENTION_IMAGE_GAME = ".png"
 
-var time_seconds = 120
+var time_seconds = 10
 
 @onready var title = $Title
 @onready var difficulty_value = $Difficulty_value
@@ -68,8 +68,8 @@ func _on_timer_timeout():
 	if time_seconds > 0:
 		time_seconds -= 1
 	else:
-		get_tree().change_scene_to_file("res://Escenas/menu_juegos.tscn")
-		#get_parent().lose()
+		#get_tree().change_scene_to_file("res://Escenas/menu_juegos.tscn")
+		get_parent().lose()
 	temporizador.text = str(time_seconds)
 
 func _on_btn_home_pressed():

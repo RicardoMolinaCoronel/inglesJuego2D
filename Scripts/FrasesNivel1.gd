@@ -39,7 +39,7 @@ var valorNivel = 100
 var tiempoCronometro = 120
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Score.perfectBonus = true
+	Score.perfectBonus = 0
 	instance = pantallaVictoria.instantiate()
 	instantiated = true
 	instanceAcaboTiempo = pantallaAcaboTiempo.instantiate()
@@ -240,9 +240,11 @@ func victory():
 	_actualizar_puntajes("user://puntajesPuzzle.dat")
 	var totalActual = velocidad+precisionActual+valorNivel
 	print("Velocidad: "+str(velocidad)+", "+"Precision: "+str(precisionActual)+", "+"Niveles: "+str(valorNivel)+", Total: "+str(totalActual))
-	Score.newScore = totalActual
+	Score.newScore = valorNivel
+	Score.fastBonus = velocidad
+	Score.perfectBonus = precisionActual
 	Score.LatestGame = Score.Games.Puzzle
-	Score.perfectBonus = false
+
 	$AnimationPlayer.play("Gana")
 	var pieza0 = get_node("Cadenas/Pieza0")
 	var pieza1 = get_node("Cadenas/Pieza1")

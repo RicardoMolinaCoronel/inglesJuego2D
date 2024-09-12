@@ -8,7 +8,13 @@ signal update_level(new_level)
 signal uptate_imagen_game(new_image)
 signal set_visible_word(new_word)
 var pantallaVictoria = preload("res://Escenas/PantallaVictoria.tscn")
+var pantallaAcaboTiempo = preload("res://Escenas/NivelFinalizado.tscn")
+var difuminado = preload("res://Piezas/ColorRectDifuminado.tscn")
 var instance
+var instanceAcaboTiempo
+var instantiatedAcaboTiempo = false
+var instanceDifuminado
+var instantiatedDifuminado = false
 var palabras = {"Ave": "BIRD", "Pelota": "BALL", "Gavilán": "HAWK", "Pozo": "WELL"}
 @export var palabra ="BIRD"
 @export var palabraES = "Ave"
@@ -17,7 +23,7 @@ var gano = false
 var letters
 var rondas = 4
 var rondaActual = 1
-var tiempoCronometro
+var tiempoCronometro = 120
 var velocidad = 20
 var perfect = 100
 
@@ -30,6 +36,10 @@ func _ready():
 	emit_signal("uptate_imagen_game", "Ave")
 	instance = pantallaVictoria.instantiate()
 	instantiated = true
+	instanceAcaboTiempo = pantallaAcaboTiempo.instantiate()
+	instantiatedAcaboTiempo = true
+	instanceDifuminado = difuminado.instantiate()
+	instantiatedDifuminado = true
 	setLetters()
 	tiempoCronometro = $Box_inside_game.time_seconds
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -70,18 +80,39 @@ func setLetters():
 	$Ordenada/Letterbox8.setLetter(letters[3])
 
 func victory():
+	$Box_inside_game.timer.stop()
 	actualizar_velocidad()
-	Score.newScore=300
+	Score.newScore=100
 	Score.fastBonus=velocidad
 	Score.LatestGame = Score.Games.OrderIt
 	instance.position = Vector2(1000,0)
 	$AudioStreamPlayer2D.play()
 	$AnimationPlayer.play("Gana")
 	await $AnimationPlayer.animation_finished
-	add_child(instance)
+	var canvas_layer = CanvasLayer.new()
+	canvas_layer.add_child(instanceDifuminado)
+	var canvas_layer1 = CanvasLayer.new()
+	canvas_layer1.add_child(instance)
+	add_child(canvas_layer)
+	add_child(canvas_layer1)
 	while(instance.position.x > 0):
 		await get_tree().create_timer(0.000000001).timeout
 		instance.position.x-=50
+
+func lose():
+	$Box_inside_game.timer.stop()
+	get_tree().paused = true
+	instanceAcaboTiempo.nombreEscenaDificultad = "DificultadPalabra1.tscn"
+	instanceAcaboTiempo.position = Vector2(1000,0)
+	var canvas_layer = CanvasLayer.new()
+	canvas_layer.add_child(instanceDifuminado)
+	var canvas_layer1 = CanvasLayer.new()
+	canvas_layer1.add_child(instanceAcaboTiempo)
+	add_child(canvas_layer)
+	add_child(canvas_layer1)
+	while(instanceAcaboTiempo.position.x > 0):
+		await get_tree().create_timer(0.000000001).timeout
+		instanceAcaboTiempo.position.x-=50
 
 func _dar_pista():
 	for i in $Letras.get_children():
