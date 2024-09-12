@@ -41,7 +41,8 @@ func _on_button_button_up():
 			await $AnimationPlayer.animation_finished
 			position = originalpos
 			correct = false
-			Score.perfectBonus= false
+			if(Score.perfectBonus>20):
+				Score.perfectBonus-=10
 	else:
 		position = originalpos
 	
