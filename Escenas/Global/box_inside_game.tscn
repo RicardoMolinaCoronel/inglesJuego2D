@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://tbbkdsxy01pi"]
+[gd_scene load_steps=15 format=3 uid="uid://tbbkdsxy01pi"]
 
 [ext_resource type="Script" path="res://Scripts/box_inside_game.gd" id="1_ggi3j"]
-[ext_resource type="Theme" path="res://styles/box_inside_game_text.tres" id="2_ik7mp"]
+[ext_resource type="Theme" uid="uid://lcgg2qybthjn" path="res://styles/box_inside_game_text.tres" id="2_ik7mp"]
+[ext_resource type="Texture2D" uid="uid://cfhe2tmg4745g" path="res://Sprites/mini_games/TableroInfo.png" id="5_wvib8"]
 [ext_resource type="Texture2D" uid="uid://cbsgw3yum2qos" path="res://Sprites/buttons/Boton_Salir.png" id="6_jumv7"]
 [ext_resource type="FontFile" uid="uid://by6docfjh045t" path="res://Fonts/Retropix-Regular.ttf" id="6_xqjxm"]
 [ext_resource type="Texture2D" uid="uid://b4fkf3jss7us" path="res://Sprites/buttons/btn_salir_hover.png" id="7_3cmuo"]
@@ -46,17 +47,17 @@ text_direction = 1
 [node name="Timer" type="Timer" parent="Temporizador"]
 autostart = true
 
-[node name="table_title" type="Sprite2D" parent="."]
-position = Vector2(-721.935, 77.45)
-scale = Vector2(0.13, 0.19)
-texture = ExtResource("11_2rioo")
+[node name="TableroInfo" type="Sprite2D" parent="."]
+position = Vector2(-750.286, 161)
+scale = Vector2(0.315228, 0.358)
+texture = ExtResource("5_wvib8")
 
 [node name="Title" type="Label" parent="."]
 clip_contents = true
-offset_left = -808.0
-offset_top = 50.0
-offset_right = -632.0
-offset_bottom = 112.0
+offset_left = -848.0
+offset_top = 36.0
+offset_right = -656.0
+offset_bottom = 98.0
 size_flags_horizontal = 4
 size_flags_stretch_ratio = 0.0
 theme = ExtResource("2_ik7mp")
@@ -66,16 +67,11 @@ vertical_alignment = 1
 uppercase = true
 text_direction = 1
 
-[node name="table_difficulty" type="Sprite2D" parent="."]
-position = Vector2(-721.935, 155.45)
-scale = Vector2(0.13, 0.19)
-texture = ExtResource("11_2rioo")
-
 [node name="Difficulty_value" type="Label" parent="."]
 clip_contents = true
-offset_left = -808.0
-offset_top = 128.0
-offset_right = -632.0
+offset_left = -846.0
+offset_top = 130.0
+offset_right = -652.0
 offset_bottom = 192.0
 size_flags_stretch_ratio = 0.0
 theme = ExtResource("2_ik7mp")
@@ -85,16 +81,11 @@ vertical_alignment = 1
 uppercase = true
 text_direction = 1
 
-[node name="table_level" type="Sprite2D" parent="."]
-position = Vector2(-721.935, 233.45)
-scale = Vector2(0.13, 0.19)
-texture = ExtResource("11_2rioo")
-
 [node name="HBoxContainer2" type="HBoxContainer" parent="."]
-offset_left = -808.0
-offset_top = 206.0
-offset_right = -632.0
-offset_bottom = 272.0
+offset_left = -845.0
+offset_top = 222.0
+offset_right = -654.0
+offset_bottom = 280.0
 size_flags_horizontal = 4
 alignment = 1
 
