@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bqk1d4psul3o6" path="res://Sprites/global/Fondo_mesa_juego.png" id="2_gmnlc"]
 [ext_resource type="Texture2D" uid="uid://bknjy17d3aemu" path="res://Sprites/mini_games/CronometroContainer.png" id="3_2r5pb"]
 [ext_resource type="Texture2D" uid="uid://dmiccrmd0y8jt" path="res://Sprites/global/Tabla.png" id="3_gjulp"]
-[ext_resource type="Theme" path="res://styles/box_inside_game_text.tres" id="4_gr8xd"]
+[ext_resource type="Theme" uid="uid://lcgg2qybthjn" path="res://styles/box_inside_game_text.tres" id="4_gr8xd"]
 [ext_resource type="Texture2D" uid="uid://ddyoiesqe5ai1" path="res://Sprites/global/Imagen_juego_vacio.png" id="5_0wqdt"]
 [ext_resource type="Texture2D" uid="uid://cfhe2tmg4745g" path="res://Sprites/mini_games/TableroInfo.png" id="5_7tma6"]
 [ext_resource type="Texture2D" uid="uid://bankbjxyk5krc" path="res://Sprites/mini_games/FraseContainer.png" id="6_ack2r"]
@@ -51,14 +51,14 @@ autostart = true
 
 [node name="TableInfo" type="Sprite2D" parent="."]
 position = Vector2(-736.5, 161.358)
-scale = Vector2(0.357785, 0.357785)
+scale = Vector2(0.315, 0.358)
 texture = ExtResource("5_7tma6")
 
 [node name="Title" type="Label" parent="."]
 clip_contents = true
-offset_left = -824.0
+offset_left = -835.0
 offset_top = 42.0
-offset_right = -648.0
+offset_right = -640.0
 offset_bottom = 104.0
 size_flags_horizontal = 4
 size_flags_stretch_ratio = 0.0
@@ -71,9 +71,9 @@ text_direction = 1
 
 [node name="Difficulty_value" type="Label" parent="."]
 clip_contents = true
-offset_left = -824.0
+offset_left = -834.0
 offset_top = 136.0
-offset_right = -648.0
+offset_right = -638.0
 offset_bottom = 200.0
 size_flags_stretch_ratio = 0.0
 theme = ExtResource("4_gr8xd")
@@ -85,9 +85,9 @@ text_direction = 1
 
 [node name="Level" type="Label" parent="."]
 clip_contents = true
-offset_left = -826.0
+offset_left = -818.0
 offset_top = 241.0
-offset_right = -726.0
+offset_right = -718.0
 offset_bottom = 269.0
 size_flags_stretch_ratio = 0.0
 theme = ExtResource("4_gr8xd")
