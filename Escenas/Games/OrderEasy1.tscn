@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ceb5bp0c88f5p"]
+[gd_scene load_steps=22 format=3 uid="uid://ceb5bp0c88f5p"]
 
 [ext_resource type="Script" path="res://Scripts/Games/OrderEasy.gd" id="1_7688g"]
 [ext_resource type="PackedScene" uid="uid://b86ewj2wptytq" path="res://Escenas/instrucciones_palabra.tscn" id="2_glekj"]
@@ -13,6 +13,11 @@
 [ext_resource type="Texture2D" uid="uid://bguh1fkcnrphy" path="res://Sprites/images_games/puzzle/futbol1.png" id="9_jkmci"]
 [ext_resource type="PackedScene" uid="uid://dj6ij2dh6vwpr" path="res://Piezas/Letter.tscn" id="9_vr83x"]
 [ext_resource type="Texture2D" uid="uid://fm5joy81l1fl" path="res://Sprites/images_games/match/easy/Gray-backed Hawk.png" id="10_54bjq"]
+[ext_resource type="Texture2D" uid="uid://oroqqab8ssm2" path="res://Sprites/images_games/puzzle/pesca.png" id="11_wjyp1"]
+[ext_resource type="Texture2D" uid="uid://cls84hicrs5v7" path="res://Sprites/images_games/puzzle/pasea.png" id="12_ex7cf"]
+[ext_resource type="Texture2D" uid="uid://uh587wuff74p" path="res://Sprites/images_games/puzzle/mates.png" id="13_mnqne"]
+[ext_resource type="Texture2D" uid="uid://cod86qaomvebo" path="res://Sprites/images_games/puzzle/leehoja.png" id="14_knudi"]
+[ext_resource type="Texture2D" uid="uid://cj72j4fidywfr" path="res://Sprites/images_games/puzzle/juegaperro.png" id="15_ay3np"]
 
 [sub_resource type="Animation" id="Animation_4b8yg"]
 resource_name = "Gana"
@@ -272,6 +277,36 @@ position = Vector2(638, 342)
 scale = Vector2(0.148148, 0.148148)
 texture = ExtResource("10_54bjq")
 
+[node name="Pescar" type="Sprite2D" parent="Imagenes"]
+visible = false
+position = Vector2(646, 338)
+scale = Vector2(0.0541096, 0.0541096)
+texture = ExtResource("11_wjyp1")
+
+[node name="Caminar" type="Sprite2D" parent="Imagenes"]
+visible = false
+position = Vector2(673, 343)
+scale = Vector2(0.410537, 0.410537)
+texture = ExtResource("12_ex7cf")
+
+[node name="Matemáticas" type="Sprite2D" parent="Imagenes"]
+visible = false
+position = Vector2(643, 339)
+scale = Vector2(0.352856, 0.33857)
+texture = ExtResource("13_mnqne")
+
+[node name="Leer" type="Sprite2D" parent="Imagenes"]
+visible = false
+position = Vector2(636, 339)
+scale = Vector2(0.0561112, 0.0561112)
+texture = ExtResource("14_knudi")
+
+[node name="Jugar" type="Sprite2D" parent="Imagenes"]
+visible = false
+position = Vector2(650, 349)
+scale = Vector2(0.429961, 0.429961)
+texture = ExtResource("15_ay3np")
+
 [node name="Desordenada" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Desordenada"]
@@ -326,11 +361,11 @@ scale = Vector2(0.27, 0.27)
 position = Vector2(550, 650)
 scale = Vector2(0.27, 0.27)
 
-[node name="Letter4" parent="Letras" instance=ExtResource("9_vr83x")]
+[node name="Letter3" parent="Letras" instance=ExtResource("9_vr83x")]
 position = Vector2(950, 650)
 scale = Vector2(0.27, 0.27)
 
-[node name="Letter3" parent="Letras" instance=ExtResource("9_vr83x")]
+[node name="Letter4" parent="Letras" instance=ExtResource("9_vr83x")]
 position = Vector2(750, 650)
 scale = Vector2(0.27, 0.27)
 
