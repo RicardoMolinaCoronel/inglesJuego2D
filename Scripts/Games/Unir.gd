@@ -103,6 +103,8 @@ func handle_value_match(target_node):
 		target_node.mark_to_match()
 		$AnimationPlayer.play("correct")
 	else:
+		if(precisionActual>precisionMinima):
+			precisionActual -= 10
 		selected_image.animation_no_match()
 		target_node.animation_no_match()
 		selected_image.fondo_clic.visible = false
@@ -180,8 +182,7 @@ func _dar_pista():
 			image_pista.animation_pista()
 			word.animation_pista()
 
-func victory():
-	$AudioStreamPlayer2D.play()
+func victory():	
 	instance.position = Vector2(1000,0)
 	$Box_inside_game.timer.stop()
 	_actualizar_velocidad()
@@ -193,7 +194,13 @@ func victory():
 	Score.perfectBonus = false
 	animation_win()
 	await $AnimationPlayer.animation_finished
-	add_child(instance)
+	var canvas_layer = CanvasLayer.new()
+	canvas_layer.add_child(instanceDifuminado)
+	var canvas_layer1 = CanvasLayer.new()
+	canvas_layer1.add_child(instance)
+	add_child(canvas_layer)
+	add_child(canvas_layer1)
+	$AudioStreamPlayer2D.play()
 	while(instance.position.x > 0):
 		await get_tree().create_timer(0.000000001).timeout
 		instance.position.x-=50
@@ -205,7 +212,7 @@ func animation_win():
 func lose():
 	$Box_inside_game.timer.stop()
 	get_tree().paused = true
-	instanceAcaboTiempo.nombreEscenaDificultad = "UnirFacil1.tscn"
+	instanceAcaboTiempo.nombreEscenaDificultad = "DificultadUnir1.tscn"
 	instanceAcaboTiempo.position = Vector2(1000,0)
 	var canvas_layer = CanvasLayer.new()
 	canvas_layer.add_child(instanceDifuminado)
