@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bqk1d4psul3o6" path="res://Sprites/global/Fondo_mesa_juego.png" id="2_gmnlc"]
 [ext_resource type="Texture2D" uid="uid://bknjy17d3aemu" path="res://Sprites/mini_games/CronometroContainer.png" id="3_2r5pb"]
 [ext_resource type="Texture2D" uid="uid://dmiccrmd0y8jt" path="res://Sprites/global/Tabla.png" id="3_gjulp"]
-[ext_resource type="Theme" uid="uid://lcgg2qybthjn" path="res://styles/box_inside_game_text.tres" id="4_gr8xd"]
+[ext_resource type="Theme" path="res://styles/box_inside_game_text.tres" id="4_gr8xd"]
 [ext_resource type="Texture2D" uid="uid://ddyoiesqe5ai1" path="res://Sprites/global/Imagen_juego_vacio.png" id="5_0wqdt"]
 [ext_resource type="Texture2D" uid="uid://cfhe2tmg4745g" path="res://Sprites/mini_games/TableroInfo.png" id="5_7tma6"]
 [ext_resource type="Texture2D" uid="uid://bankbjxyk5krc" path="res://Sprites/mini_games/FraseContainer.png" id="6_ack2r"]

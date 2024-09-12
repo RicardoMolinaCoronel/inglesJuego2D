@@ -8,9 +8,11 @@ var correct = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	originalpos = global_position
-	$"InteractivoLetra(vacio)/Label".text = letter
 	pass
 
+func setLetter(letra):
+	letter=letra
+	$"InteractivoLetra(vacio)/Label".text = letra
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if dragging:
@@ -44,3 +46,21 @@ func _on_button_button_up():
 		position = originalpos
 	
 	pass 
+
+func hint():
+	$AnimationPlayer.play("Hint")
+
+func animacionFinalizado():
+	$AnimationPlayer.play("RESET")
+	await $AnimationPlayer.animation_finished
+	$AnimationPlayer.play("newRound")
+	await $AnimationPlayer.animation_finished
+
+func resetVars():
+	dragging = false
+	snap_to = Vector2(0,0)
+	correct = false
+	
+func resetPos():
+	position=originalpos
+	$AnimationPlayer.play("RESET")

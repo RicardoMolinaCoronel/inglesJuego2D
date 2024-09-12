@@ -3,13 +3,16 @@ var score = 0
 var bonus = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Puntaje2.text = "+"+str(Score.fastBonus)
+	if(Score.perfectBonus):
+		$Puntaje3.text = "+"+str(100)
 	updateScore()
 	score = Score.PlayerScore
+	
 	pass
 
 func updateScore():
-	if Score.fastBonus:
-		bonus+=80
+	bonus+=Score.fastBonus
 	if Score.perfectBonus:
 		bonus+= 100
 	await get_tree().create_timer(1).timeout
@@ -23,11 +26,8 @@ func updateScore():
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
 
-
 func _process(delta):
 	$Puntaje.text = str(score)
-	
-
 
 func _on_button_pressed():
 	ButtonClick.button_click()

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://de2l622hp6f3y"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://da4xw33242vln"]
 
 [ext_resource type="FontFile" uid="uid://by6docfjh045t" path="res://Fonts/Retropix-Regular.ttf" id="1_nl70o"]
 [ext_resource type="Texture2D" uid="uid://ccd70jovkm7a" path="res://Sprites/buttons/startInstrucciones1.png" id="2_l6a2s"]

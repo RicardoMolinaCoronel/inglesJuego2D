@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c42jf3hft6jo1"]
+[gd_scene load_steps=11 format=3 uid="uid://c5r7rj5hmgqc5"]
 
 [ext_resource type="Script" path="res://Scripts/instrucciones_palabra.gd" id="1_5j4xw"]
 [ext_resource type="Shader" path="res://styles/juego_finalizado_menu.gdshader" id="2_m1g2y"]

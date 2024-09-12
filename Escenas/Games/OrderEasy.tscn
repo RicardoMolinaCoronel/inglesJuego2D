@@ -291,22 +291,18 @@ letter = "D"
 [node name="Letter" parent="Letras" instance=ExtResource("8_xubk8")]
 position = Vector2(350, 650)
 scale = Vector2(0.27, 0.27)
-letter = "I"
 
 [node name="Letter2" parent="Letras" instance=ExtResource("8_xubk8")]
 position = Vector2(550, 650)
 scale = Vector2(0.27, 0.27)
-letter = "B"
 
 [node name="Letter4" parent="Letras" instance=ExtResource("8_xubk8")]
 position = Vector2(950, 650)
 scale = Vector2(0.27, 0.27)
-letter = "R"
 
 [node name="Letter3" parent="Letras" instance=ExtResource("8_xubk8")]
 position = Vector2(750, 650)
 scale = Vector2(0.27, 0.27)
-letter = "D"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

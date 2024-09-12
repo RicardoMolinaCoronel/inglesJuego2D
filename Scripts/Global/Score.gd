@@ -6,7 +6,7 @@ var MatchItScore = 0
 enum Games {OrderIt, Puzzle, MatchIt}
 var LatestGame = null
 var newScore = 0
-var fastBonus = false
+var fastBonus = 0
 var perfectBonus = true
 
 # Called when the node enters the scene tree for the first time.

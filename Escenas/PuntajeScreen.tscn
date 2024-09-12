@@ -1,141 +1,99 @@
-[gd_scene load_steps=14 format=3 uid="uid://4axweujk3q73"]
+[gd_scene load_steps=12 format=3 uid="uid://4axweujk3q73"]
 
 [ext_resource type="Script" path="res://Scripts/Puntaje.gd" id="1_da5bc"]
 [ext_resource type="Texture2D" uid="uid://dfqhr1lcxhukc" path="res://Sprites/global/Background_game.png" id="2_2sjkm"]
 [ext_resource type="Texture2D" uid="uid://dt4d5ponwsp7v" path="res://Sprites/LetreroPuntaje.png" id="3_yvoiu"]
 [ext_resource type="Texture2D" uid="uid://btk1xkyf2fyr8" path="res://Sprites/buttons/Boton_Next.png" id="5_mfcgm"]
 [ext_resource type="FontFile" uid="uid://bl1il7t5684pv" path="res://Fonts/Minecraft.ttf" id="6_63w4k"]
-[ext_resource type="FontFile" uid="uid://ck0tfquod63qi" path="res://Fonts/CuteFont.ttf" id="6_cdp32"]
+[ext_resource type="Texture2D" uid="uid://dysynh8dy4kgi" path="res://Sprites/global/texto felicitaciones.png" id="6_li3sf"]
+[ext_resource type="Texture2D" uid="uid://w808ow102jpm" path="res://Sprites/global/texto.png" id="7_uxt02"]
 [ext_resource type="Texture2D" uid="uid://b6adqoc1dhqe5" path="res://Sprites/Hojas en letrero.png" id="9_v2qdo"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_p3bng"]
+[sub_resource type="LabelSettings" id="LabelSettings_htnof"]
 font = ExtResource("6_63w4k")
-font_size = 100
-outline_size = 10
-outline_color = Color(0, 0, 0, 1)
+font_size = 46
+font_color = Color(0.568627, 0.282353, 0.152941, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_ddh26"]
-font = ExtResource("6_cdp32")
-font_size = 70
-outline_size = 15
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_5a6ln"]
-font = ExtResource("6_cdp32")
-font_size = 110
-font_color = Color(0, 0, 0, 1)
-outline_size = 12
-outline_color = Color(0, 0, 0, 1)
-shadow_size = 25
-shadow_color = Color(0, 0, 0, 0.313726)
-
-[sub_resource type="LabelSettings" id="LabelSettings_ni37f"]
-font = ExtResource("6_cdp32")
-font_size = 110
-outline_size = 6
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_toess"]
-font = ExtResource("6_cdp32")
-font_size = 70
-outline_size = 15
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_0u4o7"]
+[sub_resource type="LabelSettings" id="LabelSettings_ljllh"]
 font = ExtResource("6_63w4k")
-font_size = 80
-font_color = Color(0.290196, 0.568627, 0.113725, 1)
-outline_size = 10
-outline_color = Color(0, 0, 0, 1)
+font_size = 46
+font_color = Color(0.239216, 0.682353, 0.101961, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dxgvb"]
+font = ExtResource("6_63w4k")
+font_size = 46
+font_color = Color(0.239216, 0.682353, 0.101961, 1)
 
 [node name="PuntajeScreen" type="Node2D"]
 script = ExtResource("1_da5bc")
-metadata/_edit_vertical_guides_ = [640.0]
-metadata/_edit_horizontal_guides_ = [595.0]
+metadata/_edit_vertical_guides_ = [640.0, 883.0, 170.0, 907.0, 219.0]
+metadata/_edit_horizontal_guides_ = [416.0, 489.0, 567.0]
 
-[node name="Node2D2" type="Node2D" parent="."]
-
-[node name="Fondo" type="Sprite2D" parent="Node2D2"]
+[node name="Fondo" type="Sprite2D" parent="."]
 position = Vector2(638.222, 453.457)
 scale = Vector2(0.212259, 0.211176)
 texture = ExtResource("2_2sjkm")
+metadata/_edit_lock_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Node2D2" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D2"]
 position = Vector2(639, 470)
-scale = Vector2(0.462489, 0.38602)
+scale = Vector2(0.349277, 0.30591)
 texture = ExtResource("3_yvoiu")
+metadata/_edit_lock_ = true
 
-[node name="Puntaje" type="Label" parent="."]
-offset_left = 507.0
-offset_top = 397.0
-offset_right = 773.0
-offset_bottom = 514.0
-text = "0
-"
-label_settings = SubResource("LabelSettings_p3bng")
-horizontal_alignment = 1
+[node name="HojasEnLetrero" type="Sprite2D" parent="Node2D2/Sprite2D"]
+position = Vector2(-4.32434, -12.9528)
+scale = Vector2(0.902171, 1.10958)
+texture = ExtResource("9_v2qdo")
+metadata/_edit_lock_ = true
 
 [node name="Button" type="Button" parent="."]
-offset_left = 513.0
-offset_top = 648.0
-offset_right = 767.0
-offset_bottom = 752.0
+offset_left = 550.0
+offset_top = 619.0
+offset_right = 730.0
+offset_bottom = 697.0
 mouse_default_cursor_shape = 2
 icon = ExtResource("5_mfcgm")
 flat = true
 expand_icon = true
+metadata/_edit_lock_ = true
 
-[node name="Bonus de velocidad2" type="Label" parent="."]
-offset_left = 187.0
-offset_top = 475.0
-offset_right = 572.0
-offset_bottom = 546.0
-text = "Bonus de velocidad"
-label_settings = SubResource("LabelSettings_ddh26")
+[node name="TextoFelicitaciones" type="Sprite2D" parent="."]
+position = Vector2(640, 303)
+scale = Vector2(0.316147, 0.404145)
+texture = ExtResource("6_li3sf")
+metadata/_edit_lock_ = true
 
-[node name="Felicitaciones" type="Label" parent="."]
-offset_left = 353.0
-offset_top = 165.0
-offset_right = 930.0
-offset_bottom = 276.0
-text = "FELICITACIONES!"
-label_settings = SubResource("LabelSettings_5a6ln")
+[node name="Texto" type="Sprite2D" parent="."]
+position = Vector2(524, 477)
+scale = Vector2(0.344549, 0.344549)
+texture = ExtResource("7_uxt02")
 
-[node name="Tu puntaje_" type="Label" parent="."]
-offset_left = 464.0
-offset_top = 271.0
-offset_right = 818.0
-offset_bottom = 382.0
-text = "Tu puntaje:"
-label_settings = SubResource("LabelSettings_ni37f")
+[node name="Puntaje" type="Label" parent="."]
+offset_left = 858.0
+offset_top = 381.0
+offset_right = 910.0
+offset_bottom = 428.0
+text = "00"
+label_settings = SubResource("LabelSettings_htnof")
 
-[node name="HojasEnLetrero" type="Sprite2D" parent="."]
-position = Vector2(637, 465)
-scale = Vector2(0.417244, 0.428319)
-texture = ExtResource("9_v2qdo")
+[node name="Puntaje2" type="Label" parent="."]
+offset_left = 856.0
+offset_top = 454.0
+offset_right = 911.0
+offset_bottom = 501.0
+text = "+0"
+label_settings = SubResource("LabelSettings_ljllh")
 
-[node name="Perfecto!" type="Label" parent="."]
-offset_left = 782.0
-offset_top = 475.0
-offset_right = 1024.0
-offset_bottom = 546.0
-text = "PERFECTO!"
-label_settings = SubResource("LabelSettings_toess")
-
-[node name="BonusVelocidad" type="Label" parent="."]
-offset_left = 286.0
-offset_top = 570.0
-offset_right = 474.0
-offset_bottom = 670.0
-text = "+75"
-label_settings = SubResource("LabelSettings_0u4o7")
-
-[node name="BonusPerfect" type="Label" parent="."]
-offset_left = 809.0
-offset_top = 570.0
-offset_right = 997.0
-offset_bottom = 670.0
-text = "+100"
-label_settings = SubResource("LabelSettings_0u4o7")
+[node name="Puntaje3" type="Label" parent="."]
+offset_left = 856.0
+offset_top = 533.0
+offset_right = 911.0
+offset_bottom = 580.0
+text = "+0"
+label_settings = SubResource("LabelSettings_dxgvb")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
