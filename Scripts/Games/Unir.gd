@@ -20,7 +20,7 @@ var precisionMinima = 20
 var precisionActual = 100
 var velocidad = 20
 var valorNivel = 100
-var tiempoCronometro = 10
+var tiempoCronometro = 120
 
 var selected_image: Node2D = null
 var image1 = "res://Sprites/images_games/match/easy/Iguana.png"
