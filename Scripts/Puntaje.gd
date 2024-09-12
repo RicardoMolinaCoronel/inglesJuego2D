@@ -22,16 +22,24 @@ func updateScore():
 	bonus+=Score.fastBonus+Score.perfectBonus
 	await get_tree().create_timer(1).timeout
 	var tempScore = score
+	while(score<(tempScore+Score.newScore)):
+		await get_tree().create_timer(0.01).timeout
+		score+=5
+	await get_tree().create_timer(0.5).timeout
+	while(fastBonus<Score.fastBonus):
+		await get_tree().create_timer(0.01).timeout
+		fastBonus+=5
+	await get_tree().create_timer(0.5).timeout
+	while(perfectBonus<Score.perfectBonus):
+		await get_tree().create_timer(0.01).timeout
+		perfectBonus+=5
+	await get_tree().create_timer(0.5).timeout
 	while(score<(tempScore+Score.newScore+bonus)):
-		await get_tree().create_timer(0.001).timeout
-		score+=10
-		if(fastBonus<Score.fastBonus):
-			fastBonus+=10
-		if(perfectBonus<Score.perfectBonus):
-			perfectBonus+=10
+		await get_tree().create_timer(0.01).timeout
+		score+=5
 	
-	Score.OrderItScore += score
-	Score.PlayerScore+=score
+	#Score.OrderItScore += score
+	#Score.PlayerScore+=score
 
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout

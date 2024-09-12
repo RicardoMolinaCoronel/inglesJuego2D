@@ -3,7 +3,7 @@ extends Node2D
 const PATH_IMAGE_GAME = "res://Sprites/images_games/"
 const EXTENTION_IMAGE_GAME = ".png"
 
-var time_seconds = 10
+var time_seconds = 120
 
 @onready var title = $Title
 @onready var difficulty_value = $Difficulty_value

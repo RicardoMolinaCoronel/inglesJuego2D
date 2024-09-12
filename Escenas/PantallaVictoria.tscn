@@ -8,7 +8,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_2wn5k"]
 font = ExtResource("5_my1ry")
-font_size = 42
+font_size = 40
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
@@ -37,9 +37,9 @@ scale = Vector2(0.340688, 0.340688)
 texture = ExtResource("4_l8abr")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 524.206
+offset_left = 532.206
 offset_top = 362.125
-offset_right = 1065.21
+offset_right = 1073.21
 offset_bottom = 549.125
 text = "CONGRATULATIONS!
 YOU HAVE SUCCESFULLY
