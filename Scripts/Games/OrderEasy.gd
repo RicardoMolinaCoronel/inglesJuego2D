@@ -15,7 +15,9 @@ var instanceAcaboTiempo
 var instantiatedAcaboTiempo = false
 var instanceDifuminado
 var instantiatedDifuminado = false
-var palabras = {"Ave": "BIRD", "Pelota": "BALL", "Gavilán": "HAWK", "Cantar": "SING"}
+var palabras = {"Ave": "BIRD", "Pelota": "BALL", "Gavilán": "HAWK", "Cantar": 
+	"SING", "Pescar":"FISH", "Caminar":"WALK","Matemáticas":"MATH", "Leer":"READ",
+	"Jugar":"PLAY"}
 @export var palabra ="BIRD"
 @export var palabraES = "Ave"
 var instantiated = false
