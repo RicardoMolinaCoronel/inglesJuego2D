@@ -19,10 +19,10 @@ var rondas = 4
 var rondaActual = 1
 var tiempoCronometro
 var velocidad = 20
-var perfect = false
+var perfect = 100
 
 func _ready():
-	Score.perfectBonus = true
+	Score.perfectBonus=100
 	emit_signal("set_timer")
 	emit_signal("update_title", "Order it")
 	emit_signal("update_difficulty", "Easy")
@@ -109,6 +109,7 @@ func nuevaRonda():
 	$Letras/Letter3.resetPos()
 	$Letras/Letter4.resetPos()
 	setLetters()
+	$Sprite2D2.texture
 
 func actualizar_velocidad():
 	var tiempoFinal = $Box_inside_game.time_seconds

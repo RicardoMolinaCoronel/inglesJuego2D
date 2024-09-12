@@ -7,7 +7,7 @@ enum Games {OrderIt, Puzzle, MatchIt}
 var LatestGame = null
 var newScore = 0
 var fastBonus = 0
-var perfectBonus = true
+var perfectBonus = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

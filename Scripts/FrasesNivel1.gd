@@ -39,6 +39,7 @@ var valorNivel = 100
 var tiempoCronometro = 120
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Score.perfectBonus = true
 	instance = pantallaVictoria.instantiate()
 	instantiated = true
 	instanceAcaboTiempo = pantallaAcaboTiempo.instantiate()
@@ -53,7 +54,6 @@ func _ready():
 		estadoInicialPiezas.append({"position": pieza.position})
 	tiempoCronometro = $Box_inside_game.time_seconds
 	_empezar_ronda()
-	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
