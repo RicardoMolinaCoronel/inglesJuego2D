@@ -36,4 +36,17 @@ func _on_texture_button_mouse_entered():
 
 func _on_texture_button_pressed():
 	ButtonClick.button_click()
+	Score.actualDifficult = Score.difficult["easy"]
+	get_tree().change_scene_to_file("res://Escenas/Games/UnirFacil1.tscn")
+
+
+func _on_texture_button_2_pressed():
+	ButtonClick.button_click()
+	Score.actualDifficult = Score.difficult["medium"]
+	get_tree().change_scene_to_file("res://Escenas/Games/UnirFacil1.tscn")
+
+
+func _on_texture_button_3_pressed():
+	ButtonClick.button_click()
+	Score.actualDifficult = Score.difficult["hard"]
 	get_tree().change_scene_to_file("res://Escenas/Games/UnirFacil1.tscn")

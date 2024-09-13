@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cu0dpyjickxqh"]
+[gd_scene load_steps=15 format=3 uid="uid://cu0dpyjickxqh"]
 
 [ext_resource type="PackedScene" uid="uid://c183geb74nt45" path="res://Escenas/Global/parallax_background.tscn" id="1_mnt6j"]
 [ext_resource type="Script" path="res://Scripts/Global/PantallaPuntajes.gd" id="1_rtl8m"]
@@ -10,8 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://tspo2dpljifg" path="res://Sprites/global/barraPuntaje.png" id="7_tr22k"]
 [ext_resource type="Texture2D" uid="uid://b5a6s0vkmbud8" path="res://Sprites/buttons/seguirPuntaje.png" id="8_dttvj"]
 [ext_resource type="Texture2D" uid="uid://bhe6k2m5irfb7" path="res://Sprites/buttons/seguirPuntajeHover.png" id="9_6g8l0"]
-[ext_resource type="Texture2D" uid="uid://gq74xe8xjqib" path="res://Sprites/buttons/retrocederPuntaje.png" id="10_ejc6v"]
-[ext_resource type="Texture2D" uid="uid://etpy1rkmbl4u" path="res://Sprites/buttons/retrocederPuntajeHover.png" id="11_xvovh"]
 [ext_resource type="Texture2D" uid="uid://cbsgw3yum2qos" path="res://Sprites/buttons/Boton_Salir.png" id="12_vwvlu"]
 [ext_resource type="Texture2D" uid="uid://b4fkf3jss7us" path="res://Sprites/buttons/btn_salir_hover.png" id="13_gi4ve"]
 
@@ -134,13 +132,14 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="RetrocederButton" type="TextureButton" parent="."]
-offset_left = 133.0
+offset_left = 213.0
 offset_top = 743.0
-offset_right = 215.0
+offset_right = 296.0
 offset_bottom = 818.0
+scale = Vector2(-1, 1)
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("10_ejc6v")
-texture_hover = ExtResource("11_xvovh")
+texture_normal = ExtResource("8_dttvj")
+texture_hover = ExtResource("9_6g8l0")
 ignore_texture_size = true
 stretch_mode = 0
 

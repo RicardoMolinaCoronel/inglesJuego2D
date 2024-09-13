@@ -8,7 +8,12 @@ var LatestGame = null
 var newScore = 0
 var fastBonus = 0
 var perfectBonus = 0
-
+const difficult = {
+	"easy": "easy",
+	"medium": "medium",
+	"hard": "hard"
+}
+var actualDifficult = difficult["easy"]
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	PlayerScore = OrderItScore + PuzzleScore + MatchItScore

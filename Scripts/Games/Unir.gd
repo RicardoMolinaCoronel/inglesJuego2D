@@ -66,7 +66,7 @@ func _ready():
 	emit_signal("set_timer")
 	emit_signal("update_scene", "menu_juegos")
 	emit_signal("update_title", title)
-	emit_signal("update_difficulty", difficulty)
+	setDifficultTitle()
 	emit_signal("update_level", str(level))
 	emit_signal("set_not_visible_image")
 
@@ -95,6 +95,16 @@ func _process(_delta):
 			numeroRondas+=1  # Incrementar el número de rondas.
 			if(numeroRondas <= rondas):
 				ronda_win()
+
+# Método para establecer el texto de dificultad
+func setDifficultTitle():
+	match Score.actualDifficult:
+		Score.difficult["easy"]:
+			emit_signal("update_difficulty", "Easy")
+		Score.difficult["medium"]:
+			emit_signal("update_difficulty", "Medium")
+		Score.difficult["hard"]:
+			emit_signal("update_difficulty", "Difficult")
 
 # Método para manejar la imagen seleccionada.
 func handle_value_selected(node):
@@ -269,9 +279,10 @@ func _actualizar_puntajes(path):
 		var puntajes = file.get_var()  # Lee el diccionario de puntajes almacenado
 		file.close()  # Cierra el archivo después de leer
 		print("Puntajes cargados: ", puntajes)
-		var velocidadPasada = puntajes["easy"]["velocidad"]
-		var precisionPasada = puntajes["easy"]["precision"]
-		var nivelesPasado = puntajes["easy"]["niveles"]
+		var velocidadPasada = puntajes[Score.actualDifficult]["velocidad"]
+		var precisionPasada = puntajes[Score.actualDifficult]["precision"]
+		var nivelesPasado = puntajes[Score.actualDifficult]["niveles"]
+		'''
 		content = {
 			"easy": {
 				"velocidad":velocidadPasada,
@@ -287,41 +298,73 @@ func _actualizar_puntajes(path):
 				"niveles":0	
 			}
 		}
-		# Si se han mejorado los puntajes, se actualizan.
+		'''
 		if int(velocidadPasada) < velocidad:
-			content["easy"]["velocidad"] = velocidad
+			puntajes[Score.actualDifficult]["velocidad"] = velocidad
 		if int(precisionPasada) < precisionActual:
-			content["easy"]["precision"] = precisionActual
+			puntajes[Score.actualDifficult]["precision"] = precisionActual
 		if int(nivelesPasado) < valorNivel:
-			content["easy"]["niveles"] = valorNivel
-		# Si hay mejoras, se guarda el archivo actualizado.
+			puntajes[Score.actualDifficult]["niveles"] = valorNivel
 		if int(velocidadPasada) < velocidad || int(precisionPasada) < precisionActual || int(nivelesPasado) < valorNivel:
 			if DirAccess.remove_absolute(path) == OK:
 	 
 				print("Archivo existente borrado.")
-				_guardar_puntajes(content, path)
+				_guardar_puntajes(puntajes, path)
 			else:
 				print("Error al intentar borrar el archivo.")
 		
 		
 	else:
-		# Crear un nuevo archivo de puntajes si no existe.
-		content = {
-			"easy": {
-				"velocidad":velocidad,
-				"precision":precisionActual,
-				"niveles":valorNivel	
-			},"medium": {
-				"velocidad":0,
-				"precision":0,
-				"niveles":0
-			},"hard": {
-				"velocidad":0,
-				"precision":0,
-				"niveles":0	
-			}
-		}
-		_guardar_puntajes(content, path)
+		match Score.actualDifficult:
+			Score.difficult["easy"]:
+				content = {
+					"easy": {
+						"velocidad":velocidad,
+						"precision":precisionActual,
+						"niveles":valorNivel	
+					},"medium": {
+						"velocidad":0,
+						"precision":0,
+						"niveles":0
+					},"hard": {
+						"velocidad":0,
+						"precision":0,
+						"niveles":0	
+					}
+				}
+			Score.difficult["medium"]:
+				content = {
+					"easy": {
+						"velocidad":0,
+						"precision":0,
+						"niveles":0	
+					},"medium": {
+						"velocidad":velocidad,
+						"precision":precisionActual,
+						"niveles":valorNivel	
+					},"hard": {
+						"velocidad":0,
+						"precision":0,
+						"niveles":0	
+					}
+				}
+			Score.difficult["hard"]:
+				content = {
+					"easy": {
+						"velocidad":0,
+						"precision":0,
+						"niveles":0
+					},"medium": {
+						"velocidad":0,
+						"precision":0,
+						"niveles":0
+					},"hard": {
+						"velocidad":velocidad,
+						"precision":precisionActual,
+						"niveles":valorNivel	
+					}
+				}
+		_guardar_puntajes(content, path)		
 
 # Método para guardar los puntajes actualizados.
 func _guardar_puntajes(content, path):

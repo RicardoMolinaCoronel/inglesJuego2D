@@ -14,4 +14,17 @@ func _on_btn_go_back_pressed():
 
 func _on_texture_button_pressed():
 	ButtonClick.button_click()
+	Score.actualDifficult = Score.difficult["easy"]
+	get_tree().change_scene_to_file("res://Escenas/Games/OrderEasy1.tscn")
+
+
+func _on_texture_button_2_pressed():
+	ButtonClick.button_click()
+	Score.actualDifficult = Score.difficult["medium"]
+	get_tree().change_scene_to_file("res://Escenas/Games/OrderEasy1.tscn")
+
+
+func _on_texture_button_3_pressed():
+	ButtonClick.button_click()
+	Score.actualDifficult = Score.difficult["hard"]
 	get_tree().change_scene_to_file("res://Escenas/Games/OrderEasy1.tscn")
