@@ -13,6 +13,7 @@ var pantallaVictoria = preload("res://Escenas/PantallaVictoria.tscn")
 var pantallaAcaboTiempo = preload("res://Escenas/NivelFinalizado.tscn")
 var difuminado = preload("res://Piezas/ColorRectDifuminado.tscn")
 var instance
+var ejecutablePath = OS.get_executable_path().get_base_dir()
 #var palabra ="bird"
 var instantiated = false
 var instanceAcaboTiempo
@@ -237,7 +238,7 @@ func victory():
 	instance.position = Vector2(1000,0)
 	$Box_inside_game.timer.stop()
 	_actualizar_velocidad()
-	_actualizar_puntajes("user://puntajesPuzzle.dat")
+	_actualizar_puntajes(ejecutablePath+"/Scores/puntajesPuzzle.dat")
 	var totalActual = velocidad+precisionActual+valorNivel
 	print("Velocidad: "+str(velocidad)+", "+"Precision: "+str(precisionActual)+", "+"Niveles: "+str(valorNivel)+", Total: "+str(totalActual))
 	Score.newScore = valorNivel

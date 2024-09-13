@@ -7,6 +7,7 @@ signal set_timer()
 signal update_difficulty(new_difficulty)
 signal update_level(new_level)
 signal set_not_visible_image()
+var ejecutablePath = OS.get_executable_path().get_base_dir()
 
 # Variables para el control del nivel, dificultad, título, rondas, y otras propiedades del juego.
 var level = 1
@@ -206,7 +207,7 @@ func victory():
 	instance.position = Vector2(1000,0)
 	$Box_inside_game.timer.stop()
 	_actualizar_velocidad()
-	_actualizar_puntajes("user://puntajesMatch.dat")
+	_actualizar_puntajes(ejecutablePath+"/Scores/puntajesMatch.dat")
 	var totalActual = velocidad+precisionActual+valorNivel
 	print("Velocidad: "+str(velocidad)+", "+"Precision: "+str(precisionActual)+", "+"Niveles: "+str(valorNivel)+", Total: "+str(totalActual))
 	Score.newScore = valorNivel

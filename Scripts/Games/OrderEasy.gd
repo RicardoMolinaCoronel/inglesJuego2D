@@ -7,6 +7,7 @@ signal update_difficulty(new_difficulty)
 signal update_level(new_level)
 signal uptate_imagen_game(new_image)
 signal set_visible_word(new_word)
+var ejecutablePath = OS.get_executable_path().get_base_dir()
 var pantallaVictoria = preload("res://Escenas/PantallaVictoria.tscn")
 var pantallaAcaboTiempo = preload("res://Escenas/NivelFinalizado.tscn")
 var difuminado = preload("res://Piezas/ColorRectDifuminado.tscn")
@@ -93,7 +94,7 @@ func victory():
 	Score.newScore = valorNivel
 	Score.fastBonus = velocidad
 	Score.LatestGame = Score.Games.OrderIt
-	_actualizar_puntajes("user://puntajesOrder.dat")
+	_actualizar_puntajes(ejecutablePath+"/Scores/puntajesOrder.dat")
 	instance.position = Vector2(1000,0)
 	$AnimationPlayer.play("Gana")
 	await $AnimationPlayer.animation_finished

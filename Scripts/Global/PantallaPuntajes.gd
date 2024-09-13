@@ -12,6 +12,7 @@ var maximoScaleX = 0.256
 enum ventana {PUZZLE = 0, MATCH = 1, ORDER = 2}
 var ventanaActual = ventana.PUZZLE
 var posActual = 0
+var ejecutablePath = OS.get_executable_path().get_base_dir()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$RetrocederButton.visible = false
@@ -29,13 +30,14 @@ func _leer_archivo():
 	match ventanaActual:
 		0:
 			$Label4.text= "Puzzle's Total"
-			_cargar_puntajes("user://puntajesPuzzle.dat")
+			
+			_cargar_puntajes(ejecutablePath+"/Scores/puntajesPuzzle.dat")
 		1:
 			$Label4.text= "Match It's Total"
-			_cargar_puntajes("user://puntajesMatch.dat")
+			_cargar_puntajes(ejecutablePath+"/Scores/puntajesMatch.dat")
 		2:
 			$Label4.text= "Order It's Total"
-			_cargar_puntajes("user://puntajesOrder.dat")
+			_cargar_puntajes(ejecutablePath+"/Scores/puntajesOrder.dat")
 			
 	#velocidad = randi() % 1001
 	#precision = randi() % 1001
