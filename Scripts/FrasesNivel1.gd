@@ -1,6 +1,7 @@
 extends Node2D
 
 #Signals
+#Señales para actualizar titulos y demás características del juego
 signal set_timer()
 signal update_title(new_title)
 signal update_difficulty(new_difficulty)
@@ -9,17 +10,25 @@ signal uptate_imagen_game(new_image)
 #signal set_visible_word(new_word)
 signal set_visible_sentence(new_sentence)
 signal update_phrase()
+
+#Precarga de modales de victoria y tiempo culminado
 var pantallaVictoria = preload("res://Escenas/PantallaVictoria.tscn")
 var pantallaAcaboTiempo = preload("res://Escenas/NivelFinalizado.tscn")
 var difuminado = preload("res://Piezas/ColorRectDifuminado.tscn")
 var instance
+
+#Ruta donde se encuentra el ejecutable
 var ejecutablePath = OS.get_executable_path().get_base_dir()
 #var palabra ="bird"
+
+#Variables para manejar las instancias de los modales
 var instantiated = false
 var instanceAcaboTiempo
 var instantiatedAcaboTiempo = false
 var instanceDifuminado
 var instantiatedDifuminado = false
+
+#Variables para llevar la lógica de rondas y ganar en el juego. Banco donde se encuntran las frases para el puzzle
 var gano = false
 var ganoRonda = false
 var palabrasEsp = BancoFrases.palabrasEsp
@@ -38,7 +47,8 @@ var precisionActual = 100
 var velocidad = 20
 var valorNivel = 100
 var tiempoCronometro = 120
-# Called when the node enters the scene tree for the first time.
+
+# Muestra instrucciones, actualiza titulos e instancia variables. Empieza ronda
 func _ready():
 	Score.perfectBonus = 0
 	instance = pantallaVictoria.instantiate()
@@ -58,6 +68,8 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+
+#Verifica si el jugador ha ganado la ronda o el juego
 func _process(_delta):
 	if(instantiated):
 		if ($Cadenas/Pieza0.correct and $Cadenas/Pieza1.correct and
@@ -73,6 +85,7 @@ func _process(_delta):
 			
 	pass
 
+#Se invoca al empezar una nueva ronda
 func _empezar_ronda():		
 	indiceNivel += 1
 	var indiceAl = randi_range(0, indicesImages.size()-1)
@@ -88,6 +101,7 @@ func _empezar_ronda():
 	ganoRonda=false
 	
 
+#Reinicia los objetos al empezar una ronda
 func _reiniciar_componentes():
 	var x=0
 	for dicc in estadoInicialPiezas:
@@ -100,12 +114,13 @@ func _reiniciar_componentes():
 	_animacion_retorno()
 	_empezar_ronda()
 
+#Quita los colores de correcto de las piezas con una animación
 func _animacion_retorno():
 	for i in range(3):
 		var pieza = $Cadenas.get_node("Pieza"+str(i))
 		pieza._animacion_retorno()
 	
-	
+#Da pista tomando en cuenta las píezas que no han sido puestas
 func _dar_pista():
 	var numeros = [0, 1, 2] 
 	while numeros.size() > 0:
@@ -126,7 +141,7 @@ func _dar_pista():
 			return	 	
 		numeros.remove_at(indice_aleatorio) 
 	
-
+#Actualiza la textura y texto en las piezas
 func update_boxes(index: int):
 	cadenas[indiceImagen][index].shuffle()
 	var x=0	
@@ -145,7 +160,7 @@ func update_boxes(index: int):
 		
 	emit_signal("update_phrase")
 		
-		
+#Actualiza textura en una pieza
 func cargar_nueva_textura(sprite, index):
 	var nueva_textura
 	if index==0:
@@ -155,7 +170,8 @@ func cargar_nueva_textura(sprite, index):
 	else:
 		nueva_textura = load("res://Sprites/mini_games/pieza2.png")
 	sprite.texture = nueva_textura
-		
+
+#Actualiza el bonus de velocidad según el cronómetro
 func _actualizar_velocidad():
 	var tiempoFinal = $Box_inside_game.time_seconds
 	if (tiempoFinal >  tiempoCronometro/1.8):
@@ -168,6 +184,7 @@ func _actualizar_velocidad():
 		velocidad+=0
 	var content = {"niveles": valorNivel, "velocidad": velocidad}
 
+#Actaulizar los puntajes en el archivo de puntajes
 func _actualizar_puntajes(path):
 	var content
 	if FileAccess.file_exists(path):  # Verifica si el archivo existe  
@@ -228,12 +245,13 @@ func _actualizar_puntajes(path):
 		
 			 
 	
-
+#Guarda los puntajes en el archivo
 func _guardar_puntajes(content, path):
 	var file = FileAccess.open(path ,FileAccess.WRITE)
 	file.store_var(content)
 	file = null
 
+#Se invoca cuando el jugador gana
 func victory():
 	instance.position = Vector2(1000,0)
 	$Box_inside_game.timer.stop()
@@ -265,6 +283,7 @@ func victory():
 		await get_tree().create_timer(0.000000001).timeout
 		instance.position.x-=50
 
+#Se invoca cuando se acaba el tiempo
 func lose():
 	$Box_inside_game.timer.stop()
 	get_tree().paused = true
@@ -280,6 +299,7 @@ func lose():
 		await get_tree().create_timer(0.000000001).timeout
 		instanceAcaboTiempo.position.x-=50
 
+#Se invoca cada vez que se gana una ronda
 func rondaWin():
 	$AnimationPlayer.play("Gana")
 	var pieza0 = get_node("Cadenas/Pieza0")
@@ -291,7 +311,7 @@ func rondaWin():
 	await $AnimationPlayer.animation_finished
 	_reiniciar_componentes()
 	
-
+#Botón para regresar al menú
 func _on_btn_go_back_pressed():
 	ButtonClick.button_click()
 	get_tree().change_scene_to_file("res://Escenas/menu_juegos.tscn")

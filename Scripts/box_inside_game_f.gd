@@ -1,10 +1,13 @@
 extends Node2D
 
+#Ruta y extension para las imagenes
 const PATH_IMAGE_GAME = "res://Sprites/images_games/"
 const EXTENTION_IMAGE_GAME = ".png"
 
+#Tiempo del cronómetro
 var time_seconds = 120
 
+#Obtiene la referencia a componentes que se usaran
 @onready var title = $Title
 @onready var difficulty_value = $Difficulty_value
 @onready var level_value = $Level_value
@@ -16,6 +19,7 @@ var time_seconds = 120
 @onready var temporizador = $Temporizador
 @onready var timer = $Temporizador/Timer
 
+#Realiza las conexiones a las funciones con sus señales e inicializa variables
 func _ready():
 	word.visible = false
 	sentense.visible = false
@@ -31,6 +35,7 @@ func _ready():
 	get_parent().connect("set_visible_sentence", Callable(self, "_on_set_visible_sentence"))
 #	get_parent().connect("set_visible_word", Callable(self, "_on_set_visible_word"))
 
+#Funciones para actualizar los textos de título
 func _on_update_title(new_title):
 	title.text = new_title
 	
@@ -40,7 +45,8 @@ func _on_update_difficulty(new_difficulty):
 	
 func _on_update_level(new_level):
 	level_value.text = new_level
-	
+
+#Función para actualziar la imagen de las frases, y escalarla correctamente
 func _on_uptate_imagen_game(new_image):
 	print(new_image)
 	var url_image = PATH_IMAGE_GAME + new_image + EXTENTION_IMAGE_GAME
@@ -58,7 +64,7 @@ func _on_uptate_imagen_game(new_image):
 	var final_scale = min(scale_x, scale_y)
 	image.scale = Vector2(final_scale, final_scale)
 
-
+#Funciones para actualizar los títulos y oraciones
 func _on_set_not_visible_image():
 	image.visible = false
 	
@@ -72,7 +78,8 @@ func _on_set_visible_word(new_word):
 	phrase_text.visible = true
 	phrase_text.add_theme_font_size_override("font_size", 50)
 	phrase_text.text = new_word
-	
+
+#Funciones para manejar el cronómetro
 func _on_set_timer():
 	temporizador.visible = true
 	timer.start()
@@ -85,6 +92,7 @@ func _on_timer_timeout():
 		get_parent().lose()
 	temporizador.text = str(time_seconds)
 
+#Funciones de los botones de la derecha
 func _on_btn_home_pressed():
 	ButtonClick.button_click()
 	get_tree().change_scene_to_file("res://Escenas/menu_juegos.tscn")

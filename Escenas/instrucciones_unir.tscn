@@ -129,7 +129,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.95, 0.95)
 stream = ExtResource("6_afl05")
-volume_db = -16.86
+volume_db = -80.0
 expand = true
 loop = true
 
