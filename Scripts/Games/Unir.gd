@@ -1,6 +1,6 @@
 extends Node2D
 
-#Signals
+# Señales que se emiten para actualizar diferentes aspectos de la escena, título, dificultad, nivel y visibilidad de las imágenes.
 signal update_scene(path)
 signal update_title(new_title)
 signal set_timer()
@@ -8,21 +8,24 @@ signal update_difficulty(new_difficulty)
 signal update_level(new_level)
 signal set_not_visible_image()
 
-#variables
+# Variables para el control del nivel, dificultad, título, rondas, y otras propiedades del juego.
 var level = 1
 var difficulty = 'easy'
 var title = "match it"
-var rondas = 4
-var numeroRondas = 1
-var ganoRonda = false
+var rondas = 4  # Número total de rondas.
+var numeroRondas = 1  # Ronda actual.
+var ganoRonda = false  # Indica si se ha ganado una ronda.
 
+# Variables para precisión, velocidad, y cronómetro.
 var precisionMinima = 20
 var precisionActual = 100
 var velocidad = 20
 var valorNivel = 100
-var tiempoCronometro = 120
+var tiempoCronometro = 120  # Tiempo en segundos del cronómetro.
 
-var selected_image: Node2D = null
+# Variables para las imágenes seleccionadas.
+var selected_image: Node2D = null  # Imagen actualmente seleccionada.
+# Rutas de las imágenes utilizadas en el juego.
 var image1 = "res://Sprites/images_games/match/easy/Iguana.png"
 var image2 = "res://Sprites/images_games/match/easy/Squirrel.png"
 var image3 = "res://Sprites/images_games/match/easy/Woodpecker.png"
@@ -36,6 +39,7 @@ var image10 = "res://Sprites/images_games/match/easy/Red-crowned parrot.png"
 var image11 = "res://Sprites/images_games/match/easy/Sloth.png"
 var image12 = "res://Sprites/images_games/match/easy/Turquoise Butterfly.png"
 
+# Referencias a nodos en la escena.
 @onready var box_imagen_match = $Box_imagen_match
 @onready var box_imagen_match_2 = $Box_imagen_match2
 @onready var box_imagen_match_3 = $Box_imagen_match3
@@ -43,7 +47,7 @@ var image12 = "res://Sprites/images_games/match/easy/Turquoise Butterfly.png"
 @onready var box_texto_match_2 = $Box_texto_match2
 @onready var box_texto_match_3 = $Box_texto_match3
 
-
+# Variables para controlar el estado de las instancias en la escena.
 var instantiated: bool = false
 var gano: bool = false
 var pantallaVictoria = preload("res://Escenas/PantallaVictoria.tscn")
@@ -55,47 +59,55 @@ var instantiatedAcaboTiempo = false
 var instanceDifuminado
 var instantiatedDifuminado = false
 
-# Called when the node enters the scene tree for the first time.
+# Método llamado cuando el nodo entra en la escena por primera vez.
 func _ready():
+	# Emitir señales para inicializar los parámetros del juego.
 	emit_signal("set_timer")
 	emit_signal("update_scene", "menu_juegos")
 	emit_signal("update_title", title)
 	emit_signal("update_difficulty", difficulty)
 	emit_signal("update_level", str(level))
 	emit_signal("set_not_visible_image")
+
+	# Instanciar escenas necesarias para el juego.
 	instance = pantallaVictoria.instantiate()
 	instantiated = true
 	instanceAcaboTiempo = pantallaAcaboTiempo.instantiate()
 	instantiatedAcaboTiempo = true
 	instanceDifuminado = difuminado.instantiate()
 	instantiatedDifuminado = true
+
+	# Inicializar el tiempo del cronómetro y comenzar el juego.
 	tiempoCronometro = $Box_inside_game.time_seconds
 	iniciar_juego()
 
 func _process(_delta):
 	if(instantiated):
-		
+		# Verificar si se ha ganado una ronda o si se ha completado el juego.
 		if(box_texto_match.is_matched() and box_texto_match_2.is_matched() and
 		box_texto_match_3.is_matched() and numeroRondas == rondas and !gano):
 			gano = true
-			victory()
+			victory()  # Llamar al método de victoria si se completaron todas las rondas.
 		elif (box_texto_match.is_matched() and box_texto_match_2.is_matched() and
 		 box_texto_match_3.is_matched() and numeroRondas < rondas and !ganoRonda and !gano):
 			ganoRonda = true
-			numeroRondas+=1
+			numeroRondas+=1  # Incrementar el número de rondas.
 			if(numeroRondas <= rondas):
 				ronda_win()
 
+# Método para manejar la imagen seleccionada.
 func handle_value_selected(node):
 	if(selected_image and not node == selected_image):
-		selected_image.fondo_clic.visible = false
-	selected_image = node
+		selected_image.fondo_clic.visible = false  # Ocultar la selección anterior.
+	selected_image = node  # Asignar la nueva selección.
 	
+# Método para manejar el emparejamiento de valores.
 func handle_value_match(target_node):
 	if !selected_image:
-		target_node.fondo_clic.visible = false
+		target_node.fondo_clic.visible = false  # Si no hay imagen seleccionada, no hacer nada.
 		return
 	if selected_image.value == target_node.target:
+		# Si el valor coincide, marcar como bloqueado y reproducir la animación de acierto.
 		selected_image.blocked = true
 		target_node.blocked = true
 		selected_image.animation_match()
@@ -103,6 +115,7 @@ func handle_value_match(target_node):
 		target_node.mark_to_match()
 		$AnimationPlayer.play("correct")
 	else:
+		# Si no coincide, disminuir la precisión y reproducir la animación de fallo.
 		if(precisionActual>precisionMinima):
 			precisionActual -= 10
 		selected_image.animation_no_match()
@@ -110,10 +123,11 @@ func handle_value_match(target_node):
 		selected_image.fondo_clic.visible = false
 		$AnimationPlayer.play("incorrect")
 	selected_image = null
-	
-	
+
+# Método para iniciar el juego.
 func iniciar_juego():
 	emit_signal("update_level", str(numeroRondas)+"/4")
+	# Colocar las imágenes y textos iniciales para la primera ronda.
 	box_imagen_match.put_image(image1, "iguana")
 	box_imagen_match_2.put_image(image2, "squirrel")
 	box_imagen_match_3.put_image(image3, "woodpecker")
@@ -121,9 +135,11 @@ func iniciar_juego():
 	box_texto_match_2.put_text("woodpecker")
 	box_texto_match_3.put_text("iguana")
 	ganoRonda=false
-	
+
+# Método para cargar una nueva ronda.
 func cargar_ronda():
 	reset_compoments()
+	# Dependiendo de la ronda, colocar nuevas imágenes y textos.
 	if numeroRondas == 2:
 		emit_signal("update_level", str(numeroRondas)+"/4")
 		box_imagen_match.put_image(image4, "ant eater")
@@ -150,6 +166,7 @@ func cargar_ronda():
 		box_texto_match_3.put_text("sloth")
 	ganoRonda=false
 	
+# Método para reiniciar los componentes entre rondas.
 func reset_compoments():
 	box_imagen_match.animation_reset()
 	box_imagen_match_2.animation_reset()
@@ -158,10 +175,12 @@ func reset_compoments():
 	box_texto_match_2.animation_reset()
 	box_texto_match_3.animation_reset()
 
+# Método llamado cuando se gana una ronda.
 func ronda_win():
 	animation_win()
 	cargar_ronda()
 	
+# Método para dar una pista en el juego de manera aleatoria.
 func _dar_pista():
 	var images = [box_imagen_match, box_imagen_match_2, box_imagen_match_3]
 	var words = [box_texto_match, box_texto_match_2, box_texto_match_3]
@@ -182,6 +201,7 @@ func _dar_pista():
 			image_pista.animation_pista()
 			word.animation_pista()
 
+# Método para manejar la victoria del jugador. Se ejecuta cuando se han pasado todas las rondas del nivel
 func victory():	
 	instance.position = Vector2(1000,0)
 	$Box_inside_game.timer.stop()
@@ -205,10 +225,12 @@ func victory():
 		await get_tree().create_timer(0.000000001).timeout
 		instance.position.x-=50
 		
+# Método que ejecuta la animación de victoria.
 func animation_win():
 	$AnimationPlayer.play("Win")
 	await $AnimationPlayer.animation_finished
 	
+# Método que se ejecuta cuando el jugador pierde o se detiene el cronometro.
 func lose():
 	$Box_inside_game.timer.stop()
 	get_tree().paused = true
@@ -224,6 +246,7 @@ func lose():
 		await get_tree().create_timer(0.000000001).timeout
 		instanceAcaboTiempo.position.x-=50
 
+# Método para actualizar la velocidad del jugador basado en el tiempo restante.
 func _actualizar_velocidad():
 	var tiempoFinal = $Box_inside_game.time_seconds
 	if (tiempoFinal >  tiempoCronometro/1.8):
@@ -236,6 +259,7 @@ func _actualizar_velocidad():
 		velocidad+=0
 	var content = {"niveles": valorNivel, "velocidad": velocidad}
 
+# Método para actualizar los puntajes del jugador.
 func _actualizar_puntajes(path):
 	var content
 	if FileAccess.file_exists(path):  # Verifica si el archivo existe  
@@ -261,12 +285,14 @@ func _actualizar_puntajes(path):
 				"niveles":0	
 			}
 		}
+		# Si se han mejorado los puntajes, se actualizan.
 		if int(velocidadPasada) < velocidad:
 			content["easy"]["velocidad"] = velocidad
 		if int(precisionPasada) < precisionActual:
 			content["easy"]["precision"] = precisionActual
 		if int(nivelesPasado) < valorNivel:
 			content["easy"]["niveles"] = valorNivel
+		# Si hay mejoras, se guarda el archivo actualizado.
 		if int(velocidadPasada) < velocidad || int(precisionPasada) < precisionActual || int(nivelesPasado) < valorNivel:
 			if DirAccess.remove_absolute(path) == OK:
 	 
@@ -277,6 +303,7 @@ func _actualizar_puntajes(path):
 		
 		
 	else:
+		# Crear un nuevo archivo de puntajes si no existe.
 		content = {
 			"easy": {
 				"velocidad":velocidad,
@@ -294,10 +321,12 @@ func _actualizar_puntajes(path):
 		}
 		_guardar_puntajes(content, path)
 
+# Método para guardar los puntajes actualizados.
 func _guardar_puntajes(content, path):
 	var file = FileAccess.open(path ,FileAccess.WRITE)
 	file.store_var(content)
 	file = null
 
+# Método para volver a la pantalla de selección de niveles.
 func go_selection():
 	get_tree().change_scene_to_file("res://Escenas/menu_juegos.tscn")
