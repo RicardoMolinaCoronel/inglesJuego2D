@@ -114,12 +114,14 @@ metadata/_edit_vertical_guides_ = [605.0, 1061.0]
 metadata/_edit_horizontal_guides_ = [-100.0, 115.0, 663.0]
 
 [node name="btn_sound" parent="." instance=ExtResource("2_ciqgj")]
-offset_left = 1191.0
+offset_left = 1170.82
 offset_top = 42.0
-offset_right = 1166.64
+offset_right = 1170.82
 offset_bottom = 52.32
 
 [node name="btn_go_back" parent="." instance=ExtResource("3_01rqh")]
+offset_top = 51.0
+offset_bottom = 91.0
 mouse_default_cursor_shape = 2
 
 [node name="TextureButton" type="TextureButton" parent="."]

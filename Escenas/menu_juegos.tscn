@@ -81,12 +81,14 @@ texture = ExtResource("10_yd6ht")
 
 [node name="btn_sound" parent="." instance=ExtResource("11_13b7x")]
 layout_mode = 1
-offset_left = 1191.0
+offset_left = 1175.0
 offset_top = 42.0
-offset_right = 1191.64
+offset_right = 1175.64
 offset_bottom = 42.32
 
 [node name="btn_go_back" parent="." instance=ExtResource("11_qllet")]
+offset_top = 58.0
+offset_bottom = 98.0
 
 [connection signal="pressed" from="Hbox_botones_juegos/btn_puzzle" to="." method="_on_btn_puzzle_pressed"]
 [connection signal="pressed" from="Hbox_botones_juegos/btn_match" to="." method="_on_btn_match_pressed"]

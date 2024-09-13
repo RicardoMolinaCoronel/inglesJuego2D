@@ -1,12 +1,15 @@
 extends Control
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	create_scores_directory()
 	'''
-	var path = "user://puntajesPuzzle.dat"
-	var path1 = "user://puntajesMatch.dat"
-	var path2 = "user://puntajesOrder.dat"
+	#Ruta donde se encuentra el ejecutable
+	var ejecutablePath = OS.get_executable_path().get_base_dir()
+	var path = ejecutablePath+"/Scores/puntajesPuzzle.dat"
+	var path1 = ejecutablePath+"/Scores/puntajesMatch.dat"
+	var path2 = ejecutablePath+"/Scores/puntajesOrder.dat"
 	if FileAccess.file_exists(path):
 		if DirAccess.remove_absolute(path) == OK:
 			print("Archivo existente borrado.")
