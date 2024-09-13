@@ -57,7 +57,7 @@ func _on_set_visible_sentence(new_sentence):
 func _on_set_visible_word(new_word):
 	word.visible = true
 	phrase_text.visible = true
-	phrase_text.add_theme_font_size_override("font_size", 50)
+	phrase_text.add_theme_font_size_override("font_size", 40)
 	phrase_text.text = new_word
 	
 func _on_set_timer():
@@ -84,3 +84,9 @@ func _on_btn_instructions_pressed():
 		padre._dar_pista()
 	else:
 		print("No se encontró la función en el nodo padre.")
+
+
+func _on_btn_levels_pressed():
+	ButtonClick.button_click()
+	get_tree().change_scene_to_file("res://Escenas/DificultadPalabra1.tscn")
+	pass # Replace with function body.

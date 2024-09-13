@@ -28,6 +28,7 @@ var rondaActual = 1
 var tiempoCronometro = 120
 var velocidad = 20
 var perfect = 100
+var valorNivel = 100
 var palabraAnterior
 
 func _ready():
@@ -89,11 +90,11 @@ func setLetters():
 func victory():
 	$Box_inside_game.timer.stop()
 	actualizar_velocidad()
-	Score.newScore=100
-	Score.fastBonus=velocidad
+	Score.newScore = valorNivel
+	Score.fastBonus = velocidad
 	Score.LatestGame = Score.Games.OrderIt
+	_actualizar_puntajes("user://puntajesOrder.dat")
 	instance.position = Vector2(1000,0)
-	$AudioStreamPlayer2D.play()
 	$AnimationPlayer.play("Gana")
 	await $AnimationPlayer.animation_finished
 	var canvas_layer = CanvasLayer.new()
@@ -102,9 +103,75 @@ func victory():
 	canvas_layer1.add_child(instance)
 	add_child(canvas_layer)
 	add_child(canvas_layer1)
+	$AudioStreamPlayer2D.play()
 	while(instance.position.x > 0):
 		await get_tree().create_timer(0.000000001).timeout
 		instance.position.x-=50
+
+func _actualizar_puntajes(path):
+	var content
+	var precisionActual = Score.perfectBonus
+	if FileAccess.file_exists(path):  # Verifica si el archivo existe  
+		var file = FileAccess.open(path, FileAccess.READ)# Abre el archivo en modo lectura
+		var puntajes = file.get_var()  # Lee el diccionario de puntajes almacenado
+		file.close()  # Cierra el archivo después de leer
+		print("Puntajes cargados: ", puntajes)
+		var velocidadPasada = puntajes["easy"]["velocidad"]
+		var precisionPasada = puntajes["easy"]["precision"]
+		var nivelesPasado = puntajes["easy"]["niveles"]
+		content = {
+			"easy": {
+				"velocidad":velocidadPasada,
+				"precision":precisionPasada,
+				"niveles":nivelesPasado	
+			},"medium": {
+				"velocidad":0,
+				"precision":0,
+				"niveles":0
+			},"hard": {
+				"velocidad":0,
+				"precision":0,
+				"niveles":0	
+			}
+		}
+		if int(velocidadPasada) < velocidad:
+			content["easy"]["velocidad"] = velocidad
+		if int(precisionPasada) < precisionActual:
+			content["easy"]["precision"] = precisionActual
+		if int(nivelesPasado) < valorNivel:
+			content["easy"]["niveles"] = valorNivel
+		if int(velocidadPasada) < velocidad || int(precisionPasada) < precisionActual || int(nivelesPasado) < valorNivel:
+			if DirAccess.remove_absolute(path) == OK:
+	 
+				print("Archivo existente borrado.")
+				_guardar_puntajes(content, path)
+			else:
+				print("Error al intentar borrar el archivo.")
+	else:
+		content = {
+			"easy": {
+				"velocidad":velocidad,
+				"precision":precisionActual,
+				"niveles":valorNivel	
+			},"medium": {
+				"velocidad":0,
+				"precision":0,
+				"niveles":0
+			},"hard": {
+				"velocidad":0,
+				"precision":0,
+				"niveles":0	
+			}
+		}
+		_guardar_puntajes(content, path)		
+		
+			 
+	
+
+func _guardar_puntajes(content, path):
+	var file = FileAccess.open(path ,FileAccess.WRITE)
+	file.store_var(content)
+	file = null
 
 func lose():
 	$Box_inside_game.timer.stop()
@@ -132,8 +199,7 @@ func _dar_pista():
 					
 func nuevaRonda():
 	palabraAnterior=palabraES
-	rondaActual+=1
-	emit_signal("update_level", str(rondaActual)+"/4")
+
 	palabras.erase(palabraES)
 	$Letras/Letter.resetVars()
 	$Letras/Letter2.resetVars()
@@ -147,7 +213,10 @@ func nuevaRonda():
 	$Letras/Letter2.resetPos()
 	$Letras/Letter3.resetPos()
 	$Letras/Letter4.resetPos()
+	rondaActual+=1
+	emit_signal("update_level", str(rondaActual)+"/4")
 	setLetters()
+	
 
 func actualizar_velocidad():
 	var tiempoFinal = $Box_inside_game.time_seconds

@@ -274,3 +274,4 @@ texture = ExtResource("7_ykav8")
 position = Vector2(687, 505)
 scale = Vector2(0.239417, 0.239417)
 stream = ExtResource("9_qahem")
+volume_db = -1.0

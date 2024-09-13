@@ -76,11 +76,11 @@ func _process(_delta):
 	if(instantiated):
 		
 		if(box_texto_match.is_matched() and box_texto_match_2.is_matched() and
-		box_texto_match_3.is_matched() and numeroRondas == rondas and !gano):
+		box_texto_match_3.is_matched() and numeroRondas == rondas+1 and !gano):
 			gano = true
 			victory()
 		elif (box_texto_match.is_matched() and box_texto_match_2.is_matched() and
-		 box_texto_match_3.is_matched() and numeroRondas < rondas and !ganoRonda and !gano):
+		 box_texto_match_3.is_matched() and numeroRondas < rondas+1 and !ganoRonda and !gano):
 			ganoRonda = true
 			numeroRondas+=1
 			if(numeroRondas <= rondas):
@@ -159,7 +159,7 @@ func reset_compoments():
 	box_texto_match_3.animation_reset()
 
 func ronda_win():
-	animation_win()
+	await animation_win()
 	cargar_ronda()
 	
 func _dar_pista():
@@ -189,9 +189,10 @@ func victory():
 	_actualizar_puntajes("user://puntajesMatch.dat")
 	var totalActual = velocidad+precisionActual+valorNivel
 	print("Velocidad: "+str(velocidad)+", "+"Precision: "+str(precisionActual)+", "+"Niveles: "+str(valorNivel)+", Total: "+str(totalActual))
-	Score.newScore = totalActual
+	Score.newScore = valorNivel
 	Score.LatestGame = Score.Games.Puzzle
-	Score.perfectBonus = false
+	Score.perfectBonus = precisionActual
+	Score.fastBonus = velocidad
 	animation_win()
 	await $AnimationPlayer.animation_finished
 	var canvas_layer = CanvasLayer.new()

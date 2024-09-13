@@ -32,10 +32,11 @@ func _leer_archivo():
 			_cargar_puntajes("user://puntajesPuzzle.dat")
 		1:
 			$Label4.text= "Match It's Total"
-			_cargar_puntajes("user://puntajesOrder.dat")
+			_cargar_puntajes("user://puntajesMatch.dat")
 		2:
 			$Label4.text= "Order It's Total"
-			_cargar_puntajes("user://puntajesMatch.dat")	
+			_cargar_puntajes("user://puntajesOrder.dat")
+			
 	#velocidad = randi() % 1001
 	#precision = randi() % 1001
 	#niveles = randi() % 1001

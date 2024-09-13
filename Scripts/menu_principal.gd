@@ -2,12 +2,26 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	'''
 	var path = "user://puntajesPuzzle.dat"
-	#if FileAccess.file_exists(path):
-		#if DirAccess.remove_absolute(path) == OK:
-			#print("Archivo existente borrado.")
-		#else:
-			#print("Error al intentar borrar el archivo.")
+	var path1 = "user://puntajesMatch.dat"
+	var path2 = "user://puntajesOrder.dat"
+	if FileAccess.file_exists(path):
+		if DirAccess.remove_absolute(path) == OK:
+			print("Archivo existente borrado.")
+		else:
+			print("Error al intentar borrar el archivo.")
+	if FileAccess.file_exists(path1):
+		if DirAccess.remove_absolute(path1) == OK:
+			print("Archivo existente borrado.")
+		else:
+			print("Error al intentar borrar el archivo.")
+	if FileAccess.file_exists(path2):
+		if DirAccess.remove_absolute(path2) == OK:
+			print("Archivo existente borrado.")
+		else:
+			print("Error al intentar borrar el archivo.")				
+	'''
 	pass
 
 

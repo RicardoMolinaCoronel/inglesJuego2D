@@ -82,9 +82,9 @@ texture = ExtResource("10_yd6ht")
 [node name="btn_sound" parent="." instance=ExtResource("11_13b7x")]
 layout_mode = 1
 offset_left = 1191.0
-offset_top = 34.0
+offset_top = 42.0
 offset_right = 1191.64
-offset_bottom = 34.32
+offset_bottom = 42.32
 
 [node name="btn_go_back" parent="." instance=ExtResource("11_qllet")]
 
