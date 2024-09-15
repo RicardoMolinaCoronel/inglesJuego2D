@@ -12,7 +12,7 @@ var maximoScaleX = 0.256
 enum ventana {PUZZLE = 0, MATCH = 1, ORDER = 2}
 var ventanaActual = ventana.PUZZLE
 var posActual = 0
-var ejecutablePath = OS.get_executable_path().get_base_dir()
+var ejecutablePath = Global.rutaArchivos
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$RetrocederButton.visible = false
