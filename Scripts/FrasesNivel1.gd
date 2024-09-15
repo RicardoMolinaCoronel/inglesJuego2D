@@ -18,7 +18,7 @@ var difuminado = preload("res://Piezas/ColorRectDifuminado.tscn")
 var instance
 
 #Ruta donde se encuentra el ejecutable
-var ejecutablePath = OS.get_executable_path().get_base_dir()
+var ejecutablePath = Global.rutaArchivos
 #var palabra ="bird"
 
 #Variables para manejar las instancias de los modales
@@ -295,12 +295,43 @@ func _guardar_puntajes(content, path):
 	file.store_var(content)
 	file = null
 
+func actualizar_progreso(path):
+	if FileAccess.file_exists(path):  # Verifica si el archivo existe  
+		var file = FileAccess.open(path, FileAccess.READ)# Abre el archivo en modo lectura
+		var progreso = file.get_var()
+		file = null
+		var esPrimeraVez = false
+		match Score.actualDifficult:
+			Score.difficult["easy"]:
+				if (progreso["puzzle"]["medium"] && progreso["puzzle"]["firstMedium"] == false):
+					esPrimeraVez = false
+				else:
+					esPrimeraVez = true		
+					progreso["puzzle"]["medium"] = true
+					progreso["puzzle"]["firstMedium"] = true				
+			Score.difficult["medium"]:
+				if (progreso["puzzle"]["hard"] && progreso["puzzle"]["firstHard"] == false):
+					esPrimeraVez = false
+				else:
+					esPrimeraVez = true		
+					progreso["puzzle"]["hard"] = true
+					progreso["puzzle"]["firstHard"] = true
+		if(esPrimeraVez):	
+			if DirAccess.remove_absolute(path) == OK:	 
+				print("Archivo PROGRESO existente borrado.")
+				var new_file = FileAccess.open(path ,FileAccess.WRITE)
+				new_file.store_var(progreso)
+				new_file = null
+			else:
+				print("Error al intentar borrar el archivo PROGRESO.")
+		
 #Se invoca cuando el jugador gana
 func victory():
 	instance.position = Vector2(1000,0)
 	$Box_inside_game.timer.stop()
 	_actualizar_velocidad()
 	_actualizar_puntajes(ejecutablePath+"/Scores/puntajesPuzzle.dat")
+	actualizar_progreso(ejecutablePath+"/Progress/progressMinigames.dat")
 	var totalActual = velocidad+precisionActual+valorNivel
 	print("Velocidad: "+str(velocidad)+", "+"Precision: "+str(precisionActual)+", "+"Niveles: "+str(valorNivel)+", Total: "+str(totalActual))
 	Score.newScore = valorNivel

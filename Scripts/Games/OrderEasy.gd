@@ -7,7 +7,7 @@ signal update_difficulty(new_difficulty)
 signal update_level(new_level)
 signal uptate_imagen_game(new_image)
 signal set_visible_word(new_word)
-var ejecutablePath = OS.get_executable_path().get_base_dir()
+var ejecutablePath = Global.rutaArchivos
 var pantallaVictoria = preload("res://Escenas/PantallaVictoria.tscn")
 var pantallaAcaboTiempo = preload("res://Escenas/NivelFinalizado.tscn")
 var difuminado = preload("res://Piezas/ColorRectDifuminado.tscn")

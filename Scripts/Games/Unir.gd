@@ -7,7 +7,7 @@ signal set_timer()
 signal update_difficulty(new_difficulty)
 signal update_level(new_level)
 signal set_not_visible_image()
-var ejecutablePath = OS.get_executable_path().get_base_dir()
+var ejecutablePath = Global.rutaArchivos
 
 # Variables para el control del nivel, dificultad, título, rondas, y otras propiedades del juego.
 var level = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://0svvh0kcy8vw"]
+[gd_scene load_steps=17 format=3 uid="uid://0svvh0kcy8vw"]
 
 [ext_resource type="Script" path="res://Scripts/DificultadOracion.gd" id="1_aqfyo"]
 [ext_resource type="PackedScene" uid="uid://xwnqhcqrd6mc" path="res://Escenas/Global/btn_sounds.tscn" id="2_7jbap"]
@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://dhbqbvmigr6tw" path="res://Sprites/buttons/boton_easy_hover.png" id="5_xa846"]
 [ext_resource type="Texture2D" uid="uid://dq3iw1vm4v47v" path="res://Sprites/buttons/Boton_medium.png" id="6_vm467"]
 [ext_resource type="Texture2D" uid="uid://c3ulja3u3g3nj" path="res://Sprites/buttons/Boton_difficult.png" id="7_nsijd"]
+[ext_resource type="Texture2D" uid="uid://cducf1nb8ngtb" path="res://Sprites/buttons/boton_medium_hover.png" id="7_y8dnh"]
 [ext_resource type="Texture2D" uid="uid://cpgtso7quhpj8" path="res://Sprites/pngtree-padlocks-or-lock-open-and-closed-icons-isolated-transparant-png-image_5213443.png" id="8_be7nf"]
+[ext_resource type="Texture2D" uid="uid://bmskod04qg6fv" path="res://Sprites/buttons/Boton_difficult_hover.png" id="9_m672e"]
 [ext_resource type="Script" path="res://Scripts/AnimationPlayer1.gd" id="9_mok4k"]
 [ext_resource type="Script" path="res://Scripts/AnimationPlayer.gd" id="10_emjnk"]
 [ext_resource type="PackedScene" uid="uid://wid5vqcftmu4" path="res://Escenas/Global/parallax_background_difficult_puzzle.tscn" id="11_nw8vl"]
@@ -45,18 +47,6 @@ tracks/2/path = NodePath(".:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../../Button4/Sprite2D:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -141,6 +131,8 @@ offset_right = 800.0
 offset_bottom = 602.0
 scale = Vector2(0.85, 0.85)
 texture_normal = ExtResource("6_vm467")
+texture_hover = ExtResource("7_y8dnh")
+texture_disabled = ExtResource("6_vm467")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -151,6 +143,8 @@ offset_right = 800.0
 offset_bottom = 672.0
 scale = Vector2(0.85, 0.85)
 texture_normal = ExtResource("7_nsijd")
+texture_hover = ExtResource("9_m672e")
+texture_disabled = ExtResource("7_nsijd")
 ignore_texture_size = true
 stretch_mode = 0
 
