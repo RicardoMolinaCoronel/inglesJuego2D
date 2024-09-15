@@ -11,6 +11,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+	
 func actualizar_candados(progreso, minigame):
 	if(progreso[minigame]["medium"] && progreso[minigame]["firstMedium"] == false):
 		$Sprite2D.visible = false

@@ -218,6 +218,7 @@ func victory():
 	$Box_inside_game.timer.stop()
 	_actualizar_velocidad()
 	_actualizar_puntajes(ejecutablePath+"/Scores/puntajesMatch.dat")
+	actualizar_progreso(ejecutablePath+"/Progress/progressMinigames.dat")
 	var totalActual = velocidad+precisionActual+valorNivel
 	print("Velocidad: "+str(velocidad)+", "+"Precision: "+str(precisionActual)+", "+"Niveles: "+str(valorNivel)+", Total: "+str(totalActual))
 	Score.newScore = valorNivel
@@ -241,6 +242,36 @@ func victory():
 func animation_win():
 	$AnimationPlayer.play("Win")
 	await $AnimationPlayer.animation_finished
+
+func actualizar_progreso(path):
+	if FileAccess.file_exists(path):  # Verifica si el archivo existe  
+		var file = FileAccess.open(path, FileAccess.READ)# Abre el archivo en modo lectura
+		var progreso = file.get_var()
+		file = null
+		var esPrimeraVez = false
+		match Score.actualDifficult:
+			Score.difficult["easy"]:
+				if (progreso["match"]["medium"] && progreso["match"]["firstMedium"] == false):
+					esPrimeraVez = false
+				else:
+					esPrimeraVez = true		
+					progreso["match"]["medium"] = true
+					progreso["match"]["firstMedium"] = true				
+			Score.difficult["medium"]:
+				if (progreso["match"]["hard"] && progreso["match"]["firstHard"] == false):
+					esPrimeraVez = false
+				else:
+					esPrimeraVez = true		
+					progreso["match"]["hard"] = true
+					progreso["match"]["firstHard"] = true
+		if(esPrimeraVez):	
+			if DirAccess.remove_absolute(path) == OK:	 
+				print("Archivo PROGRESO existente borrado.")
+				var new_file = FileAccess.open(path ,FileAccess.WRITE)
+				new_file.store_var(progreso)
+				new_file = null
+			else:
+				print("Error al intentar borrar el archivo PROGRESO.")
 	
 # Método que se ejecuta cuando el jugador pierde o se detiene el cronometro.
 func lose():

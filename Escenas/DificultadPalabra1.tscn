@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b7b6lpl8pnuro"]
+[gd_scene load_steps=17 format=3 uid="uid://b7b6lpl8pnuro"]
 
 [ext_resource type="Script" path="res://Scripts/DificultadPalabra.gd" id="1_4w5kx"]
 [ext_resource type="PackedScene" uid="uid://xwnqhcqrd6mc" path="res://Escenas/Global/btn_sounds.tscn" id="1_simt8"]
@@ -9,8 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://dq3iw1vm4v47v" path="res://Sprites/buttons/Boton_medium.png" id="5_1tntp"]
 [ext_resource type="Texture2D" uid="uid://c3ulja3u3g3nj" path="res://Sprites/buttons/Boton_difficult.png" id="6_y16qi"]
 [ext_resource type="Texture2D" uid="uid://cpgtso7quhpj8" path="res://Sprites/pngtree-padlocks-or-lock-open-and-closed-icons-isolated-transparant-png-image_5213443.png" id="7_8uica"]
+[ext_resource type="Texture2D" uid="uid://cducf1nb8ngtb" path="res://Sprites/buttons/boton_medium_hover.png" id="8_3nkfr"]
 [ext_resource type="Script" path="res://Scripts/AnimationPlayer1.gd" id="8_jehwx"]
 [ext_resource type="Script" path="res://Scripts/AnimationPlayer.gd" id="9_w6nfa"]
+[ext_resource type="Texture2D" uid="uid://bmskod04qg6fv" path="res://Sprites/buttons/Boton_difficult_hover.png" id="10_uit7o"]
 
 [sub_resource type="Animation" id="Animation_aggsv"]
 length = 0.001
@@ -45,18 +47,6 @@ tracks/2/path = NodePath(".:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../../Button4/Sprite2D:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -149,6 +139,8 @@ offset_right = 800.0
 offset_bottom = 602.0
 scale = Vector2(0.85, 0.85)
 texture_normal = ExtResource("5_1tntp")
+texture_hover = ExtResource("8_3nkfr")
+texture_disabled = ExtResource("5_1tntp")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -159,12 +151,14 @@ offset_right = 798.0
 offset_bottom = 672.0
 scale = Vector2(0.85, 0.85)
 texture_normal = ExtResource("6_y16qi")
+texture_hover = ExtResource("10_uit7o")
+texture_disabled = ExtResource("6_y16qi")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(633, 552)
-scale = Vector2(0.305555, 0.305555)
+position = Vector2(638.25, 554.5)
+scale = Vector2(0.274999, 0.274999)
 texture = ExtResource("7_8uica")
 hframes = 2
 
@@ -175,8 +169,8 @@ libraries = {
 script = ExtResource("8_jehwx")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(633, 626)
-scale = Vector2(0.322222, 0.322222)
+position = Vector2(637, 626)
+scale = Vector2(0.277778, 0.277778)
 texture = ExtResource("7_8uica")
 hframes = 2
 

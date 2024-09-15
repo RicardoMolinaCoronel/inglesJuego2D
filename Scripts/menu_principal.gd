@@ -3,9 +3,8 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
-	'''
 	#Ruta donde se encuentra el ejecutable
+	'''
 	var ejecutablePath = Global.rutaArchivos
 	var path = ejecutablePath+"/Scores/puntajesPuzzle.dat"
 	var path1 = ejecutablePath+"/Scores/puntajesMatch.dat"
@@ -25,7 +24,7 @@ func _ready():
 			print("Archivo existente borrado.")
 		else:
 			print("Error al intentar borrar el archivo.")				
-	'''
+
 	var pathPr = Global.rutaArchivos+"/Progress/progressMinigames.dat"
 	if FileAccess.file_exists(pathPr):
 		if DirAccess.remove_absolute(pathPr) == OK:
@@ -33,6 +32,7 @@ func _ready():
 		else:
 			print("Error al intentar borrar el archivo.")				
 	pass
+	'''
 	initialize_directories()
 
 

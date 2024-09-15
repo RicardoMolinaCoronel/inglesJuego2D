@@ -103,6 +103,7 @@ func victory():
 	Score.fastBonus = velocidad
 	Score.LatestGame = Score.Games.OrderIt
 	_actualizar_puntajes(ejecutablePath+"/Scores/puntajesOrder.dat")
+	actualizar_progreso(ejecutablePath+"/Progress/progressMinigames.dat")
 	instance.position = Vector2(1000,0)
 	$AnimationPlayer.play("Gana")
 	await $AnimationPlayer.animation_finished
@@ -217,6 +218,36 @@ func _guardar_puntajes(content, path):
 	var file = FileAccess.open(path ,FileAccess.WRITE)
 	file.store_var(content)
 	file = null
+
+func actualizar_progreso(path):
+	if FileAccess.file_exists(path):  # Verifica si el archivo existe  
+		var file = FileAccess.open(path, FileAccess.READ)# Abre el archivo en modo lectura
+		var progreso = file.get_var()
+		file = null
+		var esPrimeraVez = false
+		match Score.actualDifficult:
+			Score.difficult["easy"]:
+				if (progreso["order"]["medium"] && progreso["order"]["firstMedium"] == false):
+					esPrimeraVez = false
+				else:
+					esPrimeraVez = true		
+					progreso["order"]["medium"] = true
+					progreso["order"]["firstMedium"] = true				
+			Score.difficult["medium"]:
+				if (progreso["order"]["hard"] && progreso["order"]["firstHard"] == false):
+					esPrimeraVez = false
+				else:
+					esPrimeraVez = true		
+					progreso["order"]["hard"] = true
+					progreso["order"]["firstHard"] = true
+		if(esPrimeraVez):	
+			if DirAccess.remove_absolute(path) == OK:	 
+				print("Archivo PROGRESO existente borrado.")
+				var new_file = FileAccess.open(path ,FileAccess.WRITE)
+				new_file.store_var(progreso)
+				new_file = null
+			else:
+				print("Error al intentar borrar el archivo PROGRESO.")
 
 func lose():
 	$Box_inside_game.timer.stop()

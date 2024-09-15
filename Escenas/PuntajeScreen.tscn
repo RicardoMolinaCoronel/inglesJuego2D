@@ -76,17 +76,17 @@ text = "00"
 label_settings = SubResource("LabelSettings_htnof")
 
 [node name="Puntaje2" type="Label" parent="."]
-offset_left = 856.0
+offset_left = 830.0
 offset_top = 454.0
-offset_right = 911.0
+offset_right = 885.0
 offset_bottom = 501.0
 text = "+0"
 label_settings = SubResource("LabelSettings_ljllh")
 
 [node name="Puntaje3" type="Label" parent="."]
-offset_left = 856.0
+offset_left = 830.0
 offset_top = 533.0
-offset_right = 911.0
+offset_right = 885.0
 offset_bottom = 580.0
 text = "+0"
 label_settings = SubResource("LabelSettings_dxgvb")
