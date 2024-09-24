@@ -54,7 +54,7 @@ func _ready():
 	emit_signal("update_difficulty", "Easy")
 	emit_signal("update_level", "1")
 	emit_signal("set_visible_sentence", palabraEsp[random_index])
-	emit_signal("uptate_imagen_game", "puzzle/futbol")
+	emit_signal("uptate_imagen_game", "puzzle/futbol1")
 	emit_signal("set_timer")
 	# Seleccionar un índice aleatorio
 
